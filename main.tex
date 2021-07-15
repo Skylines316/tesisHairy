@@ -175,7 +175,7 @@
 
 \begin{document}
 \def\biblio{}   % Resetea el comando biblio, de lo contrario una lista de referencias será producida después de cada capítulo
-                % resets the biblio command, if not here a new reference list will be produced after every chapter
+% resets the biblio command, if not here a new reference list will be produced after every chapter
 
 \include{Otros/Portada}   % Genera la portada desde el archivo Portada.tex . Para editar este archivo ir a Otros -> Portada.tex
 \vfill
@@ -220,7 +220,7 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 \newpage
 \addcontentsline{toc}{chapter}{AGRADECIMIENTOS}  % Agrega esta sección al índice
 \section*{AGRADECIMIENTOS}                       % Debe ir en mayúsculas por reglamento de la UdeC, tiene asterisco para no ser numerada.
-    \subfile{Otros/Agradecimientos}              % Llama al archivo Agradecimientos en la carpeta Otros.
+\subfile{Otros/Agradecimientos}              % Llama al archivo Agradecimientos en la carpeta Otros.
 
 
 %-----------------Página de resumen (abstract)-------------
@@ -230,7 +230,7 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 \newpage
 \addcontentsline{toc}{chapter}{Resumen} % Agrega esta sección al índice
 \section*{Resumen (Aún falta agregar)}                      % Con asterisco para que no sea numerada.
-    \subfile{Otros/Resumen}             % Llama al archivo Resumen en la carpeta Otros.
+\subfile{Otros/Resumen}             % Llama al archivo Resumen en la carpeta Otros.
 
 %--------------Página de índice.  
 
@@ -238,16 +238,16 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 
 \newpage
 {\setstretch{1.0}   % Interlineado de la lista.
-\tableofcontents
+    \tableofcontents
 }
 
 \newpage
-{\setstretch{1.0} 
-\listoftables}
+{\setstretch{1.0}
+    \listoftables}
 
 \newpage
-{\setstretch{1.0} 
-\listoffigures}
+{\setstretch{1.0}
+    \listoffigures}
 
 
 \newpage
@@ -259,35 +259,35 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 % Los nombres de los archivos no pueden llevar tíldes ni espacios para el correcto funcionamiento del compilador, esto no tiene nada que ver con que tengan o no tilde en el documento final.
 
 \chapter{Introducción}                      % Nombre de section/chapter, este si usa tilde y es lo que se verá impreso
-    \subfile{Capitulos/01Introduccion}      % Incluye el subarchivo del section/chapter 
+\subfile{Capitulos/01Introduccion}      % Incluye el subarchivo del section/chapter 
 \clearpage                                  % limpia la página luego de que el capítulo concluya.
 
 \chapter{Marco Teórico}
-    \subfile{Capitulos/02MarcoTeorico}
+\subfile{Capitulos/02MarcoTeorico}
 \clearpage
 
 \chapter{Metodología}
-    \subfile{Capitulos/03Metodologia}
+\subfile{Capitulos/03Metodologia}
 \clearpage
-  
+
 \chapter{Análisis}
-    \subfile{Capitulos/04Analisis}
+\subfile{Capitulos/04Analisis}
 \clearpage
 
 \chapter{Discusión}
-    \subfile{Capitulos/05Discusion}
+\subfile{Capitulos/05Discusion}
 \clearpage
 
 \chapter{Conclusión}
-    \subfile{Capitulos/06Conclusion}
+\subfile{Capitulos/06Conclusion}
 \clearpage
 
 \newpage
 
 \renewcommand\refname{Referencias}          % Nombre para la lista de referencias, también se utiliza "Bibliografía"
 {\setstretch{1.0}                           % Interlineado de las referencias 
-\addcontentsline{toc}{chapter}{Referencias} % Cambia el nombre de la lista de referencias en el índice 
-\bibliography{Referencias}              % Agrega las referencias al documento, estas se ubican en el archivo Referencias.bib
+    \addcontentsline{toc}{chapter}{Referencias} % Cambia el nombre de la lista de referencias en el índice 
+    \bibliography{Referencias}              % Agrega las referencias al documento, estas se ubican en el archivo Referencias.bib
 }
 
 \newpage
@@ -297,7 +297,7 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 \appendix   % Empieza el ambiente de apéndices, desde ahora en adelante los capítulos, secciones, tablas, figuras, etc. vuelven a empezar su numeración
 
 \chapter{Test}                      % Nombre del apéndice, el capítulo será "Apéndice A" en vez de "Capítulo 1"
-    \subfile{Capitulos/Apendice}    % Llama al archivo apéndice
+\subfile{Capitulos/Apendice}    % Llama al archivo apéndice
 \clearpage
 
 % Este segundo apéndice tiene información general sobre LaTeX. Está comentado para que no aparezca en tu documento, pero si lo deseas puedes descomentarlo para ver su contenido.
@@ -308,4 +308,4 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 
 % ÉXITO EN TU TESIS
 
-\end{document} 
+\end{document}
