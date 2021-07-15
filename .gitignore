@@ -296,3 +296,5 @@ TSWLatexianTemp*
 
 # glossaries
 *.glstex
+
+/Images

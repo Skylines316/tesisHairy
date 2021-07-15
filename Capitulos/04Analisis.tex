@@ -1,0 +1,688 @@
+\documentclass[../Main.tex]{subfiles}
+\begin{document}
+\section{El modelo}
+Queremos comparar complexity entre un sistema regular y uno inestable/caótico. Cn ese fin veamos el hamiltoniano.
+
+\begin{equation}
+H = \frac{1}{2} p^2 + \frac{\Omega^2}{2} x^2
+\ \ {\rm donde} \ \  \Omega^2 = m^2 - \lambda \ .
+\end{equation}
+
+analicemos el hamiltoniano, con las ecuaciones canónicas
+
+\begin{equation}
+\begin{split}
+\pdv{H}{p_x} &= \dot{x} \\
+p_x &= \dot{x} 
+\end{split}
+\end{equation}  
+
+\begin{equation}
+\begin{split}
+\pdv{H}{x} &= -\dot{p}_x \\
+\Omega^2 x &= -\dot{p}_x 
+\end{split}
+\end{equation} 
+
+uniendo ambas ecuaciones tenemos
+
+\begin{equation}
+\begin{split}
+\Omega^2 x &= -\ddot{x} \\
+\ddot{x}+\Omega^2 x & =0 
+\end{split}
+\label{ecudifclas}
+\end{equation} 
+ 
+resolviendo esta ecuación tenemos (considerando $\Omega$ es una constante real)
+
+\begin{equation}
+x(t)=C_1 cos(\Omega t)+C_2 sen(\Omega t)
+\end{equation}
+
+si consideramos que $m^2>\lambda$
+
+\begin{equation}
+x(t)=C_1 cos(m t)+C_2 sen(m t)
+\label{solclas1}
+\end{equation}
+
+y si consideramos que $m^2<\lambda$, $\Omega$ ya no es una constante real por lo que resolvemos de nuevo la ecuación \eqref{ecudifclas} 
+
+\begin{equation}
+x(t)=C_1 e^{t\sqrt{\lambda}}+C_2 e^{-t\sqrt{\lambda}}
+\label{solclas2}
+\end{equation}
+
+Analizando ambas ecuaciones podemos deducir que: para \eqref{solclas1} esta delimitada, en cambio para \eqref{solclas2} no tiene limites.
+
+Por otro lado analicemos el potencial
+
+\begin{equation}
+V=\dfrac{\Omega^2}{2} x^2
+\end{equation} 
+
+analicemos este potencial
+
+\begin{equation}
+\begin{split}
+\dv{V}{x}&=\Omega^2 x \qq{igualando a cero para hallar puntos críticos}\\
+\Omega^2 x&=0 \\
+x&=0
+\end{split}
+\end{equation}
+
+usando el criterio de la segunda derivada para caracterizar ese punto crítico
+
+\begin{equation}
+\dv[2]{V}{x}=\Omega^2
+\end{equation}
+
+como podemos observar el tipo de punto crítico solo depende de $\Omega^2$, por lo que si esta variable es negativa entonces este punto es un máximo absoluto (punto de equilibrio inestable), en cambio si $\Omega^2$ es positiva este punto crítico es un mínimo absoluto (punto de equilibrio estable).
+
+Y un caso trivial que no analizamos es cuando $\lambda=m^2$, ya que en este caso el potencial es 0 y el Hamiltoniano corresponde a una partícula libre.
+
+Nuestro estado de referencia es (para $ t=0 $)
+
+\begin{equation}
+\psi(x,t=0)=\mathcal{N}(t=0)\exp \pqty{- \frac{\omega_{r} \, x^2}{2}}
+\label{reference}
+\end{equation}
+
+donde
+
+\begin{equation}
+\omega_r=m
+\end{equation}
+
+por lo tanto
+
+\begin{equation}
+\psi (x,t)=e^{-iHt}\psi (x,t=0)=\int_{-\infty}^{+\infty}\dd{x}K(x,t|x',t=0)\psi (x,t=0)
+\end{equation}
+
+para lo cual necesitamos saber $K(x,t|x',t=0)$ %y $ \varphi_n(x) $. $ \varphi_n(x) $ son las autofunciones, y para conocer $\alpha_n$ usaremos la ecuación \eqref{basedescom}. Además para hallar $\varphi_n(x)$ usaremos
+
+El propagador en este caso es
+
+\begin{equation}
+K(x',t|x,t=0)=\pqty{\dfrac{\omega_r}{2\pi i \sin\pqty{\omega_r t}} }^{1/2}\exp(\Bqty{\dfrac{i\omega_r}{2\sin\pqty{\omega_r t}}}\Bqty{\pqty{x'^2+x^2}\cos\pqty{\omega_r t}-2x'x})
+\end{equation}
+
+\begin{equation}
+\pqty{-\frac{\hbar^2}{2}\dv[2]{x} + \frac{\Omega^2}{2} x^2}\varphi(x)=E\varphi(x)
+\end{equation}
+
+entonces
+
+\begin{equation}
+\begin{split}
+\pqty{-\frac{1}{2}\dv[2]{x} + \frac{\Omega^2}{2} x^2-E}\varphi(x) & = 0\\
+-\frac{1}{2}\dv[2]{\varphi(x)}{x} + \frac{\Omega^2}{2} x^2\varphi(x) -E\varphi(x) & = 0 \\
+\dv[2]{\varphi}{x} - \pqty{\Omega^2 x^2-2E}\varphi & = 0 \qc y=\sqrt{\Omega}x\qc \eta=\dfrac{2E}{\Omega}\\
+\dv[2]{\varphi}{y} + \pqty{\eta-y^2}\varphi & = 0
+\end{split}
+\label{edoprin}
+\end{equation}
+
+analizando asintóticamente la ecuación para el caso $y\rightarrow+\infty$
+
+\begin{equation}
+\dv[2]{\varphi}{y} - y^2\varphi = 0
+\end{equation}
+
+cuya solución aproximada es
+
+\begin{equation}
+\varphi(x)\sim\exp(-\dfrac{1}{2}y^2)
+\end{equation}
+
+ya descartamos el caso donde el exponente es positivo debido a que la función de onda debe anularse para $y\rightarrow+\infty$. Entonces la función de onda debe tener la forma
+
+\begin{equation}
+\varphi(y)=\exp(-\dfrac{1}{2}y^2)\phi(y)
+\end{equation}
+
+reemplazando este ansatz en la ecuación \eqref{edoprin}
+
+\begin{equation}
+\begin{split}
+\dv[2]{y}(\exp(-\dfrac{1}{2}y^2)\phi(y)) + \pqty{\eta-y^2}\exp(-\dfrac{1}{2}y^2)\phi(y) & = 0 \\
+e^{-\frac{1}{2}y^2}\qty(- 1+ y^2)\phi(y)-2e^{-\frac{1}{2}y^2}y\dv{\phi(y)}{y}+\exp(-\dfrac{1}{2}y^2)\dv[2]{\phi(y)}{y} + \pqty{\eta-y^2}\exp(-\dfrac{1}{2}y^2)\phi(y) & = 0\\
+\qty(- 1+ y^2)\phi(y)-2y\dv{\phi(y)}{y}+\dv[2]{\phi(y)}{y}+\pqty{\eta-y^2}\phi(y) & = 0 \\
+\dv[2]{\phi(y)}{y}-2y\dv{\phi(y)}{y}+\pqty{\eta-1}\phi(y) & = 0
+\end{split}
+\end{equation}
+
+cuya solución es 
+
+\begin{equation}
+\phi(y)=C_1H_n(y)
+\end{equation}
+
+de donde podemos sacar el espectro de energía
+
+\begin{equation}
+E_n=\Omega\pqty{n+\dfrac{1}{2}}
+\end{equation}
+
+Por lo tanto la solución a \eqref{edoprin} es 
+
+\begin{equation}
+\varphi(y)=C\exp(-\dfrac{1}{2}y^2)H_n(y)
+\end{equation}
+
+regresando a la variable original
+
+\begin{equation}
+\varphi(x)=C\exp(-\dfrac{\Omega}{2}x^2)H_n\qty(\sqrt{\Omega}x)
+\end{equation}
+
+y hallando la constante de normalización
+
+\begin{equation}
+1=\int_{-\infty}^{+\infty}\dd{x}\abs{C}^2\exp(-\Omega x^2)H^2_n\qty(\sqrt{\Omega}x)
+\end{equation}
+
+de donde resulta que
+
+\begin{equation}
+\begin{split}
+1 & = \abs{C}^2 2^n\pi^{1/2}n!\sqrt{\Omega^{-1}} \\
+1 & = C \, 2^{n/2}\pi^{1/4}n!^{1/2}\sqrt[4]{\Omega^{-1}} \\
+\therefore C & = \sqrt[4]{\dfrac{\Omega}{\pi}}\sqrt{\dfrac{1}{2^nn!}}
+\end{split}
+\end{equation}
+
+de esta manera obtenemos $ \varphi_n(x) $
+
+\begin{equation}
+\varphi_n(x)=\pqty{\frac{\Omega}{\pi}}^{1/4}(n!2^n)^{-1/2} \exp \pqty{- \frac{\Omega}{2}x^2} H_n(\sqrt{\Omega} x)
+\end{equation}
+
+Luego para hallar $ \alpha_n $
+
+ 
+
+\begin{equation}
+	\psi (x,t=0)=\sum_n\alpha_n\varphi_n(x)=\pqty{\frac{w_r}{\pi}}^{1/4}\exp \pqty{- \frac{\omega_{r} \, x^2}{2}}
+\end{equation}
+
+si multiplico a ambos lados de esta ecuación por un $ \varphi^{\star}_n(x) $ obtenemos
+
+\begin{equation}
+\begin{split}
+\psi (x,t=0) & =\alpha_1\varphi_1(x)+\alpha_2\varphi_2(x)+\alpha_3\varphi_3(x)+...+\alpha_n\varphi_n(x)+...\\
+\varphi^{\star}_n(x)\psi (x,t=0)&=\varphi^{\star}_n(x)\alpha_n\varphi_n(x) \\
+\int_{-\infty}^{+\infty}\dd{x}\varphi^{\star}_n(x)\psi (x,t=0)&=\alpha_n
+\end{split}
+\end{equation}
+
+de esta manera usando la ortogonalidad  de los estados y su normalización podemos obtener las constantes $ \alpha_n $, asi
+
+\begin{equation}
+\begin{split}
+\alpha_n & =\int_{-\infty}^{+\infty}\dd{x}\varphi^{\star}_n(x)\psi (x,t=0)\\
+\alpha_n & =\int_{-\infty}^{+\infty}\dd{x}\pqty{\frac{\Omega}{\pi}}^{1/4}(n!2^n)^{-1/2} \exp \pqty{- \frac{\Omega \, x^2}{2}} H_n(\sqrt{\Omega} x) \pqty{\frac{w_r}{\pi}}^{1/4}\exp \pqty{- \frac{\omega_{r} \, x^2}{2}}\\
+\alpha_n & = \pqty{\frac{\Omega}{\pi}}^{1/4}(n!2^n)^{-1/2}\pqty{\frac{w_r}{\pi}}^{1/4}\int_{-\infty}^{+\infty}\dd{x} H_n(\sqrt{\Omega} x)\exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} x^2}{2}}
+\end{split}
+\end{equation}
+
+para resolver la integral ahi planteada nos plantearemos otra integral
+
+\begin{equation}
+\begin{split}
+I & = \sum_{n=0}^{\infty}\dfrac{s^n}{n!}\int_{-\infty}^{+\infty}\dd{x}H_n(\sqrt{\Omega} x)\exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} x^2}{2}} \\ 
+& \qq{usando la siguiente transformación} y=\sqrt{\Omega}x \qc\dd{y}=\sqrt{\Omega}\dd{x} \\
+I & = \sum_{n=0}^{\infty}\dfrac{s^n}{n!\sqrt{\Omega}}\int_{-\infty}^{+\infty}\dd{y}H_n(y)\exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} y^2}{2\Omega}} \\
+I & =\int_{-\infty}^{+\infty}\dd{y}\Omega^{-1/2}\exp \pqty{-s^2+2sy} \exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} y^2}{2\Omega}}\\ %aqui lo deje 
+I & =\int_{-\infty}^{+\infty}\dd{x}\exp \pqty{-s^2+2s\sqrt{\Omega} x} \exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} x^2}{2}}\\
+I & =\int_{-\infty}^{+\infty}\dd{x}\exp \pqty{- \frac{\Omega }{2}x^2-\dfrac{\omega_{r}}{2}x^2+2s\sqrt{\Omega} x-s^2}\\
+I & =e^{-s^2}\int_{-\infty}^{+\infty}\dd{x}\exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} x^2}{2}+2s\sqrt{\Omega} x}\\
+I & =e^{-s^2}\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2}\exp{\dfrac{4s^2\Omega}{2\omega_{r}+2\Omega}}\\
+I & =\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2}\exp(\dfrac{4s^2\Omega}{2\omega_{r}+2\Omega}-s^2)\\
+I & =\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2}\exp(\dfrac{s^2\Omega-s^2\omega_{r}}{\omega_{r}+\Omega})\\
+I & =\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2} \sum_{n=0}^{\infty}\dfrac{1}{n!}\pqty{\dfrac{s^2\Omega-s^2\omega_{r}}{\omega_{r}+\Omega}}^n \qq{no sale lo que quiero, de la forma que quiero asi que empezare del final}\\
+I & =\sum_{n=0}^{\infty}\dfrac{s^n}{n!}\int_{-\infty}^{+\infty}\dd{x}H_n(\sqrt{\Omega} x)\exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} x^2}{2}} =\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2} \sum_{n=0}^{\infty}\dfrac{s^{2n}}{n!}\pqty{\dfrac{\Omega-\omega_{r}}{\omega_{r}+\Omega}}^n
+\end{split}
+\end{equation}
+
+de donde
+
+\begin{equation}
+\int_{-\infty}^{+\infty}\dd{x}H_n(\sqrt{\Omega} x)\exp \pqty{- \frac{\pqty{\omega_{r}+\Omega} x^2}{2}} =\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2}s^n\pqty{\dfrac{\Omega-\omega_{r}}{\omega_{r}+\Omega}}^n
+\end{equation}
+
+donde s es un parametro libre (no se  como eliminarlo). Asi podemos determinar que
+
+\begin{equation}
+\alpha_n  = \pqty{\frac{\Omega}{\pi}}^{1/4}(n!2^n)^{-1/2}\pqty{\frac{w_r}{\pi}}^{1/4}\pqty{\dfrac{2\pi}{\omega_{r}+\Omega}}^{1/2}s^n\pqty{\dfrac{\Omega-\omega_{r}}{\omega_{r}+\Omega}}^n
+\end{equation}
+
+
+
+
+
+Empezando del final
+
+\begin{equation}
+\begin{split}
+\psi (x,t) & = \mathcal{N}(t)\exp(-\dfrac{\omega(t)x^2}{2}) \\
+\psi (x,t) & =\sum_n e^{-i\Omega(n+\frac{1}{2})t}\alpha_n\pqty{\frac{\Omega}{\pi}}^{1/4}(n!2^n)^{-1/2} \exp \pqty{- \frac{\Omega}{2}x^2} H_n(\sqrt{\Omega} x) \\
+\psi (x,t) & =\pqty{\frac{\Omega}{\pi}}^{1/4}\exp(-i\dfrac{\Omega}{2}t)\exp \pqty{- \frac{\Omega}{2}x^2}\sum_n e^{-i\Omega nt}\alpha_n(n!2^n)^{-1/2}  H_n(\sqrt{\Omega} x)
+\end{split}
+\end{equation} 
+
+
+
+
+
+
+
+este estado evolucionado por el hamiltoniano es
+
+\begin{equation}
+\psi (x,t) =\mathcal{N}(t)  \exp \pqty{- \frac{ \omega(t) \, x^2}{2} } 
+\label{target}
+\end{equation}
+
+donde $\mathcal{N}(t)$ es la constante de normalización y \citep{Shankar_1995}
+
+\begin{equation}  
+\omega(t)=\Omega \pqty{\dfrac{\Omega-i\,\omega_r \cot\qty(\Omega\, t)}{\omega_r-i\,\Omega \cot\qty(\Omega\, t)}}
+\label{Omega}
+\end{equation}
+
+El objetivo es calcular la complexity para este estado \eqref{target} a partir de \eqref{reference}. Además,
+
+\begin{equation}
+\omega(t=0)=\omega_r
+\end{equation}
+
+Ahora calcularemos la constante $\mathcal{N}(t)$ usando
+
+\begin{equation}
+1=\int_{-\infty}^{+\infty}\dd{x}\abs{\psi (x,t)}^2
+\end{equation}
+
+podemos reemplazar en la ecuación
+
+\begin{align*}
+1=\int_{-\infty}^{+\infty}\dd{x}\abs{\mathcal{N}(t)}^2\abs{\exp \pqty{- \frac{ \omega(t) \, x^2}{2} }}^2 \\
+1=\abs{\mathcal{N}(t)}^2\int_{-\infty}^{+\infty}\dd{x}\exp \Bqty{- \Re[\omega(t)] \, x^2 } \\
+1=\abs{\mathcal{N}(t)}^2\Bqty{\dfrac{\pi}{\Re[\omega (t)]}}^{1/2}
+\end{align*}
+
+por lo tanto
+
+\begin{equation}
+\mathcal{N}(t)=\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/4}
+\end{equation}
+
+%Ahora resolvamos la ecuación de Schrodinger, con el principio de correspondencia al %Hamiltaniano que tenemos le corresponde un operador Hamiltoniano. Asi, en la ecuación de %$Schrodinger tenemos 
+
+%\begin{equation}
+%	\hat{H}\psi(r)=E\psi(r)
+%\end{equation}
+
+
+%We are interested in comparing the complexity of a regular system with that of an unstable/chaotic system.
+%To that end, we consider the Hamiltonian
+%\begin{equation} \label{Ham}
+% H = \frac{1}{2} p^2 + \frac{\Omega^2}{2} x^2
+% \ \ {\rm where} \ \  \Omega^2 = m^2 - \lambda \ .
+%\end{equation}
+%For $\lambda < m^2$, equation (\ref{Ham}) describes a simple harmonic oscillator; for
+%$\lambda>m^2$, we have an inverted oscillator. The $\lambda = m^2$ case, of course describes a free particle.
+%
+%Our inverted oscillator model can be understood as a short-time approximation for unstable/chaotic systems. In particular, this model captures the exponential sensitivity to initial conditions exhibited by chaotic systems. Let's start with the following state at $t=0$,
+%\be \label{1}
+%\psi(x,t=0)=\mathcal{N}(t=0)\exp \left (- \frac{\omega_{r} \, x^2}{2} \right),
+%\ee
+%where 
+%\be
+%\omega_r=m.
+%\ee 
+%Evolving this state in time by the Hamiltonian (\ref{Ham}) produces %\cite{shankar}
+%\begin{align}
+%\begin{split} \label{2}
+%\psi (x,t) =\mathcal{N}(t) \, \exp \left (- \frac{ \omega(t) \, x^2}{2} \right) \ ,
+%\end{split}
+%\end{align}
+%where $\mathcal{N}(t)$ is the normalization factor and
+%\be  \label{Omega}
+%\omega(t)=\Omega \left (\frac{\Omega-i\,\omega_r \cot (\Omega\, t)}{\omega_r-i\,\Omega \cot (\Omega\, t)}\right).
+%\ee
+%We will be computing the complexity for this kind of time evolved state (\ref{2}) with respect to (\ref{1}) and 
+%\be
+%\omega(t=0)=\omega_r.
+%\ee
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\section{Complexity a partir de la matriz de covarianza}
+
+La complexity que vamos a hallar corresponde a la circuit complexity, osea esta complejidad netamente solo depende del circuito cuántico; es decir de los operadores. Para poder hallar esta complexity usaremos el método de la matriz de covarianza. Analizaremos de manera concreta la complexity teniendo como funciones de onda la del oscilador armónico cuántico.
+
+%We will start this section with a quick review of circuit complexity and then conclude with a computation of the circuit complexity for a single oscillator. For circuit complexity we will use the covariance matrix method. Note that a similar analysis can be done for circuit complexity from the full wave function. 
+\subsection{Resumen de Circuit Complexity}
+Hagamos un pequeño resumen de como calcular la complexity del circuito. Detalles de esto pueden ser encontrados en  \citep{Jefferson_2017}. El problema se establece de la siguiente manera: dado un conjunto de gates y un reference state, queremos construir el circuito mas eficiente para llegar a un circuito dado. Formalmente se escribe:
+
+\begin{equation}
+\ket{\psi_{\tau=1}}=\tilde{U}(\tau=0)\ket{\psi_{\tau=0}}
+\end{equation}
+
+donde
+
+\begin{equation}
+\tilde U(\tau)= {\overleftarrow{\mathcal{P}}}\exp(i\int_{0}^{\tau }\, d\tau\, H(\tau))
+\label{unitario}
+\end{equation}
+
+es el operador unitario que representa a todo el circuito cuántico, el cuál toma el estado de referencia $\ket{\psi_{\tau=0}}$ y lo lleva al estado target $\ket{\psi_{\tau=0}}$. $\tau$ parametriza el camino dentro del espacio de unitarios y da una base particular (puertas elementales) $M_I$,
+
+\begin{equation}
+ H(\tau)= Y^{I}(\tau) M_{I} \ .
+\nonumber
+\end{equation}
+
+En este contexto, los coeficientes $\Bqty{Y^{I}(\tau)}$ se toman como ¨funciones de control¨. El \textit{path ordering} en (\eqref{unitario}) es necesario ya que no todos los $M_I$ no necesariamente conmutan entre si.
+
+Existe el formalismo de la matriz covariante para poder hacer estos calculos \citep{Braunstein:2005zz}, y eso es lo que haremos
+
+Dado que ambos estados son gausianos, estos pueden ser escritos de manera equivalente por la \textit{Covariance Matrix} como sigue\citep{Weedbrook_2012}
+
+\begin{equation}
+G^{ab}=\ev{\xi^{a}\xi^{b}+\xi^{b}\xi^{a}}{\psi(x,t)}
+\end{equation} 
+
+donde $\xi=\{x ,p\}$. Esta \textit{Covariance Matrix} es típicamente una matriz real simétrica con determinante igual a 1. Transformaremos esta \textit{Covariance Matrix} de referencia (correspondiente al estado de referencia) de manera que \cite{jmca, me1}
+
+\begin{equation}
+\tilde G^{\tau=0}= S\cdot G^{\tau=0}\cdot S^T
+\end{equation}
+
+con $\tilde G^{\tau=0}$ es una matriz identidad y $S$ una matriz simétrica real cuya transpuesta se denota por $S^T$. Similarmente el \textit{target state} se transformara como
+
+\begin{equation}
+\tilde G^{\tau=1}= S\cdot G^{\tau=1}\cdot S^{T}
+\end{equation}
+
+El unitario $\tilde U(\tau)$ actúa sobre la \textit{covariance matrix} transformada de la siguiente manera,
+
+\begin{equation}
+\tilde G^{\tau=1}= \tilde U(\tau)\cdot \tilde G^{\tau=0}\cdot\tilde U^{-1}(\tau)
+\end{equation}
+
+Siguiente nosotros definimos la \textit{cost function}  $\mathcal{F}(\tilde U, \dot {\tilde U})$ y definimos la funcional \citep{Ali_2019}
+
+\begin{equation}
+\mathcal{C}(\tilde U)=\int_{0}^{1} \mathcal{F}\pqty{\tilde U,\dot{\tilde U}} \dd{\tau} 
+\end{equation}
+
+minimizando esta funcional de costo nos dará el conjunto óptimo $Y^{I}(\tau)$, lo cuál nos da el circuito mas eficiente minimizando la longitud del circuito. Hay muchas formas de escoger $\mathcal{F}(\tilde U,\dot{\tilde U})$. Para mas detalles \citep{Nielsen_2006}. En esta tesis escogeremos
+
+\begin{equation}
+\mathcal{F}_2(U,Y)=\sqrt{\sum_{I} (Y^{I})^2}
+\label{cost}
+\end{equation}
+
+Para esta elección es fácil ver que $\mathcal{C}(\tilde U)$, corresponde a la geodesica en la manifold de unitarios. Tambien se puede repetir el trabajo con diferentes $\mathcal{F}(\tilde U,\dot{\tilde U})$. 
+
+
+%Here we will briefly sketch the outline of the computation of circuit complexity. Details of this can be found in \cite{jm, jmb}. We will highlight only the key formulae and interested readers are referred to \cite{jm,jmb} and citations thereof. The problem is simple enough to state; given a set of elementary gates and a reference state, we want to build the most efficient circuit that starts at the reference state and terminates at a specified target state. Formally,
+%\begin{align}
+%\begin{split} \label{statement}
+%|\psi_{\tau=1}\rangle=\tilde U(\tau=1)|\psi_{\tau=0}\rangle,
+%\end{split}
+%\end{align}
+%where \be \label{Unit}
+%\tilde U(\tau)= {\overleftarrow{\mathcal{P}}}\exp(i\int_{0}^{\tau }\, d\tau\, H(\tau)),
+%\ee 
+%is the unitary operator representing the quantum circuit, which takes the reference state $|\psi_{\tau=0}\rangle$ to the target state $|\psi_{\tau=1}\rangle$.
+% $\tau$ parametrizes a path in the space of the unitaries and  given a particular basis (elementary gates) $M_I$, 
+%\begin{equation}
+% H(\tau)= Y^{I}(\tau) M_{I} \ .
+%\nonumber
+%\end{equation}
+%In this context, the coefficients $\{ Y^{I}(\tau) \}$ are referred to as `control functions'. The path ordering in (\ref{Unit}) is necessary as all the $M_I$'s do not necessarily commute with each other. \\
+
+%Now, since the states under consideration (\ref{1}) and (\ref{2}) are Gaussian, they can be equivalently described by a \textit{Covariance matrix} as follows
+%\be
+%   G^{ab}= \langle \psi(x,t)|\xi^a\xi^b+\xi^b\xi^a|\psi(x,t) \rangle,
+%\ee
+%where $\xi=\{x ,p\}.$  This covariance matrix is typically a real symmetric matrix with unit determinant. We will always transform the reference covariance matrix such that %\cite{jmca, me1}
+%\be
+%\tilde G^{\tau=0}= S\cdot G^{\tau=0}\cdot S^T
+%\ee
+%with $\tilde G^{\tau=0}$ an identity matrix and $S$ a real symmetric matrix whose transpose is denoted $S^T$. Similarly, the reference state will transform as
+%\be
+%\tilde G^{\tau=1}= S\cdot G^{\tau=1}\cdot S^{T}.
+%\ee
+%The unitary $\tilde U(\tau)$ acts on this transformed covariance matrix as,  
+%\be
+%\tilde G^{\tau=1}= \tilde U(\tau)\cdot \tilde G^{\tau=0}\cdot\tilde U^{-1}(\tau).
+%\ee
+%Next we define suitable \textit{cost function} $\mathcal{F}(\tilde U, \dot {\tilde U})$ and define \cite{jm,Nielsen1,Nielsen2,Nielsen3}
+%\be \label{cost}
+%\mathcal{C}(\tilde U)=\int_{0}^{1} \mathcal{F}(\tilde U,\dot{\tilde U})\, d\tau \ .
+%\ee
+%Minimizing this  cost functional gives us the optimal set of $Y^{I}(\tau)$, which in turn give us the most efficient circuit by minimizing the circuit depth. There are various possible choices for these  functions $\mathcal{F}(\tilde U,\dot{\tilde U}).$ For further details, we refer the reader to the extensive literature in \cite{jm, jma,jmb, Nielsen1, Nielsen2,Nielsen3}. In this paper, we will choose
+%\be
+% \mathcal{F}_2(U,Y)=\sqrt{\sum_{I} (Y^{I})^2}.
+% \ee
+% For this choice, one can easily see that, after minimization the $\mathcal{C}(\tilde U)$ defined in (\ref{cost}) corresponds to the geodesic distance on the manifold of unitaries. Note also that we can reproduce our analysis done in the following sections with other choices of cost functional. We will, however, leave this for future work. 
+ 
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\subsection{Circuit Complexity de un oscilador armónico}
+ %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+Para nuestro caso la \textit{covariance matrix} será
+
+\begin{equation}
+G^{ab}=\ev{\xi^{a}\xi^{b}+\xi^{b}\xi^{a}}{\psi(x,t)} \qq{donde} \xi=\{x ,p\}
+\end{equation}
+
+entonces, para cuando $\tau=0$
+
+\begin{equation}
+\begin{split}
+G^{11} & =\ev{\hat{x}\hat{x}+\hat{x}\hat{x}}{\psi(x,t=0)} \\
+ & =2x^2\ip{\psi(x,t=0)} \\
+ & =\int_{-\infty}^{+\infty}2x^2\pqty{\pqty{\frac{w_r}{\pi}}^{1/4}\exp \pqty{- \frac{\omega_{r} \, x^2}{2}}}^2 \\
+ & =2\pqty{\frac{w_r}{\pi}}^{1/2}\int_{-\infty}^{+\infty}x^2\exp \pqty{-\omega_{r} \, x^2} \\
+ & =2\pqty{\frac{w_r}{\pi}}^{1/2}\pqty{\frac{\pi}{w_r}}^{1/2}\dfrac{1}{2\omega_r} \\
+ & =\dfrac{1}{\omega_r}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+G^{12} & =\ev{\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(x,t=0)} =G^{21} \\
+& =\ev{\int_{-\infty}^{+\infty}\dd{x}\op{x}{x}\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(x,t=0)} \\
+& =\ev{\int_{-\infty}^{+\infty}\dd{x}\op{x}{x}i+2\hat{p}\hat{x}}{\psi(x,t=0)} \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}\qty(i\ip{x}{\psi}+\mel{x}{2\hat{p}\hat{x}}{\psi}) \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}\qty(i\ip{x}{\psi}-i\dv{x}x\ip{x}{\psi}) \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}i\qty(1-2\dv{x}x)\ip{x}{\psi} \\
+& =0 \\
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+G^{22} & =\ev{\hat{p}\hat{p}+\hat{p}\hat{p}}{\psi(x,t=0)} \\
+& =\ev{\int_{-\infty}^{+\infty}\dd{x}\op{x}{x}\hat{p}\hat{p}+\hat{p}\hat{p}}{\psi(x,t=0)} \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}2\mel{x}{\hat{p}\hat{p}}{\psi} \\
+& =\int_{-\infty}^{+\infty}2\pqty{\frac{w_r}{\pi}}^{1/4}\exp \pqty{- \frac{\omega_{r} \, x^2}{2}}\pqty{-\dv[2]{x}}\pqty{\frac{w_r}{\pi}}^{1/4}\exp \pqty{- \frac{\omega_{r} \, x^2}{2}} \\
+& =-2\pqty{\frac{w_r}{\pi}}^{1/2}\int_{-\infty}^{+\infty}x \omega_r  \exp(-x^2 \omega_r ) \qty(x^2 \omega_r -3) \\
+& =2\pqty{\frac{w_r}{\pi}}^{1/2}\pqty{\frac{1}{2} \sqrt{\pi } \sqrt{\omega_r }} \\
+& =\omega_r
+\end{split}
+\end{equation}
+
+de esta manera tenemos que (en las integrales hay una condicional de que $\Re(\omega_r)>0$)
+
+\begin{equation}
+G^{\tau=0}=\mqty(\dfrac{1}{\omega_r} & 0 \\ 0 & \omega_r)
+\end{equation}
+
+Haciendo un procedimiento similar al anterior tenemos que 
+
+\begin{equation}
+\begin{split}
+G^{11} & =\ev{\hat{x}\hat{x}+\hat{x}\hat{x}}{\psi(x,t)} \\
+ & =2\ip{\psi(x,t)}x^2 \\
+ & =\int_{-\infty}^{+\infty}\dd{x}2x^2\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2} \abs{\exp \pqty{- \frac{\Re{\omega (t)} \, x^2}{2}}\exp \pqty{- \frac{i\Im{\omega (t)} \, x^2}{2}}}^2 \\
+ & =2\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2}\int_{-\infty}^{+\infty}\dd{x}x^2 \exp \pqty{- \Re{\omega (t)} \, x^2} \\
+ & =2\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2} \pqty{\frac{\pi}{\Re{\omega (t)}}}^{1/2}\dfrac{1}{2\Re{\omega (t)}} \\
+ & =\dfrac{1}{\Re{\omega (t)}}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+G^{12} & =\ev{\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(x,t=0)} =G^{21} \\
+& =\ev{\int_{-\infty}^{+\infty}\dd{x}\op{x}{x}\hat{x}\hat{p}+\hat{p}\hat{x}}{\psi(x,t=0)} \\
+& =\ev{\int_{-\infty}^{+\infty}\dd{x}\op{x}{x}i+2\hat{p}\hat{x}}{\psi(x,t=0)} \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}\qty(i\ip{x}{\psi}+\mel{x}{2\hat{p}\hat{x}}{\psi}) \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}\qty(i\ip{x}{\psi}-i2\dv{x}x\ip{x}{\psi}) \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}i\qty(1-2\dv{x}x)\ip{x}{\psi} \\
+& =-\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2}\dfrac{ \sqrt{\pi } \Im[\omega]}{\Re[\omega]^{3/2}} \\
+& =-\dfrac{   \Im[\omega]}{\Re[\omega]}
+\end{split}
+\end{equation}
+
+\begin{equation}
+\begin{split}
+G^{22} & =\ev{\hat{p}\hat{p}+\hat{p}\hat{p}}{\psi(x,t=0)} \\
+& =\ev{\int_{-\infty}^{+\infty}\dd{x}\op{x}{x}\hat{p}\hat{p}+\hat{p}\hat{p}}{\psi(x,t=0)} \\
+& =\int_{-\infty}^{+\infty}\dd{x}\ip{\psi}{x}2\mel{x}{\hat{p}\hat{p}}{\psi} \\
+& =\int_{-\infty}^{+\infty}2\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/4}\exp \pqty{- \frac{\omega(t)^{*} \, x^2}{2}}\pqty{-\dv[2]{x}}\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2}\exp \pqty{- \frac{\omega(t) \, x^2}{2}} \\
+& =-2\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2}\int_{-\infty}^{+\infty}\dd{x}(\Re(\omega)+i \Im(\omega)) e^{-x^2 \Re(\omega)} \left(i x^2 \Im(\omega)+x^2 \Re(\omega)-1\right) \\
+& =\Bqty{\dfrac{\Re[\omega (t)]}{\pi}}^{1/2}\frac{\sqrt{\pi } \omega  \omega^*}{ \Re(\omega)^{3/2}} \\
+& =\dfrac{|\omega(t) |^2}{\text {Re}  (\omega(t))}
+\end{split}
+\end{equation}
+
+(en las integrales hay una condicional de que $\Re[\omega(t)]>0$), de esta manera resulta que
+
+\begin{equation}
+G^{\tau=1}=\mqty(\dfrac{1}{ \text {Re}  (\omega(t))} & -\dfrac{\text {Im}  (\omega(t))}{\text {Re}  (\omega(t))} \\ -\dfrac{ \text {Im}  (\omega(t))}{\text {Re}  (\omega(t))} & \dfrac{|\omega(t) |^2}{\text {Re}  (\omega(t))})
+\end{equation}
+
+Ahora cambiamos la base de la siguiente manera
+
+\begin{equation}
+\tilde G^{\tau=1}= S\cdot G^{\tau=1}\cdot S^{T}\qc\tilde G^{\tau=0}= S\cdot G^{\tau=0}\cdot S^{T} 
+\end{equation}
+
+con
+
+\begin{equation}
+S=\pmqty{\sqrt{\omega^r} & 0\\ 0& \frac{1}{\sqrt{\omega_r}}}
+\end{equation}
+
+de tal manera que  $\tilde G^{\tau=0}= I $ donde $ I$ es matriz identidad. Para nuestro caso caso de estudio la frecuencia del estado base $\omega_r$ es real. Escogeremos los siguientes generadores
+
+\begin{equation}
+M_{11}\rightarrow \frac{i}{2}( x \, p+p\, x)\qc M_{22}\rightarrow \frac{i}{2} x^2\qc M_{33}\rightarrow \frac{i}{2} p^2.
+\end{equation}
+
+Que nos servirán como nuestras puertas elementales y satisfacen el álgebra $SL(2,R)$
+
+\begin{equation}
+\comm{M_{11}}{ M_{22}}=2\,M_{22}\qc\comm{M_{11}}{M_{33}}=-2\,M_{33}\qc \comm{M_{22}}{M_{33}}= M_{11}
+\end{equation}
+
+Ahora como vimos en (referencia a paper de complexity) parametrizamos
+
+\begin{equation}
+\label{param}
+\tilde U(\tau)=\mqty(
+\cos(\mu(\tau))\cosh(\rho(\tau))-\sin(\theta(\tau))\sinh(\rho(\tau))& -\sin(\mu(\tau))\cosh(\rho(\tau))+\cos(\theta(\tau))\sinh(\rho(\tau))\\
+\sin(\mu(\tau))\cosh(\rho(\tau))+\cos(\theta(\tau))\sinh(\rho(\tau))&  \cos(\mu(\tau))\cosh(\rho(\tau))+\sin(\theta(\tau))\sinh(\rho(\tau)))
+\end{equation}
+
+
+y usando las condiciones de borde
+
+\begin{equation}
+\tilde G^{\tau=1}=\tilde U(\tau=1)\cdot \tilde G^{\tau=0}\cdot\tilde U^{-1}(\tau=1),\qquad \tilde G^{\tau=0}=\tilde U(\tau=0)\cdot\tilde  G^{\tau=0}\cdot\tilde U^{-1}(\tau=0)\,,
+\end{equation}
+
+esto es 
+
+\begin{multline}
+\mqty(\dfrac{\omega_r}{ \text {Re}  (\omega(t))} & -\dfrac{\text {Im}  (\omega(t))}{\text {Re}  (\omega(t))} \\ -\dfrac{ \text {Im}  (\omega(t))}{\text {Re}  (\omega(t))} & \dfrac{|\omega(t) |^2}{\text {Re}  (\omega(t))\omega_r})=
+\\
+\bmqty{ -\sinh (2 \rho(1) ) \sin (\theta(1) +\mu(1) )+\cosh(2\rho(1) ) & \sinh (2 \rho(1) ) \cos (\theta(1) +\mu(1) ) \\
+\sinh (2 \rho(1) ) \cos (\theta(1) +\mu(1) ) & \sinh (2 \rho(1) ) \sin (\theta(1) +\mu(1) )+\cosh(2\rho(1) )}
+\end{multline}
+
+y 
+
+\begin{multline}
+\mqty(\dfrac{1}{\omega_r} & 0 \\ 0 & \omega_r)= \\
+\bmqty{ -\sinh (2 \rho(0) ) \sin (\theta(0) +\mu(0) )+\cosh(2\rho(0) ) & \sinh (2 \rho(0) ) \cos (\theta(0) +\mu(0) ) \\
+\sinh (2 \rho(0) ) \cos (\theta(0) +\mu(0) ) & \sinh (2 \rho(0) ) \sin (\theta(0) +\mu(0) )+\cosh(2\rho(0) )}
+\end{multline}
+
+encontramos que \cite{me1},
+\begin{equation}
+\label{boundary}
+\{\cosh(2\rho(1)), \tan(\theta(1)+\mu(1)) \}=\left\{\frac{\omega_r^2+|\omega(t)|^2}{2\,\omega_r\,\text {Re}  (\omega(t))},\frac{\omega_r^2-|\omega(t)|^2}{2\,\omega_r\,\text {Im}  (\omega(t))}\right\},\quad
+\{\rho(0), \theta(0)+\mu(0)\}=\{0, c\}.
+\end{equation}
+
+donde $c$ es una constante arbitraria. Por simplicidad escogemos
+
+\begin{equation}
+\mu(\tau=1)=\mu(\tau=0)=0, \quad\theta(\tau=0)=\theta(\tau=1)=c=\tan^{-1}\left(\frac{\omega_r^2-|\omega(t)|^2}{2\,\omega_r\,\text {Im}  (\omega(t))}\right).
+\end{equation}
+
+De (\ref{Unit}) tenemos,
+
+\begin{equation}
+Y^{I}=\Tr\left(\partial_{\tau}\tilde U(\tau)\cdot \tilde U(\tau)^{-1}\cdot (M^{I})^{T}\right) \ ,
+\end{equation}
+
+donde $\Tr \left(M^{I}. (M^{J})^{T}\right)=\delta^{IJ}$. Usando esto podemos definir la métrica
+
+\begin{equation}
+   ds^2= G_{IJ} dY^{I} dY^{* J},
+\end{equation}
+
+donde el $G_{IJ}=\frac{1}{2}\delta_{IJ}$ es conocida como el factor de penalidad. Dado de la forma $U(s)$ en (\ref{param}) tendremos,
+
+\begin{equation}
+ds^2=d\rho^2+\cosh(2\rho)\cosh^2\rho \,d\mu^2+\cosh(2\rho)\sinh^2\rho\, d\theta^2-\sinh(2\rho)^2\,d\mu\, d\theta,
+\end{equation}
+
+y la funcional de complexity definida en (\ref{cost}) toma la forma, 
+
+\begin{equation}
+\label{cost1}
+\mathcal{C}(\tilde U)=\int_{0}^{1}d\tau \sqrt{g_{ij}\dot x^{i}\dot x^{j}}.
+\end{equation}
+
+La solución más simple en esta geometría es una línea recta \citep{Ali_2019}.
+
+\begin{equation}
+\rho(\tau)= \rho(1)\, \tau.
+\end{equation}
+
+Evaluando (\ref{cost1}) es obvio que 
+
+\begin{align}
+\begin{split} \label{answ}
+\mathcal{C}(\tilde U)= \rho(1)=\frac{1}{2}\left(\cosh^{-1}\left[\frac{\omega_r^2+|\omega(t)|^2}{2\,\omega_r\,\text {Re}  (\omega(t))}\right]\right) .
+\end{split}
+\end{align}
+
+Esta es la distancia geodésica en el espacio de los unitarios $SL(2,R)$ con puntos finales fijos en los 2 puntos determinados por las condiciones de borde(\ref{boundary}).
+
+
+\biblio %Se necesita para referenciar cuando se compilan subarchivos individuales - NO SACAR
+\end{document}
