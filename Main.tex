@@ -10,7 +10,7 @@
 % openany:  Inicia capítulos en números pares e impares. 
 % book:     Formato libro, está dividido por capítulos. Otros formatos: report, letter, article, etc.
 
-
+\setlength{\headheight}{15pt} %* si se quita solo provoca un warning
 
 % -------------- Setup, no cambiar ---------------
 \usepackage{textcomp}                           % Agrega muchos símbolos extra para utilizar en el texto
@@ -146,6 +146,7 @@
 	\fancyhead[R]{UNIVERSIDAD NACIONAL DE SAN ANTONIO ABAD \linebreak DEL CUSCO                        % Línea 1 de la cabecera derecha, debe ir el nombre de la UdeC en mayúsculas.
 	\linebreak       FACULTAD DE CIENCIAS}   % Línea 2 de la cabecera derecha, debe ir el nombre de la facultad en mayúsculas.
 	\fancyhead[L]{ \includegraphics[width=0.7in]{./Images/escudo_unsaac.jpg}} % LOGO que irá en la cabecera izquierda.
+	\setlength{\headheight}{70pt} %* si se quita solo provoca un warning, pero no un error.
 }
 
 % ----- Enlaces clickeables --------
@@ -167,7 +168,6 @@
   	colorlinks = true,                          % Elimina las cajas al rededor de lo clickeable y lo reemplaza por palabras a color.
 }
 
-
 %--------------------------------------------------------------------------------------------------------------------------
 % ------------------------------------------ Aquí empieza el documento ----------------------------------------------------
 %--------------------------------------------------------------------------------------------------------------------------
@@ -177,7 +177,7 @@
 \def\biblio{}   % Resetea el comando biblio, de lo contrario una lista de referencias será producida después de cada capítulo
 % resets the biblio command, if not here a new reference list will be produced after every chapter
 
-\include{Otros/Portada}   % Genera la portada desde el archivo Portada.tex . Para editar este archivo ir a Otros -> Portada.tex
+\subfile{Otros/Portada}   % Genera la portada desde el archivo Portada.tex . Para editar este archivo ir a Otros -> Portada.tex
 \vfill
 
 %----------------Página de derechos de autor: elegir entre a) o b) y borrar/comentar la opción NO utilizada-----------------
@@ -208,7 +208,7 @@ Se autoriza la reproducción total o parcial, con fines académicos, por cualqui
 
 % Editar en Otros -> Dedicatoria.tex
 
-\include{Otros/Dedicatoria}   % Genera la pagina de calificaciones del archivo calificaciones.tex
+\subfile{Otros/Dedicatoria}   % Genera la pagina de calificaciones del archivo calificaciones.tex
 \restoregeometry        % Devuelve los márgenes después de la página
 
 

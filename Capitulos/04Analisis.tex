@@ -1,3 +1,4 @@
+% !TeX root = ../Main.tex
 \documentclass[../Main.tex]{subfiles}
 \begin{document}
 \section{El modelo}
@@ -399,7 +400,7 @@ Dado que ambos estados son gausianos, estos pueden ser escritos de manera equiva
 G^{ab}=\ev{\xi^{a}\xi^{b}+\xi^{b}\xi^{a}}{\psi(x,t)}
 \end{equation} 
 
-donde $\xi=\{x ,p\}$. Esta \textit{Covariance Matrix} es típicamente una matriz real simétrica con determinante igual a 1. Transformaremos esta \textit{Covariance Matrix} de referencia (correspondiente al estado de referencia) de manera que \cite{jmca, me1}
+
 
 \begin{equation}
 \tilde G^{\tau=0}= S\cdot G^{\tau=0}\cdot S^T
@@ -629,12 +630,7 @@ y
 \sinh (2 \rho(0) ) \cos (\theta(0) +\mu(0) ) & \sinh (2 \rho(0) ) \sin (\theta(0) +\mu(0) )+\cosh(2\rho(0) )}
 \end{multline}
 
-encontramos que \cite{me1},
-\begin{equation}
-\label{boundary}
-\{\cosh(2\rho(1)), \tan(\theta(1)+\mu(1)) \}=\left\{\frac{\omega_r^2+|\omega(t)|^2}{2\,\omega_r\,\text {Re}  (\omega(t))},\frac{\omega_r^2-|\omega(t)|^2}{2\,\omega_r\,\text {Im}  (\omega(t))}\right\},\quad
-\{\rho(0), \theta(0)+\mu(0)\}=\{0, c\}.
-\end{equation}
+
 
 donde $c$ es una constante arbitraria. Por simplicidad escogemos
 
@@ -642,7 +638,7 @@ donde $c$ es una constante arbitraria. Por simplicidad escogemos
 \mu(\tau=1)=\mu(\tau=0)=0, \quad\theta(\tau=0)=\theta(\tau=1)=c=\tan^{-1}\left(\frac{\omega_r^2-|\omega(t)|^2}{2\,\omega_r\,\text {Im}  (\omega(t))}\right).
 \end{equation}
 
-De (\ref{Unit}) tenemos,
+
 
 \begin{equation}
 Y^{I}=\Tr\left(\partial_{\tau}\tilde U(\tau)\cdot \tilde U(\tau)^{-1}\cdot (M^{I})^{T}\right) \ ,
@@ -680,8 +676,6 @@ Evaluando (\ref{cost1}) es obvio que
 \mathcal{C}(\tilde U)= \rho(1)=\frac{1}{2}\left(\cosh^{-1}\left[\frac{\omega_r^2+|\omega(t)|^2}{2\,\omega_r\,\text {Re}  (\omega(t))}\right]\right) .
 \end{split}
 \end{align}
-
-Esta es la distancia geodésica en el espacio de los unitarios $SL(2,R)$ con puntos finales fijos en los 2 puntos determinados por las condiciones de borde(\ref{boundary}).
 
 
 \biblio %Se necesita para referenciar cuando se compilan subarchivos individuales - NO SACAR
