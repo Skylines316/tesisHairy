@@ -2,6 +2,93 @@
 \documentclass[../Main.tex]{subfiles}
 
 \begin{document}
+Asumamos un espacio axiosimétrico y estacionario. En este espacio la métrica se puede expresar de la siguiente manera:
+%
+\begin{equation}
+\dd{s}^{2} = -V\qty(\dd{t}-\omega\dd{\phi})^{2}+V^{-1}\rho^{2}\dd{\phi}^{2}+\Omega^{2}\qty(\dd{\rho}^{2}+\Lambda\dd{z}^{2})
+\end{equation}
+%
+Donde $V,\Omega, \Lambda$ son funciones que solo dependen de $\rho$ y $z$la cual en el caso especial en que el espacio es vacío, es decir $R_{ab}=0$ tenemos la siguiente ecuación para $\rho$:
+%
+\begin{equation}
+    D^{a}D_{a}\rho=0 \quad D_{a}: \text{derivada covariantes en la 2D atravesada por } \rho \, z
+\end{equation}
+%
+y la métrica se puede expresar de la siguiente manera(Papapetrou):
+%
+\begin{equation}
+    \dd{s}^{2} = -f\qty(\dd{t}-\omega\dd{\phi})^{2}+f^{-1}\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
+\end{equation}
+
+y al exigir que $R_{\mu\nu}=0$:
+\begin{eqnarray}
+    \label{firstcon}
+    \grad{\qty(f^{-1}\grad{f}+\rho^{-2}f^{2}\omega\grad{\omega})} & =0 \\
+    \label{secondcon}
+    \grad{\qty(\rho^{-2}f^{2}\grad{\omega})} & =0 \\
+    \label{thirdcon}
+    \dfrac{1}{4}\rho V^{-2}\qty[\qty(\pdv{V}{\rho})^{2}-\qty(\pdv{V}{z})^{2}]-\dfrac{1}{4}\rho^{-1}V^{2}\qty[\qty(\pdv{\omega}{\rho})^{2}-\qty(\pdv{\omega}{z})^{2}] & =\pdv{\gamma}{\rho} \\
+    \dfrac{1}{2}\rho V^{-2}\pdv{V}{\rho}\pdv{V}{z}-\dfrac{1}{2}\rho^{-1} V^{2}\pdv{\omega}{\rho}\pdv{\omega}{z} & = \pdv{\gamma}{z}
+    \label{fourthcon}
+\end{eqnarray}
+
+desarrollando \eqref{firstcon} con ayuda de \eqref{secondcon} tenemos:
+
+\begin{equation}
+    f\laplacian{f}=\grad{f}\vdot\grad{f}-\rho^{-2}f^{4}\grad{\omega}\vdot\grad{\omega}
+    \label{conduno}
+\end{equation}
+
+Ahora definamos una función $\varphi$ que no depende de l azimut, entonces esta función cumple la siguiente identidad:
+
+\begin{equation}
+    \grad(\rho^{-1}\vu{n}\cp\grad{\varphi})=0
+\end{equation}
+
+donde $\vu{n}$ es un vector unitario en la dirección del azimut. Ahora de \eqref{secondcon} podemos decir que es la condición de integrabilidad de un función $\varphi$ definida por:
+
+\begin{equation}
+    \rho^{-1}f^{2}\grad{\omega}=\vu{n}\cp\grad{\varphi}
+\end{equation}
+
+esta relación es equivalente a:
+
+\begin{equation}
+    f^{-2}\grad{\varphi}=-\rho^{-1}\vu{n}\cp\grad{\omega}
+\end{equation}
+
+esto implica que
+
+\begin{equation}
+    \grad(f^{-2}\grad(\varphi))=0
+\end{equation}
+
+si expresamos \eqref{conduno} en función de este nuevo potencial $\varphi$. Podemos definir la función $\mathcal{E}$.
+
+\begin{equation}
+    \mathcal{E}=f+\im \varphi
+\end{equation}
+
+que cumple la ecuación:
+
+\begin{equation}
+    \qty(\Re{\mathcal{E}})\laplacian{\mathcal{E}}=\grad{\mathcal{E}}\cp\grad{\mathcal{E}}
+\end{equation}
+
+uno puede hacer simples modificaciones a $\mathcal{E}$. Una de las importantes es la siguiente(Papapetrou):
+
+\begin{equation}
+    \mathcal{E}=\qty(\xi-1)/\qty(\xi+1)
+\end{equation}
+
+Ahora es mejor expresar la solucion en "prolate spheroidal coordinates" (zipoy). Entonces fijamos
+
+\begin{eqnarray}
+    \rho= & (x^2-1)^{1/2}(1-y^{2})^{1/2} \\
+    z = & xy
+\end{eqnarray}
+
+
 
 %\subsection{Este es un sub título}
 
