@@ -18,6 +18,7 @@ y la métrica se puede expresar de la siguiente manera(Papapetrou):
 %
 \begin{equation}
     \dd{s}^{2} = -f\qty(\dd{t}-\omega\dd{\phi})^{2}+f^{-1}\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
+    \label{papapetrou}
 \end{equation}
 
 y al exigir que $R_{\mu\nu}=0$:
@@ -27,8 +28,8 @@ y al exigir que $R_{\mu\nu}=0$:
     \label{secondcon}
     \grad{\qty(\rho^{-2}f^{2}\grad{\omega})} & =0 \\
     \label{thirdcon}
-    \dfrac{1}{4}\rho V^{-2}\qty[\qty(\pdv{V}{\rho})^{2}-\qty(\pdv{V}{z})^{2}]-\dfrac{1}{4}\rho^{-1}V^{2}\qty[\qty(\pdv{\omega}{\rho})^{2}-\qty(\pdv{\omega}{z})^{2}] & =\pdv{\gamma}{\rho} \\
-    \dfrac{1}{2}\rho V^{-2}\pdv{V}{\rho}\pdv{V}{z}-\dfrac{1}{2}\rho^{-1} V^{2}\pdv{\omega}{\rho}\pdv{\omega}{z} & = \pdv{\gamma}{z}
+    \dfrac{1}{4}\rho f^{-2}\qty[\qty(\pdv{f}{\rho})^{2}-\qty(\pdv{f}{z})^{2}]-\dfrac{1}{4}\rho^{-1}f^{2}\qty[\qty(\pdv{\omega}{\rho})^{2}-\qty(\pdv{\omega}{z})^{2}] & =\pdv{\gamma}{\rho} \\
+    \dfrac{1}{2}\rho f^{-2}\pdv{f}{\rho}\pdv{f}{z}-\dfrac{1}{2}\rho^{-1} f^{2}\pdv{\omega}{\rho}\pdv{\omega}{z} & = \pdv{\gamma}{z}
     \label{fourthcon}
 \end{eqnarray}
 
@@ -73,13 +74,43 @@ que cumple la ecuación:
 
 \begin{equation}
     \qty(\Re{\mathcal{E}})\laplacian{\mathcal{E}}=\grad{\mathcal{E}}\cp\grad{\mathcal{E}}
+\label{princCondUno}
 \end{equation}
 
 uno puede hacer simples modificaciones a $\mathcal{E}$. Una de las importantes es la siguiente(Papapetrou):
 
 \begin{equation}
     \mathcal{E}=\qty(\xi-1)/\qty(\xi+1)
+    \label{Eecu}
 \end{equation}
+
+cuando reemplazemos $\mathcal{E}$ en \eqref{princCondUno} obtenemos la siguiente ecuación para $\xi$:
+
+\begin{equation}
+    \qty(\xi\xi^{*}-1)\laplacian{\xi}=2\xi^{*}\grad{\xi}\vdot\grad{\xi}
+    \label{xiEcu}
+\end{equation}
+
+esta ecuación tambien se puede derivar de principio variacional de:
+
+\begin{equation}
+    \delta\int\dfrac{\grad{\xi}\vdot\grad{\xi}^{*}}{\qty(\xi\xi^{*}-1)^{2}}\dd{v}=0
+\end{equation}
+
+De \eqref{xiEcu} podemos notar que si $\xi$ es una solución entonces $e^{\im\alpha}\xi$ también es una solución. Entonces podemos expresar la función $\xi$ de la siguiente manera:
+
+\begin{equation}
+    \xi=-e^{\im\alpha}\coth{\psi}
+    \label{psiEcu}
+\end{equation}
+
+donde al reemplazar esta expresión para $\xi$ en \eqref{xiEcu} se tiene que $\psi$ cumple la ecuación de laplace
+
+\begin{equation}
+    \laplacian{\psi}=0
+\end{equation}
+
+Por consiguiente se puede expresar $\psi$ en terminos de una "expansión multipolar". Las soluciones ya fueron estudiadas por Weyl en 1917 cuando $\alpha=0$ y por Papapetrou en 1953 cuando $\alpha=\pi/2$. Desafortunadamente cuando $\alpha \neq 0$ (mod $\pi$) uno puede excluir la contribución monopolar de $\psi$ si el espacio es asintóticamente plano. Por lo que esas soluciones no poseen un gran valor físico.
 
 Ahora es mejor expresar la solucion en "prolate spheroidal coordinates" (zipoy). Entonces fijamos
 
@@ -88,8 +119,139 @@ Ahora es mejor expresar la solucion en "prolate spheroidal coordinates" (zipoy).
     z = & xy
 \end{eqnarray}
 
+cuando realizamos este cambio de coordenadas $\psi$ puede ser expresado como una superposisión lineal de funciones de Legendre:
 
+\begin{equation}
+    \psi=\sum_{l}\alpha_{l}Q_{l}(x)P_l(y) \qand{Q legendre second kind and P first kind}
+\end{equation}
 
+en el caso puro de $l=0$ tenemos
+
+\begin{equation}
+    \psi\frac{1}{2}\ln(\dfrac{x+1}{x-1})
+\end{equation}
+
+lo cual reemplazando en \eqref{psiEcu} tenemos la solución para $\xi$:
+
+\begin{equation}
+    \xi = x
+\end{equation}
+
+Esta solución corresponde a Schwarzschild. Donde $x+1$ es la coordenada radial en Schwarzschild (escogiendo $M$ como unidad de longitud) y $y=\cos(\theta)$. Es decir en coordenadas clásicas ($c=1$) tenemos la siguiente transformación de coordenadas:
+
+\begin{eqnarray}
+    \label{xTor}
+    x &= \frac{r}{M}-1 \\
+    \label{yToTheta}
+    y &= \cos(\theta)
+\end{eqnarray}
+
+entonces reemplazando en \eqref{Eecu} tenemos
+
+\begin{equation}
+    \mathcal{E}=\qty(x-1)/\qty(x+1)
+\end{equation}
+
+donde $x$ es una variable real por lo que podemos identificar que 
+
+\begin{eqnarray}
+    \label{fecures}
+    f = & \qty(x-1)/\qty(x+1) \\
+    \label{varphiecures}
+    \varphi = & 0
+\end{eqnarray}
+
+entonces en coordenadas clásicas tenemos que
+
+\begin{eqnarray}
+    \label{fecuresSch}
+    f = & 1-\dfrac{2M}{r} \\
+    \label{omegaecuresSch}
+    \omega = & 0
+\end{eqnarray}
+
+Des esta manera reemplzando en \eqref{papapetrou} tenemos que
+
+\begin{equation}
+    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r})\dd{t}^{2}+\qty(1-\dfrac{2M}{r})^{-1}\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
+\end{equation}
+
+donde
+
+\begin{eqnarray}
+    \label{rhoTortheta}
+    \rho = & r\qty(1-\dfrac{2M}{r})^{1/2}\sin (\theta) \\
+    \label{zTortheta}
+    z = & \qty(r-m)\cos(\theta)
+\end{eqnarray}
+
+Entonces
+
+\begin{multline*}
+    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r})\dd{t}^{2}+r^{2}\sin(\theta)^{2}\dd{\phi}^{2}\\
+    +\qty(1-\dfrac{2M}{r})^{-1}e^{2\gamma}\qty(\dfrac{r^{2}-2mr+m^{2}\sin(\theta)^{2}}{r^{2}})\qty[\qty(1-\dfrac{2M}{r})^{-1}\dd{r}^{2}+r^{2}\dd{\theta}^{2}]
+\end{multline*}
+
+\textcolor{blue}{Asumiendo que}
+
+\begin{equation*}
+    \qty(1-\dfrac{2M}{r})^{-1}e^{2\gamma}\qty(\dfrac{r^{2}-2mr+m^{2}\sin(\theta)^{2}}{r^{2}})=1
+\end{equation*}
+
+tenemos la clásica métrica de Schwarzschild.
+
+\begin{equation}
+    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r})\dd{t}^{2}+r^{2}\sin(\theta)^{2}\dd{\phi}^{2}+\qty(1-\dfrac{2M}{r})^{-1}\dd{r}^{2}+r^{2}\dd{\theta}^{2}
+\end{equation}
+
+\subsection{Reissner-Nordström}
+El análisis se realiza de manera similar solo que en este caso en el lagrangiano se agrega el campo electromagnético. Es por eso que la función $\mathcal{E}$ ahora tiene la forma
+
+\begin{equation}
+    \mathcal{E}=\qty(f-\abs{\Phi}^{2})+\im\varphi
+\end{equation}
+
+y cuando las nuevas restricciones de este caso se aplican tenemos que como conocemos
+
+\begin{equation}
+    \mathcal{E}=\qty(\xi-1)/\qty(\xi+1)
+\end{equation}
+
+y con respecto al neuvo campo
+
+\begin{equation}
+    \Phi=q/(\xi+1)
+\end{equation}
+
+se utilizan las mismas coordenadas $x,y$. Entonces usando nuestra solución anterior para $\xi$ tenemos
+
+\begin{equation}
+    \mathcal{E}=\qty(x-1)/\qty(x+1)
+\end{equation}
+
+de donde podemos despejar $f$
+
+\begin{equation}
+    f=\mathcal{E}+\abs{\Phi}^{2}
+\end{equation}
+
+reemplazando obtenemos
+
+\begin{equation}
+    f=\dfrac{\qty(x-1)}{\qty(x+1)}+\dfrac{q^{2}}{\qty(x+1)^{2}}
+\end{equation}
+
+con la transformación de coordenadas que definimos y teniendo en cuenta que $Q=qm$ tenemos
+
+\begin{equation}
+    f=1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}}
+\end{equation}
+
+por lo que la métrica que obtendremos es
+
+\begin{equation}
+    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})\dd{t}^{2}+r^{2}\sin(\theta)^{2}\dd{\phi}^{2}+\qty(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})^{-1}\dd{r}^{2}+r^{2}\dd{\theta}^{2}
+\end{equation}
 %\subsection{Este es un sub título}
 
 %\lipsum[15-17] % dummy text
