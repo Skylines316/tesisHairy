@@ -2,133 +2,166 @@
 \documentclass[../Main.tex]{subfiles}
 
 \begin{document}
-Asumamos un espacio axiosimétrico y estacionario. En este espacio la métrica se puede expresar de la siguiente manera:
-%
+Considerando la acción :
 \begin{equation}
-\dd{s}^{2} = -V\qty(\dd{t}-\omega\dd{\phi})^{2}+V^{-1}\rho^{2}\dd{\phi}^{2}+\Omega^{2}\qty(\dd{\rho}^{2}+\Lambda\dd{z}^{2})
+    S=\int_{\mathcal{M}} \dd[4]{x}\sqrt{-g}R
 \end{equation}
-%
-Donde $V,\Omega, \Lambda$ son funciones que solo dependen de $\rho$ y $z$la cual en el caso especial en que el espacio es vacío, es decir $R_{ab}=0$ tenemos la siguiente ecuación para $\rho$:
-%
-\begin{equation}
-    D^{a}D_{a}\rho=0 \quad D_{a}: \text{derivada covariantes en la 2D atravesada por } \rho \, z
-\end{equation}
-%
-y la métrica se puede expresar de la siguiente manera(Papapetrou):
+
+
+Asumiendo un espacio axiosimétrico y estacionario, la métrica más general que se puede escribir es de la siguiente manera(Papapetrou):
 %
 \begin{equation}
-    \dd{s}^{2} = -f\qty(\dd{t}-\omega\dd{\phi})^{2}+f^{-1}\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
+    \dd{s}^{2} = -f(\rho,z)\qty(\dd{t}-\omega\dd{\phi})^{2}+f^{-1}(\rho,z)\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma(\rho,z)}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
     \label{papapetrou}
 \end{equation}
-
-y al exigir que $R_{\mu\nu}=0$:
+%
+luego asumamos para mayor simplicidad que $\omega=0$, entonces la métrica es:
+%
+\begin{equation}
+    \dd{s}^{2} = -f(\rho,z)\dd{t}^{2}+f^{-1}(\rho,z)\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma(\rho,z)}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
+    \label{metric}
+\end{equation}
+%
+y al exigir que $R_{\mu\nu}=0$, además de escoger convenientemente, primero $R_{zz}-R_{\rho\rho}=0$:
+\begin{equation}
+    \pdv{\gamma}{\rho}=\dfrac{1}{4}\dfrac{1}{f^{2}(\rho,z)}\qty[\qty(\pdv{f(\rho,z)}{\rho})^{2}-\qty(\pdv{f(\rho,z)}{z})^{2}]
+\end{equation}
+%
+y luego de $R_{\phi\phi}=0=R_{tt}$:
+\begin{equation}
+    f(\rho,z)\qty(\dfrac{1}{\rho}\pdv{f(\rho,z)}{\rho}+\pdv[2]{f(\rho,z)}{\rho}+\pdv[2]{f(\rho,z)}{z})=\qty[\qty(\pdv{f(\rho,z)}{\rho})^{2}+\qty(\pdv{f(\rho,z)}{z})^{2}]
+\end{equation}
+%
+Lo cuál se puede escribir como:
+\begin{equation}
+    f(\rho,z)\laplacian{f(\rho,z)}=\grad{f(\rho,z)}\vdot\grad{f(\rho,z)}
+\end{equation}
+%
+tengamos en cuenta que los operadores $\laplacian$ y $\grad$ son operadores definidos en un espacio euclideo en coordenadas cilíndricas con la métrica $\dd{s}^{2} = \rho^{2}\dd{\phi}^{2}+\dd{\rho}^{2}+\dd{z}^{2}$.
+%
+\newline
+%
+y finalmente de $R_{\rho z}=0$:
+\begin{equation}
+    \pdv{\gamma}{z}=\dfrac{1}{2}\rho\dfrac{1}{f^{2}(\rho,z)}\qty(\pdv{f(\rho,z)}{\rho}\pdv{f(\rho,z)}{z})
+\end{equation}
+%
+ahora juntando todas estas condiciones para las funciones tenemos que:
 \begin{eqnarray}
-    \label{firstcon}
-    \grad{\qty(f^{-1}\grad{f}+\rho^{-2}f^{2}\omega\grad{\omega})} & =0 \\
-    \label{secondcon}
-    \grad{\qty(\rho^{-2}f^{2}\grad{\omega})} & =0 \\
-    \label{thirdcon}
-    \dfrac{1}{4}\rho f^{-2}\qty[\qty(\pdv{f}{\rho})^{2}-\qty(\pdv{f}{z})^{2}]-\dfrac{1}{4}\rho^{-1}f^{2}\qty[\qty(\pdv{\omega}{\rho})^{2}-\qty(\pdv{\omega}{z})^{2}] & =\pdv{\gamma}{\rho} \\
-    \dfrac{1}{2}\rho f^{-2}\pdv{f}{\rho}\pdv{f}{z}-\dfrac{1}{2}\rho^{-1} f^{2}\pdv{\omega}{\rho}\pdv{\omega}{z} & = \pdv{\gamma}{z}
-    \label{fourthcon}
+    \label{Function_f}
+    f(\rho,z)\laplacian{f(\rho,z)}= & \grad{f(\rho,z)}\vdot\grad{f(\rho,z)}\\
+    \label{gamma_partial_rho}
+    \pdv{\gamma}{\rho}= & \dfrac{1}{4}\dfrac{1}{f^{2}(\rho,z)}\qty[\qty(\pdv{f(\rho,z)}{\rho})^{2}-\qty(\pdv{f(\rho,z)}{z})^{2}] \\
+    \label{gamma_partial_z}
+    \pdv{\gamma}{z}= & \dfrac{1}{2}\rho\dfrac{1}{f^{2}(\rho,z)}\qty(\pdv{f(\rho,z)}{\rho}\pdv{f(\rho,z)}{z})
 \end{eqnarray}
+% \begin{eqnarray}
+%     \label{firstcon}
+%     \grad{\qty(f^{-1}\grad{f}+\rho^{-2}f^{2}\omega\grad{\omega})} & =0 \\
+%     \label{secondcon}
+%     \grad{\qty(\rho^{-2}f^{2}\grad{\omega})} & =0 \\
+%     \label{thirdcon}
+%     \dfrac{1}{4}\rho f^{-2}\qty[\qty(\pdv{f}{\rho})^{2}-\qty(\pdv{f}{z})^{2}]-\dfrac{1}{4}\rho^{-1}f^{2}\qty[\qty(\pdv{\omega}{\rho})^{2}-\qty(\pdv{\omega}{z})^{2}] & =\pdv{\gamma}{\rho} \\
+%     \dfrac{1}{2}\rho f^{-2}\pdv{f}{\rho}\pdv{f}{z}-\dfrac{1}{2}\rho^{-1} f^{2}\pdv{\omega}{\rho}\pdv{\omega}{z} & = \pdv{\gamma}{z}
+%     \label{fourthcon}
+% \end{eqnarray}
+%
+% desarrollando \eqref{firstcon} con ayuda de \eqref{secondcon} tenemos:
+%
+% \begin{equation}
+%     f\laplacian{f}=\grad{f}\vdot\grad{f}-\rho^{-2}f^{4}\grad{\omega}\vdot\grad{\omega}
+%     \label{conduno}
+% \end{equation}
+%
+% Ahora definamos una función $\varphi$ que no depende del azimut, entonces esta función cumple la siguiente identidad:
 
-desarrollando \eqref{firstcon} con ayuda de \eqref{secondcon} tenemos:
+% \begin{equation}
+%     \grad(\rho^{-1}\vu{n}\cp\grad{\varphi})=0
+% \end{equation}
 
+% donde $\vu{n}$ es un vector unitario en la dirección del azimut. Ahora de \eqref{secondcon} podemos decir que es la condición de integrabilidad de un función $\varphi$ definida por:
+
+% \begin{equation}
+%     \rho^{-1}f^{2}\grad{\omega}=\vu{n}\cp\grad{\varphi}
+% \end{equation}
+
+% esta relación es equivalente a:
+
+% \begin{equation}
+%     f^{-2}\grad{\varphi}=-\rho^{-1}\vu{n}\cp\grad{\omega}
+% \end{equation}
+
+% esto implica que
+
+% \begin{equation}
+%     \grad(f^{-2}\grad(\varphi))=0
+% \end{equation}
+
+% si expresamos \eqref{conduno} en función de este nuevo potencial $\varphi$. Podemos definir la función $\mathcal{E}$.
+
+% \begin{equation}
+%     \mathcal{E}=f+\im \varphi
+% \end{equation}
+%
+si fijamos que la parte real de una cierta función $\mathcal{E}$ es igual a $f(\rho,z)$, entonces la ecuación \eqref{Function_f} se reescribe como:
+%
 \begin{equation}
-    f\laplacian{f}=\grad{f}\vdot\grad{f}-\rho^{-2}f^{4}\grad{\omega}\vdot\grad{\omega}
-    \label{conduno}
+    \qty(\Re{\mathcal{E}})\laplacian{\mathcal{E}}=\grad{\mathcal{E}}\vdot\grad{\mathcal{E}}
+    \label{princCondUno}
 \end{equation}
-
-Ahora definamos una función $\varphi$ que no depende de l azimut, entonces esta función cumple la siguiente identidad:
-
-\begin{equation}
-    \grad(\rho^{-1}\vu{n}\cp\grad{\varphi})=0
-\end{equation}
-
-donde $\vu{n}$ es un vector unitario en la dirección del azimut. Ahora de \eqref{secondcon} podemos decir que es la condición de integrabilidad de un función $\varphi$ definida por:
-
-\begin{equation}
-    \rho^{-1}f^{2}\grad{\omega}=\vu{n}\cp\grad{\varphi}
-\end{equation}
-
-esta relación es equivalente a:
-
-\begin{equation}
-    f^{-2}\grad{\varphi}=-\rho^{-1}\vu{n}\cp\grad{\omega}
-\end{equation}
-
-esto implica que
-
-\begin{equation}
-    \grad(f^{-2}\grad(\varphi))=0
-\end{equation}
-
-si expresamos \eqref{conduno} en función de este nuevo potencial $\varphi$. Podemos definir la función $\mathcal{E}$.
-
-\begin{equation}
-    \mathcal{E}=f+\im \varphi
-\end{equation}
-
-que cumple la ecuación:
-
-\begin{equation}
-    \qty(\Re{\mathcal{E}})\laplacian{\mathcal{E}}=\grad{\mathcal{E}}\cp\grad{\mathcal{E}}
-\label{princCondUno}
-\end{equation}
-
+%
 uno puede hacer simples modificaciones a $\mathcal{E}$. Una de las importantes es la siguiente(Papapetrou):
-
+%
 \begin{equation}
     \mathcal{E}=\qty(\xi-1)/\qty(\xi+1)
     \label{Eecu}
 \end{equation}
-
-cuando reemplazemos $\mathcal{E}$ en \eqref{princCondUno} obtenemos la siguiente ecuación para $\xi$:
-
+%
+cuando reemplazemos $\mathcal{E}=\mathcal{E}(\xi)$ en \eqref{princCondUno} obtenemos la siguiente ecuación para $\xi$:
+%
 \begin{equation}
     \qty(\xi\xi^{*}-1)\laplacian{\xi}=2\xi^{*}\grad{\xi}\vdot\grad{\xi}
     \label{xiEcu}
 \end{equation}
-
+%
 esta ecuación tambien se puede derivar de principio variacional de:
-
+%
 \begin{equation}
     \delta\int\dfrac{\grad{\xi}\vdot\grad{\xi}^{*}}{\qty(\xi\xi^{*}-1)^{2}}\dd{v}=0
 \end{equation}
-
+%
 De \eqref{xiEcu} podemos notar que si $\xi$ es una solución entonces $e^{\im\alpha}\xi$ también es una solución. Entonces podemos expresar la función $\xi$ de la siguiente manera:
-
+%
 \begin{equation}
     \xi=-e^{\im\alpha}\coth{\psi}
     \label{psiEcu}
 \end{equation}
-
+%
 donde al reemplazar esta expresión para $\xi$ en \eqref{xiEcu} se tiene que $\psi$ cumple la ecuación de laplace
-
+%
 \begin{equation}
     \laplacian{\psi}=0
 \end{equation}
-
-Por consiguiente se puede expresar $\psi$ en terminos de una "expansión multipolar". Las soluciones ya fueron estudiadas por Weyl en 1917 cuando $\alpha=0$ y por Papapetrou en 1953 cuando $\alpha=\pi/2$. Desafortunadamente cuando $\alpha \neq 0$ (mod $\pi$) uno puede excluir la contribución monopolar de $\psi$ si el espacio es asintóticamente plano. Por lo que esas soluciones no poseen un gran valor físico.
-
-Ahora es mejor expresar la solucion en "prolate spheroidal coordinates" (zipoy). Entonces fijamos
-
+%
+Por consiguiente se puede expresar $\psi$ en terminos de una ``expansión multipolar''. Las soluciones ya fueron estudiadas por Weyl en 1917 cuando $\alpha=0$ y por Papapetrou en 1953 cuando $\alpha=\pi/2$. Desafortunadamente cuando $\alpha \neq 0$ (mod $\pi$) uno puede excluir la contribución monopolar de $\psi$ si el espacio es asintóticamente plano. Por lo que esas soluciones no poseen un gran valor físico.
+%
+Ahora es mejor expresar la solucion en ``prolate spheroidal coordinates'' (zipoy). Entonces fijamos
+%
 \begin{eqnarray}
     \rho= & (x^2-1)^{1/2}(1-y^{2})^{1/2} \\
     z = & xy
 \end{eqnarray}
-
+%
 cuando realizamos este cambio de coordenadas $\psi$ puede ser expresado como una superposisión lineal de funciones de Legendre:
-
+%
 \begin{equation}
-    \psi=\sum_{l}\alpha_{l}Q_{l}(x)P_l(y) \qand{Q legendre second kind and P first kind}
+    \psi=\sum_{l}\alpha_{l}Q_{l}(x)P_{l}(y)
 \end{equation}
-
-en el caso puro de $l=0$ tenemos
-
+%
+donde $Q_{l}(x)$ son las funciones de Legendre de segunda clase y $P_{l}(y)$ son las funciones de Legendre de primera clase. En el caso puro de $l=0$ tenemos
+%
 \begin{equation}
-    \psi\frac{1}{2}\ln(\dfrac{x+1}{x-1})
+    \psi=\frac{1}{2}\ln(\dfrac{x+1}{x-1})
 \end{equation}
 
 lo cual reemplazando en \eqref{psiEcu} tenemos la solución para $\xi$:
@@ -141,7 +174,7 @@ Esta solución corresponde a Schwarzschild. Donde $x+1$ es la coordenada radial 
 
 \begin{eqnarray}
     \label{xTor}
-    x &= \frac{r}{M}-1 \\
+    x &= \dfrac{r}{M}-1 \\
     \label{yToTheta}
     y &= \cos(\theta)
 \end{eqnarray}
@@ -152,7 +185,7 @@ entonces reemplazando en \eqref{Eecu} tenemos
     \mathcal{E}=\qty(x-1)/\qty(x+1)
 \end{equation}
 
-donde $x$ es una variable real por lo que podemos identificar que 
+donde $x$ es una variable real por lo que podemos identificar que
 
 \begin{eqnarray}
     \label{fecures}
@@ -182,7 +215,8 @@ donde
     \label{rhoTortheta}
     \rho = & r\qty(1-\dfrac{2M}{r})^{1/2}\sin (\theta) \\
     \label{zTortheta}
-    z = & \qty(r-m)\cos(\theta)
+    z = & \qty(r-M)\cos(\theta) \\
+    \label{r}
 \end{eqnarray}
 
 Entonces

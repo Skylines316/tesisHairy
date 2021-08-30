@@ -18,16 +18,27 @@
 %---------- Escribir desde aquí en adelante
 
 
-\section{hola}
-Hola
+\section{Simetría axial y estacionaria}
 
-\section{Logo Universidad de Concepción}
-\begin{figure}[h]
-    \centering
-\caption{UdeC logo}
-    \includegraphics[width=0.2\columnwidth]{./Images/escudo_unsaac.jpg}
-    \label{fig_logo2}
-\end{figure}
+Asumamos un espacio axiosimétrico y estacionario. En este espacio la métrica se puede expresar de la siguiente manera:
+%
+\begin{equation}
+\dd{s}^{2} = -V(\rho, z)\qty(\dd{t}-\omega\dd{\phi})^{2}+V(\rho, z)^{-1}\rho^{2}\dd{\phi}^{2}+\Omega(\rho, z)^{2}\qty(\dd{\rho}^{2}+\Lambda(\rho, z)\dd{z}^{2})
+\end{equation}
+%
+Donde $V,\Omega, \Lambda$ son funciones que solo dependen de $\rho$ y $z$la cual en el caso especial en que el espacio es vacío, es decir $R_{ab}=0$ tenemos la siguiente ecuación para $\rho$:
+%
+\begin{equation}
+    D^{a}D_{a}\rho=0 \quad D_{a}: \text{derivada covariantes en la 2D atravesada por } \rho \, z
+\end{equation}
+%
+% \section{Logo Universidad de Concepción}
+% \begin{figure}[h]
+%     \centering
+% \caption{UdeC logo}
+%     \includegraphics[width=0.2\columnwidth]{./Images/escudo_unsaac.jpg}
+%     \label{fig_logo2}
+% \end{figure}
 
 
 \biblio %Se necesita para referenciar cuando se compilan subarchivos individuales - NO SACAR
