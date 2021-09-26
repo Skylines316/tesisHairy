@@ -15,7 +15,7 @@ Asumiendo un espacio axiosimétrico y estacionario, la métrica más general que
     \label{papapetrou}
 \end{equation}
 %
-luego asumamos para mayor simplicidad que $\omega=0$, entonces la métrica es:
+luego asumamos para mayor simplicidad que $\omega=0$, además tengamos en cuenta que  entonces la métrica es:
 %
 \begin{equation}
     \dd{s}^{2} = -f(\rho,z)\dd{t}^{2}+f^{-1}(\rho,z)\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma(\rho,z)}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
@@ -117,7 +117,15 @@ uno puede hacer simples modificaciones a $\mathcal{E}$. Una de las importantes e
     \label{Eecu}
 \end{equation}
 %
-cuando reemplazemos $\mathcal{E}=\mathcal{E}(\xi)$ en \eqref{princCondUno} obtenemos la siguiente ecuación para $\xi$:
+cuando reemplazemos $\mathcal{E}=\mathcal{E}(\xi)$ en \eqref{princCondUno}, usando
+%
+\begin{eqnarray}
+    \grad{\mathcal{E}}=\grad(\dfrac{\xi-1}{\xi+1})= & \dfrac{2\grad{\xi}}{\qty(\xi+1)^{2}} \\
+    \laplacian{\mathcal{E}}= \div(\grad(\dfrac{\xi-1}{\xi+1}))= & 2\qty[\dfrac{\qty(\xi+1)\laplacian{\xi}-2\grad{\xi}\grad{\xi}}{\qty(\xi+1)^{3}}] \\
+    \Re{\mathcal{E}}= & \dfrac{2\qty(\xi^{*}\xi-1)}{\qty(\xi+1)\qty(\xi^{*}+1)}
+\end{eqnarray}
+%
+obtenemos la siguiente ecuación para $\xi$:
 %
 \begin{equation}
     \qty(\xi\xi^{*}-1)\laplacian{\xi}=2\xi^{*}\grad{\xi}\vdot\grad{\xi}
@@ -141,6 +149,7 @@ donde al reemplazar esta expresión para $\xi$ en \eqref{xiEcu} se tiene que $\p
 %
 \begin{equation}
     \laplacian{\psi}=0
+    \label{psilaplace}
 \end{equation}
 %
 Por consiguiente se puede expresar $\psi$ en terminos de una ``expansión multipolar''. Las soluciones ya fueron estudiadas por Weyl en 1917 cuando $\alpha=0$ y por Papapetrou en 1953 cuando $\alpha=\pi/2$. Desafortunadamente cuando $\alpha \neq 0$ (mod $\pi$) uno puede excluir la contribución monopolar de $\psi$ si el espacio es asintóticamente plano. Por lo que esas soluciones no poseen un gran valor físico.
@@ -152,7 +161,35 @@ Ahora es mejor expresar la solucion en ``prolate spheroidal coordinates'' (zipoy
     z = & xy
 \end{eqnarray}
 %
-cuando realizamos este cambio de coordenadas $\psi$ puede ser expresado como una superposisión lineal de funciones de Legendre:
+por lo que \eqref{psilaplace} se puede reescribir
+%
+\begin{eqnarray*}
+    \laplacian{\psi}= & \laplacian[P(y)Q(x)]= \dfrac{1}{x^{2}-y^{2}}\qty[\pdv{\qty(x^{2}-1)}{x}\pdv{x}+\pdv{\qty(1-y^{2})}{y}\pdv{y}]P(y)Q(x) \\
+    = & \dfrac{1}{x^{2}-y^{2}}\qty[\pdv{\qty(x^{2}-1)}{x}\pdv{\qty(P(y)Q(x))}{x}+\pdv{\qty(1-y^{2})}{y}\pdv{\qty(P(y)Q(x))}{y}] \\
+    = & \dfrac{1}{x^{2}-y^{2}}\qty{\qty[\qty(1-y^{2})P''(y)-2yP'(y)]Q(x)-\qty[\qty(1-x^{2})Q''(x)-2xQ'(x)]P(y)}
+\end{eqnarray*}
+%
+por lo que
+%
+\begin{equation}
+    \qty[\qty(1-y^{2})P''(y)-2yP'(y)]\dfrac{1}{P(y)}=\dfrac{1}{Q(x)}\qty[\qty(1-x^{2})Q''(x)-2xQ'(x)]
+\end{equation}
+%
+de donde podemos igualar ambos lados a constantes (de nuestra conveniencia)
+%
+\begin{eqnarray*}
+    \qty[\qty(1-y^{2})P''(y)-2yP'(y)]\dfrac{1}{P(y)} = & -l\qty(l+1) \\
+    \dfrac{1}{Q(x)}\qty[\qty(1-x^{2})Q''(x)-2xQ'(x)] = & -l\qty(l+1)
+\end{eqnarray*}
+%
+ahora poniendo esto de una manera conveniente, podemos identificar ecuaciones de legendre para ambos polinomios
+%
+\begin{eqnarray*}
+    \qty(1-y^{2})P''(y)-2yP'(y)+l\qty(l+1)P(y)=0 \\
+    \qty(1-x^{2})Q''(x)-2xQ'(x)+l\qty(l+1)Q(x)=0
+\end{eqnarray*}
+%
+finalmente, dado que $x\in [1,+\infty>$ y $y \in [-1,1]$, la solución para $P(y)$ serán las funciones de legendre de primera clase y para $Q(x)$ las de segunda clase. De esta manera $\psi$ puede ser expresado como una funciones de Legendre:
 %
 \begin{equation}
     \psi=\sum_{l}\alpha_{l}Q_{l}(x)P_{l}(y)
