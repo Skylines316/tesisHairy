@@ -2,327 +2,75 @@
 \documentclass[../Main.tex]{subfiles}
 
 \begin{document}
-Considerando la acción :
-\begin{equation}
-    S=\int_{\mathcal{M}} \dd[4]{x}\sqrt{-g}R
-\end{equation}
-
-
-Asumiendo un espacio axiosimétrico y estacionario, la métrica más general que se puede escribir es de la siguiente manera(Papapetrou):
-%
-\begin{equation}
-    \dd{s}^{2} = -f(\rho,z)\qty(\dd{t}-\omega\dd{\phi})^{2}+f^{-1}(\rho,z)\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma(\rho,z)}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
-    \label{papapetrou}
-\end{equation}
-%
-luego asumamos para mayor simplicidad que $\omega=0$, además tengamos en cuenta que  entonces la métrica es:
-%
-\begin{equation}
-    \dd{s}^{2} = -f(\rho,z)\dd{t}^{2}+f^{-1}(\rho,z)\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma(\rho,z)}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
-    \label{metric}
-\end{equation}
-%
-y al exigir que $R_{\mu\nu}=0$, además de escoger convenientemente, primero $R_{zz}-R_{\rho\rho}=0$:
-\begin{equation}
-    \pdv{\gamma}{\rho}=\dfrac{1}{4}\dfrac{1}{f^{2}(\rho,z)}\qty[\qty(\pdv{f(\rho,z)}{\rho})^{2}-\qty(\pdv{f(\rho,z)}{z})^{2}]
-\end{equation}
-%
-y luego de $R_{\phi\phi}=0=R_{tt}$:
-\begin{equation}
-    f(\rho,z)\qty(\dfrac{1}{\rho}\pdv{f(\rho,z)}{\rho}+\pdv[2]{f(\rho,z)}{\rho}+\pdv[2]{f(\rho,z)}{z})=\qty[\qty(\pdv{f(\rho,z)}{\rho})^{2}+\qty(\pdv{f(\rho,z)}{z})^{2}]
-\end{equation}
-%
-Lo cuál se puede escribir como:
-\begin{equation}
-    f(\rho,z)\laplacian{f(\rho,z)}=\grad{f(\rho,z)}\vdot\grad{f(\rho,z)}
-\end{equation}
-%
-tengamos en cuenta que los operadores $\laplacian$ y $\grad$ son operadores definidos en un espacio euclideo en coordenadas cilíndricas con la métrica $\dd{s}^{2} = \rho^{2}\dd{\phi}^{2}+\dd{\rho}^{2}+\dd{z}^{2}$.
-%
-\newline
-%
-y finalmente de $R_{\rho z}=0$:
-\begin{equation}
-    \pdv{\gamma}{z}=\dfrac{1}{2}\rho\dfrac{1}{f^{2}(\rho,z)}\qty(\pdv{f(\rho,z)}{\rho}\pdv{f(\rho,z)}{z})
-\end{equation}
-%
-ahora juntando todas estas condiciones para las funciones tenemos que:
-\begin{eqnarray}
-    \label{Function_f}
-    f(\rho,z)\laplacian{f(\rho,z)}= & \grad{f(\rho,z)}\vdot\grad{f(\rho,z)}\\
-    \label{gamma_partial_rho}
-    \pdv{\gamma}{\rho}= & \dfrac{1}{4}\dfrac{1}{f^{2}(\rho,z)}\qty[\qty(\pdv{f(\rho,z)}{\rho})^{2}-\qty(\pdv{f(\rho,z)}{z})^{2}] \\
-    \label{gamma_partial_z}
-    \pdv{\gamma}{z}= & \dfrac{1}{2}\rho\dfrac{1}{f^{2}(\rho,z)}\qty(\pdv{f(\rho,z)}{\rho}\pdv{f(\rho,z)}{z})
-\end{eqnarray}
-% \begin{eqnarray}
-%     \label{firstcon}
-%     \grad{\qty(f^{-1}\grad{f}+\rho^{-2}f^{2}\omega\grad{\omega})} & =0 \\
-%     \label{secondcon}
-%     \grad{\qty(\rho^{-2}f^{2}\grad{\omega})} & =0 \\
-%     \label{thirdcon}
-%     \dfrac{1}{4}\rho f^{-2}\qty[\qty(\pdv{f}{\rho})^{2}-\qty(\pdv{f}{z})^{2}]-\dfrac{1}{4}\rho^{-1}f^{2}\qty[\qty(\pdv{\omega}{\rho})^{2}-\qty(\pdv{\omega}{z})^{2}] & =\pdv{\gamma}{\rho} \\
-%     \dfrac{1}{2}\rho f^{-2}\pdv{f}{\rho}\pdv{f}{z}-\dfrac{1}{2}\rho^{-1} f^{2}\pdv{\omega}{\rho}\pdv{\omega}{z} & = \pdv{\gamma}{z}
-%     \label{fourthcon}
-% \end{eqnarray}
-%
-% desarrollando \eqref{firstcon} con ayuda de \eqref{secondcon} tenemos:
-%
-% \begin{equation}
-%     f\laplacian{f}=\grad{f}\vdot\grad{f}-\rho^{-2}f^{4}\grad{\omega}\vdot\grad{\omega}
-%     \label{conduno}
-% \end{equation}
-%
-% Ahora definamos una función $\varphi$ que no depende del azimut, entonces esta función cumple la siguiente identidad:
-
-% \begin{equation}
-%     \grad(\rho^{-1}\vu{n}\cp\grad{\varphi})=0
-% \end{equation}
-
-% donde $\vu{n}$ es un vector unitario en la dirección del azimut. Ahora de \eqref{secondcon} podemos decir que es la condición de integrabilidad de un función $\varphi$ definida por:
-
-% \begin{equation}
-%     \rho^{-1}f^{2}\grad{\omega}=\vu{n}\cp\grad{\varphi}
-% \end{equation}
-
-% esta relación es equivalente a:
-
-% \begin{equation}
-%     f^{-2}\grad{\varphi}=-\rho^{-1}\vu{n}\cp\grad{\omega}
-% \end{equation}
-
-% esto implica que
-
-% \begin{equation}
-%     \grad(f^{-2}\grad(\varphi))=0
-% \end{equation}
-
-% si expresamos \eqref{conduno} en función de este nuevo potencial $\varphi$. Podemos definir la función $\mathcal{E}$.
-
-% \begin{equation}
-%     \mathcal{E}=f+\im \varphi
-% \end{equation}
-%
-si fijamos que la parte real de una cierta función $\mathcal{E}$ es igual a $f(\rho,z)$, entonces la ecuación \eqref{Function_f} se reescribe como:
-%
-\begin{equation}
-    \qty(\Re{\mathcal{E}})\laplacian{\mathcal{E}}=\grad{\mathcal{E}}\vdot\grad{\mathcal{E}}
-    \label{princCondUno}
-\end{equation}
-%
-uno puede hacer simples modificaciones a $\mathcal{E}$. Una de las importantes es la siguiente(Papapetrou):
-%
-\begin{equation}
-    \mathcal{E}=\qty(\xi-1)/\qty(\xi+1)
-    \label{Eecu}
-\end{equation}
-%
-cuando reemplazemos $\mathcal{E}=\mathcal{E}(\xi)$ en \eqref{princCondUno}, usando
-%
-\begin{eqnarray}
-    \grad{\mathcal{E}}=\grad(\dfrac{\xi-1}{\xi+1})= & \dfrac{2\grad{\xi}}{\qty(\xi+1)^{2}} \\
-    \laplacian{\mathcal{E}}= \div(\grad(\dfrac{\xi-1}{\xi+1}))= & 2\qty[\dfrac{\qty(\xi+1)\laplacian{\xi}-2\grad{\xi}\grad{\xi}}{\qty(\xi+1)^{3}}] \\
-    \Re{\mathcal{E}}= & \dfrac{2\qty(\xi^{*}\xi-1)}{\qty(\xi+1)\qty(\xi^{*}+1)}
-\end{eqnarray}
-%
-obtenemos la siguiente ecuación para $\xi$:
-%
-\begin{equation}
-    \qty(\xi\xi^{*}-1)\laplacian{\xi}=2\xi^{*}\grad{\xi}\vdot\grad{\xi}
-    \label{xiEcu}
-\end{equation}
-%
-esta ecuación tambien se puede derivar de principio variacional de:
-%
-\begin{equation}
-    \delta\int\dfrac{\grad{\xi}\vdot\grad{\xi}^{*}}{\qty(\xi\xi^{*}-1)^{2}}\dd{v}=0
-\end{equation}
-%
-De \eqref{xiEcu} podemos notar que si $\xi$ es una solución entonces $e^{\im\alpha}\xi$ también es una solución. Entonces podemos expresar la función $\xi$ de la siguiente manera:
-%
-\begin{equation}
-    \xi=-e^{\im\alpha}\coth{\psi}
-    \label{psiEcu}
-\end{equation}
-%
-donde al reemplazar esta expresión para $\xi$ en \eqref{xiEcu} se tiene que $\psi$ cumple la ecuación de laplace
-%
-\begin{equation}
-    \laplacian{\psi}=0
-    \label{psilaplace}
-\end{equation}
-%
-Por consiguiente se puede expresar $\psi$ en terminos de una ``expansión multipolar''. Las soluciones ya fueron estudiadas por Weyl en 1917 cuando $\alpha=0$ y por Papapetrou en 1953 cuando $\alpha=\pi/2$. Desafortunadamente cuando $\alpha \neq 0$ (mod $\pi$) uno puede excluir la contribución monopolar de $\psi$ si el espacio es asintóticamente plano. Por lo que esas soluciones no poseen un gran valor físico.
-%
-Ahora es mejor expresar la solucion en ``prolate spheroidal coordinates'' (zipoy). Entonces fijamos
-%
-\begin{eqnarray}
-    \rho= & (x^2-1)^{1/2}(1-y^{2})^{1/2} \\
-    z = & xy
-\end{eqnarray}
-%
-por lo que \eqref{psilaplace} se puede reescribir
-%
-\begin{eqnarray*}
-    \laplacian{\psi}= & \laplacian[P(y)Q(x)]= \dfrac{1}{x^{2}-y^{2}}\qty[\pdv{\qty(x^{2}-1)}{x}\pdv{x}+\pdv{\qty(1-y^{2})}{y}\pdv{y}]P(y)Q(x) \\
-    = & \dfrac{1}{x^{2}-y^{2}}\qty[\pdv{\qty(x^{2}-1)}{x}\pdv{\qty(P(y)Q(x))}{x}+\pdv{\qty(1-y^{2})}{y}\pdv{\qty(P(y)Q(x))}{y}] \\
-    = & \dfrac{1}{x^{2}-y^{2}}\qty{\qty[\qty(1-y^{2})P''(y)-2yP'(y)]Q(x)-\qty[\qty(1-x^{2})Q''(x)-2xQ'(x)]P(y)}
-\end{eqnarray*}
-%
-por lo que
-%
-\begin{equation}
-    \qty[\qty(1-y^{2})P''(y)-2yP'(y)]\dfrac{1}{P(y)}=\dfrac{1}{Q(x)}\qty[\qty(1-x^{2})Q''(x)-2xQ'(x)]
-\end{equation}
-%
-de donde podemos igualar ambos lados a constantes (de nuestra conveniencia)
-%
-\begin{eqnarray*}
-    \qty[\qty(1-y^{2})P''(y)-2yP'(y)]\dfrac{1}{P(y)} = & -l\qty(l+1) \\
-    \dfrac{1}{Q(x)}\qty[\qty(1-x^{2})Q''(x)-2xQ'(x)] = & -l\qty(l+1)
-\end{eqnarray*}
-%
-ahora poniendo esto de una manera conveniente, podemos identificar ecuaciones de legendre para ambos polinomios
-%
-\begin{eqnarray*}
-    \qty(1-y^{2})P''(y)-2yP'(y)+l\qty(l+1)P(y)=0 \\
-    \qty(1-x^{2})Q''(x)-2xQ'(x)+l\qty(l+1)Q(x)=0
-\end{eqnarray*}
-%
-finalmente, dado que $x\in [1,+\infty>$ y $y \in [-1,1]$, la solución para $P(y)$ serán las funciones de legendre de primera clase y para $Q(x)$ las de segunda clase. De esta manera $\psi$ puede ser expresado como una funciones de Legendre:
-%
-\begin{equation}
-    \psi=\sum_{l}\alpha_{l}Q_{l}(x)P_{l}(y)
-\end{equation}
-%
-donde $Q_{l}(x)$ son las funciones de Legendre de segunda clase y $P_{l}(y)$ son las funciones de Legendre de primera clase. En el caso puro de $l=0$ tenemos
-%
-\begin{equation}
-    \psi=\frac{1}{2}\ln(\dfrac{x+1}{x-1})
-\end{equation}
-
-lo cual reemplazando en \eqref{psiEcu} tenemos la solución para $\xi$:
+\section{Relatividad General}
+El 5 de Julio de 1687 Isaac Newton publica \textit{Philosophiæ Naturalis Principia Mathematica} \cite{newton87a} en donde publica sus leyes del movimiento y su ley de gravitacion universal. Esta ley de gravitación fue la primera descripción matemática a partir de la cuál podiamos tener ecuaciones de movimiento para predecir el movimiento de los planetas. Sin embargo, esta descripción de la naturaleza aún estaba incompleta. Una de las limitantes de la descripcion de las interacciones segun Newton es la velocidad de interaccion infinita. Esto se puede ver claramente en al expresion matemática de la fuerza de interaccion gravitacional, esta solo depende de las masas y la distancia entre ellas. 
 
 \begin{equation}
-    \xi = x
+    \vec{F} = \frac{Gm_1m_2}{r^2} \vu{r}
 \end{equation}
 
-Esta solución corresponde a Schwarzschild. Donde $x+1$ es la coordenada radial en Schwarzschild (escogiendo $M$ como unidad de longitud) y $y=\cos(\theta)$. Es decir en coordenadas clásicas ($c=1$) tenemos la siguiente transformación de coordenadas:
+Esta velociad de interacción infinita romperia la causalidad ya que se propagaria más rápido que la luz. Es así que en 1905 Albert Einstein propone su teoría de la relatividad especial \cite{einstein}. En esta nueva teoría se abandona la idea de tiempo absoluto y se adopta la de tiempo propio, es decir que cada observador mide el tiempo de manera difernte, tiene su propio tiempo. Además de que el tiempo y el espacio ya no son entes separados por lo que se les llama en conjunto espaciotiempo.
 
-\begin{eqnarray}
-    \label{xTor}
-    x &= \dfrac{r}{M}-1 \\
-    \label{yToTheta}
-    y &= \cos(\theta)
-\end{eqnarray}
+Desafortunadamente cuando la interacción gravitaria se vuelve importante la relatividad especial falla al tratar de describir la realidad \cite{1994bhtw.bookT}. Es entonces que para poder describir la gravedad, con las caracteristicas ya agregadas por la relatividad especial, se necesita de un nuevo conjunto de leyes físicas que llamamos Relatividad General. En esta descripcion el espaciotiempo se curva y esta curvatura es lo que nosotros interpretamos como la interacción gravitacional. Poniendo el ejemplo de un ser bidimensional que vive en la superficie de uan esfera y coordina con otro para ubicarse en el ecuador y caminar en linea recta, siempre manteniendo un angulo de 90 grados sexagesimales entre sus trayectorias, estos notaran que a medida que caminan se van acercando uno al otro. Entonces estos seres bidimensionales interpretarian esto como una fuerza que los atrae, cuando mas bien es la geometria en donde viven que les hace seguir esa trayectoria.
 
-entonces reemplazando en \eqref{Eecu} tenemos
+Para poder describir todos estos conceptos en espacios curvos necesitamos herramientas matemáticas tales como calculo tensorial y geometría diferencial.
 
-\begin{equation}
-    \mathcal{E}=\qty(x-1)/\qty(x+1)
-\end{equation}
+\subsection{Variedades}
+Cuando el ser bidimensional que poniamos en un ejemplo anterior quiere poder mapear toda su superficie este podria pensar en caracterizarlo con 2 numeros. Sin embargo al hacer esto se perderian caracteristicas globales y por lo tanto estaria cometiendo una grave equivocacion. Es por eso que necesitamos de un objeto matemático que localmente luzca como una espacio $\mathbb{R}^n$ pero que globalmente tenga unas propiedades ligeramente distintas.
 
-donde $x$ es una variable real por lo que podemos identificar que
+\begin{itemize}
+    \item [Variedad]
+    Una variedad real, $C^{\infty}$, de n dimensiones $\mathcal{M}$. Es un conjunto junto con una coleccion de subconjuntos $\{O_{\alpha}\}$ que satisfacen las siguientes propiedades.
+    \begin{itemize}
+        \item Cada punto $p \in \mathcal{M}$ esta dentro de almenos un $O_{\alpha}$, es decir que $\{O_{\alpha}\}$ recubre todo $\mathcal{M}$.
+        \item Para cada $\alpha$, existe mapa uno a uno $\psi_{\alpha}:O_{\alpha}\rightarrow U_{\alpha}$, donde $U_{\alpha}$ es un subconjunto abierto de $\mathbb{R}^{n}$.
+        \item Si dos conjuntos $O_{\alpha}$ y $O_{\beta}$  se sobreponen, $O_{\alpha} \cap O_{\beta} \neq \emptyset$, podemos considerar el mapa $\psi_{\beta} \circ \psi_{\alpha}^{-1}$ la cuál toma puntos en $\psi_{\alpha}[O_{\alpha} \cap O_{\beta}]\subset U_{\alpha}\subset \mathbb{R}^{n}$ a puntos en $\psi_{\beta}[O_{\alpha} \cap O_{\beta}]\subset U_{\beta}\subset \mathbb{R}^{n}$ \footnote{Cada mapa $\psi_{\alpha}$ es generalemente llamado un sistema de coordenadas porque pasas de un palno tangente a otro plano tangente}.
+    \end{itemize}
 
-\begin{eqnarray}
-    \label{fecures}
-    f = & \qty(x-1)/\qty(x+1) \\
-    \label{varphiecures}
-    \varphi = & 0
-\end{eqnarray}
+    \item [Vector]
+    Un vector es aquel elemento que cumple las propieades de un espacio vectorial. Los espacios vectoriales que veremos son espacios tangentes a un punto $p$ y cumplen que: Sea $\mathcal{M}$ una variedad n-dimensional, sea $p \in \mathcal{M}$ y denotemos por $V_{p}$ al espacio tangente en p. Entonces $\dim{V_{p}} = n$.
 
-entonces en coordenadas clásicas tenemos que
+    \item [Tensor]
+    Un tensor es un mapa multilineal (lineal en cada variable) de vectores (o vectores duales) en números. Es decir que mapeamos todos los vectores en numeros escalares ordenados (este orden puede ser matricialmente).O de manera mas formal, sea V un espacio vectorial finito dimensional y sea $V^{*}$ el espacio vectorial dual\footnote{Este espacio vectorial dual $V^{*}$ tiene la característica que sea $v_{1}, \dots, v_{n}$ la base de V, y sea $v^{1^{*}}, \dots, v^{n^{*}}$ la base de $V^{*}$. Entonces $v^{\mu^{*}}(v_{\nu})=\delta^{\mu}_{\nu}$, donde $\delta^{\mu}_{\nu}=1$ si $\mu=\nu$ y 0 en los otros casos.} de V. Un tensor, T, de tipo (k,l) sobre V es un mapa multilineal.
+    \begin{equation}
+        T: \underbrace{V^{*}\times\dots\times V^{*}}_\text{k veces} \times \underbrace{V \times \dots \times V}_\text{l veces} \rightarrow \mathbb{R}
+    \end{equation}
+    \item [Métrica]
+    Intuitivamente una métrica nos indica la distancia al cuadrado infinesimal asociado con un desplazamiento infinitesimal. Los desplazamientos infinitesimales estan asociados con los vectores del plano tangente por lo que la métrica debe ser un mapa lineal de $V_{p}\times V_{p}$ en números, esto es un tensor de tipo (0, 2). Las propieades que tiene este tensor son:
+    \begin{itemize}
+        \item [Simetrico]
+        La distancia debe ser simétrica, esto es $g(\vec{v}_{1}, \vec{v}_{2})=g(\vec{v}_{2}, \vec{v}_{1}); \vec{v}_{1}, \vec{v}_{2} \in V_{p}$.
+        \item [No degenerada]
+        El valor de la métrica debe ser igual para todo observador, esto es $g(\vec{v},\vec{v}_{1})=0 \Leftrightarrow \vec{v}_{1}=0; \vec{v}_{1}, \vec{v} \in V_{p}$
+    \end{itemize}
+    En otras palabras la métrica es un producto interno del espacio tangente en cada punto, y no esta definida positiva necesariamente. En una base coordenada podemos expandir la métrica en términos de sus componentes $g_{\mu\nu}$ (ver \ref{sec:tensores}).
+    \begin{equation}
+        ds^{2} = g_{\mu\nu} \dd{x}^{\mu}\dd{x}^{\nu}
+    \end{equation}
+    %Una variedad es un conjunto de piezas que \textit{lucen} como bolas abiertas en $R^n$\footnote{Generalización de un intervalo abierto n dimensional} que se \textit{cosen} unas a otras suavemente. 
+\end{itemize}
 
-\begin{eqnarray}
-    \label{fecuresSch}
-    f = & 1-\dfrac{2M}{r} \\
-    \label{omegaecuresSch}
-    \omega = & 0
-\end{eqnarray}
+\subsection{Geodésicas}
+Usando la descripción Newtoniana de la gravedad se pueden describir las trayectorias de los cuerpos dentro de un campo gravitacional. Estas trayectorias son cónicas, dependiendo de la energía de la partícula serán elípticas, circulares o parabólicas \cite{Landau1976Mechanics}.
 
-Des esta manera reemplzando en \eqref{papapetrou} tenemos que
+En relatividad general a estas trayectorias se les llama geodesicas. Existen 2 tipos de geodesicas, las métricas y las afines. Sin embargo, en la teoría que estudiare ambos son indiferentes. Por lo que de manera general podemos definir a las geodesicas de la siguiente manera.
+\begin{itemize}
+    \item[Geodesicas:]   
+Mi trabajo consiste en encontrar estas trayectorias para un cuerpo dentro de un espacio-tiempo
+\end{itemize}
 
-\begin{equation}
-    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r})\dd{t}^{2}+\qty(1-\dfrac{2M}{r})^{-1}\qty[\rho^{2}\dd{\phi}^{2}+e^{2\gamma}\qty(\dd{\rho}^{2}+\dd{z}^{2})]
-\end{equation}
+\subsection{Curvatura}
+\subsection{Geodésicas Métricas}
+\subsection{Solución de Schwarzschild}
+\subsection{Potencial efectivo de Schwarzschild}
+\subsection{Geodésicas de Schwarzschild}
+\subsubsection{Problema de valores iniciales}
+\section{Agujeros Negros con Pelo}
+\subsection{Solución con $\Lambda=J=Q=0$}
+\subsection{Potencial efectivo de Agujeros Negros con Pelo}
+\subsection{Ecuación diferencial de las geodésicas}
+\subsection{Geodésicas de Agujeros Negros con Pelo}
 
-donde
-
-\begin{eqnarray}
-    \label{rhoTortheta}
-    \rho = & r\qty(1-\dfrac{2M}{r})^{1/2}\sin (\theta) \\
-    \label{zTortheta}
-    z = & \qty(r-M)\cos(\theta) \\
-    \label{r}
-\end{eqnarray}
-
-Entonces
-
-\begin{multline*}
-    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r})\dd{t}^{2}+r^{2}\sin(\theta)^{2}\dd{\phi}^{2}\\
-    +\qty(1-\dfrac{2M}{r})^{-1}e^{2\gamma}\qty(\dfrac{r^{2}-2mr+m^{2}\sin(\theta)^{2}}{r^{2}})\qty[\qty(1-\dfrac{2M}{r})^{-1}\dd{r}^{2}+r^{2}\dd{\theta}^{2}]
-\end{multline*}
-
-\textcolor{blue}{Asumiendo que}
-
-\begin{equation*}
-    \qty(1-\dfrac{2M}{r})^{-1}e^{2\gamma}\qty(\dfrac{r^{2}-2mr+m^{2}\sin(\theta)^{2}}{r^{2}})=1
-\end{equation*}
-
-tenemos la clásica métrica de Schwarzschild.
-
-\begin{equation}
-    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r})\dd{t}^{2}+r^{2}\sin(\theta)^{2}\dd{\phi}^{2}+\qty(1-\dfrac{2M}{r})^{-1}\dd{r}^{2}+r^{2}\dd{\theta}^{2}
-\end{equation}
-
-\subsection{Reissner-Nordström}
-El análisis se realiza de manera similar solo que en este caso en el lagrangiano se agrega el campo electromagnético. Es por eso que la función $\mathcal{E}$ ahora tiene la forma
-
-\begin{equation}
-    \mathcal{E}=\qty(f-\abs{\Phi}^{2})+\im\varphi
-\end{equation}
-
-y cuando las nuevas restricciones de este caso se aplican tenemos que como conocemos
-
-\begin{equation}
-    \mathcal{E}=\qty(\xi-1)/\qty(\xi+1)
-\end{equation}
-
-y con respecto al neuvo campo
-
-\begin{equation}
-    \Phi=q/(\xi+1)
-\end{equation}
-
-se utilizan las mismas coordenadas $x,y$. Entonces usando nuestra solución anterior para $\xi$ tenemos
-
-\begin{equation}
-    \mathcal{E}=\qty(x-1)/\qty(x+1)
-\end{equation}
-
-de donde podemos despejar $f$
-
-\begin{equation}
-    f=\mathcal{E}+\abs{\Phi}^{2}
-\end{equation}
-
-reemplazando obtenemos
-
-\begin{equation}
-    f=\dfrac{\qty(x-1)}{\qty(x+1)}+\dfrac{q^{2}}{\qty(x+1)^{2}}
-\end{equation}
-
-con la transformación de coordenadas que definimos y teniendo en cuenta que $Q=qm$ tenemos
-
-\begin{equation}
-    f=1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}}
-\end{equation}
-
-por lo que la métrica que obtendremos es
-
-\begin{equation}
-    \dd{s}^{2} = -\qty(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})\dd{t}^{2}+r^{2}\sin(\theta)^{2}\dd{\phi}^{2}+\qty(1-\dfrac{2M}{r}+\dfrac{Q^{2}}{r^{2}})^{-1}\dd{r}^{2}+r^{2}\dd{\theta}^{2}
-\end{equation}
 %\subsection{Este es un sub título}
 
 %\lipsum[15-17] % dummy text

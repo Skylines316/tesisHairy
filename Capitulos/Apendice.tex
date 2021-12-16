@@ -40,6 +40,41 @@ Donde $V,\Omega, \Lambda$ son funciones que solo dependen de $\rho$ y $z$la cual
 %     \label{fig_logo2}
 % \end{figure}
 
+\section{Tensores covariante y contravariante, métrica}\label{sec:tensores}
+Un tensor contravariante es del tipo (k,0) y un tensor covariante es del tipo (0,l). Comunmente nos referiremos a los vectores que estan en el espacio tangente $V_{p}$ como contravariantes y a los vectores que estan en el espacio cotangente $V^{*}_{p}$ como covariantes. Es así que, sea el vector $\vec{v}$ podemos descomponerlo en los vectores base de $V_{p}$\footnote{Tambien se puede descomponer en los vectores base de $V^{*}_{p}$.},y $\dim{v_{p}}=3$ \footnote{Para el ejemplo trabajamos en 3 dimensiones, pero la generalización simple.}.
+
+\begin{equation}
+    \vec{v}=v^{1}\vu{e}_1+v^{2}\vu{e}_2+v^{3}\vu{e}_3 = v^{i}\vu{e}_i
+\end{equation}
+
+y a partir de la proyeccion de este vector hallaremos las componentes covariantes.
+
+\begin{equation}
+    v_{j}=\vec{v}\cdot\vu{e}_{j}=v^{i}\vu{e}_i\cdot\vu{e}_{j}
+\end{equation}
+
+es así que podemos definir los componentes de la métrica.
+
+\begin{eqnarray}
+    g_{ij} = \vu{e}_i\cdot\vu{e}_{j} & \qq{donde} \vu{e}_i,\vu{e}_j \qq{son vectores base de} V_{p}\\
+    g^{ij} = \vu{e}^i\cdot\vu{e}^{j} & \qq{donde} \vu{e}^i,\vu{e}^j \qq{son vectores base de} V^{*}_{p}
+\end{eqnarray}
+
+Con esta definición de la métrica tenemos algunas propiedades interesantes
+
+\begin{itemize}
+    \item Subir y bajar indices
+    \begin{eqnarray}
+        v_{j} & = v^{i} g_{ij} \\
+        v^{j} & = v_{i} g^{ij}
+    \end{eqnarray}
+    \item Norma de un vector
+    \begin{eqnarray}
+        \vec{v}\vdot\vec{v}= & v^{i}\vu{e}_i\vdot v^{j}\vu{e}_j=v^{i}v^{j}\vu{e}_i\vdot\vu{e}_{j}=v^{i}v^{j}g_{ij} \\ 
+        & \vec{v}\vdot\vec{v} = v^{i} v_{i}
+    \end{eqnarray}
+\end{itemize}
+
 
 \biblio %Se necesita para referenciar cuando se compilan subarchivos individuales - NO SACAR
 \end{document}
