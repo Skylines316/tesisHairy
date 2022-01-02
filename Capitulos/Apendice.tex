@@ -16,7 +16,32 @@
 %\counterwithin{figure}{subsection}
 
 %---------- Escribir desde aquí en adelante
+\section{Notacion, convencion de suma de Einstein}
+Cuando uno realiza operaciones con tensores, incluso las mas simples manipulaciones pueden resultar en notaciones muy complicadas. Es por eso que necesitamos nuevas convenciones para solucionar estos problemas.
+\begin{itemize}
+    \item Usaremos la notacion de índices abstractos, segun esta notacion solo usaremos las componentes. A los tensores con componentes contravariantes (k,0) los denotaremos con idices superiores $T^{a_{1}\dots a_{k}}$ y a los ensores con componentes covariantes (0,l) con indices inferiores $T_{b_{1}\dots b_{l}}$. Así los tensores (k,l) serán denotados con indices superiores y inferiores respectivamente, es decir $T^{a_{1}\dots a_{k}}_{b_{1}\dots b_{l}}$, tambien en la multiplicación de tensores obviaremos el simbolo de multiplicación externa $\otimes$ y no repetiremos la letra que indica el índice; esto es
+    \begin{equation}
+        T^{ijk}_{lm}\otimes S^{i}_{j} \xrightarrow{\text{se convierte en}} T^{ijk}_{lm}S^{n}_{o}
+    \end{equation}
+    \item Los tensores tienen muchos indices (correspondientes a vectores y vectores duales) y al contraer estos indices aparecen simbolos de suma. Cuando las contracciones son de varios indices aumentan los simbolos de suma, por eso usaremos la convencion de suma de Einstein.
+    \begin{eqnarray}
+        A^{i}B_{i} & = \sum_{i}A^{i}B_{i} \\
+        C^{abcdef}D_{abcijkl} & = \sum_{a}\sum_{b}\sum_{c}C^{abcdef}D_{abcijkl}
+    \end{eqnarray}
+    Segun este convenio pra contraccion de indices ya no usaremos el simbolo de suma, sino que esto se vera implicito por la repeticion del índice tanto en la parte superior como en la inferior.
+\end{itemize}
 
+La notación de indices también nos ayuda a expresar las propiedades de los tensores.
+\begin{itemize}
+    \item La parte simétrica de un tensor $T_{ab}$ es
+    \begin{equation}
+        T_{(ab)}=\dfrac{1}{2}\qty(T_{ab}+T_{ba})
+    \end{equation}
+    \item La parte antisimétrica de un tensor $T_{ab}$ es
+    \begin{equation}
+        T_{[ab]}=\dfrac{1}{2}\qty(T_{ab}-T_{ba})
+    \end{equation}
+\end{itemize}
 
 \section{Simetría axial y estacionaria}
 
