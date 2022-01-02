@@ -15,7 +15,7 @@ Desafortunadamente cuando la interacción gravitaria se vuelve importante la rel
 
 Para poder describir todos estos conceptos en espacios curvos necesitamos herramientas matemáticas tales como calculo tensorial y geometría diferencial.
 
-\subsection{Variedades}
+\subsection{Variedades}\label{subsec:Variedades}
 Cuando el ser bidimensional que poniamos en un ejemplo anterior quiere poder mapear toda su superficie este podria pensar en caracterizarlo con 2 numeros. Sin embargo al hacer esto se perderian caracteristicas globales y por lo tanto estaria cometiendo una grave equivocacion. Es por eso que necesitamos de un objeto matemático que localmente luzca como una espacio $\mathbb{R}^n$ pero que globalmente tenga unas propiedades ligeramente distintas.
 
 \begin{itemize}
@@ -50,17 +50,116 @@ Cuando el ser bidimensional que poniamos en un ejemplo anterior quiere poder map
     %Una variedad es un conjunto de piezas que \textit{lucen} como bolas abiertas en $R^n$\footnote{Generalización de un intervalo abierto n dimensional} que se \textit{cosen} unas a otras suavemente. 
 \end{itemize}
 
+En la escritura de las ecuacione se ha seguido una reglas de notación, eso se ve a mayor detalle en \ref{sec:tensores}.
+
+\subsection{Curvatura}
+Como pudimos ver en \ref{subsec:Variedades} los vectores estan definidos en los espacios tangentes y contangentes a la variedad. Entonces para poder relacionar vectores de diferentes espacios tanges necesitamos de una conexión. En relatividad general se usa la conexión de Levi-Civita. Esta conexión es especial ya que el espaciotiempo no tendra torsión y solo presentara curvatura.
+
+La derivada de un vector, en coordenas cuyos vectores base son constantes, es otro vector. Y el mapeo de las derivadas de sus componentes conforman un tensor. Esto no sucede así para coordenadas curvilineas o espacios curvos, en este caso necesitamos de un factor extra que compense la curvatura. Este factor extra son los simbolos de Christoffel, así entonces tenemos
+
+\begin{equation}
+    \nabla_{\nu}{A}^{\mu} = \partial_{\nu}{A}^{\mu}+\Gamma^{\mu}_{\nu\rho}A^{\rho}
+\end{equation}
+
+a esta derivada se le conoce como derivada covariante. Tambien por la conexión de Levi-Civita los símbolso de Christoffel cumple con lo siguiente.
+
+\begin{equation}
+    \Gamma^{\mu}_{\nu\rho} = \Gamma^{\mu}_{\rho\nu}
+\end{equation}
+
+Y la dervida covariante cumple con
+
+\begin{equation}
+    \nabla_{\nu}{g_{\mu\nu}} = 0
+\end{equation}
+
+de esta expresión se puede deducir que
+
+\begin{equation}
+    \Gamma^{\mu}_{\nu\rho} = \dfrac{1}{2}g^{\mu\sigma}\qty(\partial_{\nu}{g_{\rho\sigma}}+\partial_{\rho}{g_{\nu\sigma}}-\partial_{\sigma}{g_{\nu\rho}})
+\end{equation}
+
+A partir del operador de derivada nosotros podemos introducir la noción de transporte paralelo de un vector sobre la curva $C$. Para que este transporte parelelo se dé, la variación de este vector debe ser paralela al vector tangente de la curva $C$, esto es:
+
+\begin{equation}
+    t^{a}\nabla_{a}v^{b} = 0 
+\end{equation}
+
+Ahora el espacio en el que trabajamos normalmente en realtividad general esta libre de torsióm, esto quiere decir que si una funcion escalar $f$ la variamos en cierto orden $\nabla_{a}\nabla_{b}f$ esta será igual al hacerlo en orden invertido, esto es:
+
+\begin{equation}
+    \nabla_{a}\nabla_{b}f = \nabla_{b}\nabla_{a}f
+\end{equation}
+
+sin embargo si nosotros hacemos esto para el dual de un campo vectorial esto no sucede, por lo que tenemos que $(\nabla_{a}\nabla_{b}-\nabla_{a}\nabla_{b})\omega_{c}$ no es igual a cero y lo que sucede es que a $(\nabla_{a}\nabla_{b}-\nabla_{b}\nabla_{a})$ define un mapeo lineal de vectores duales $\omega_{c}$ de tipo (0,1) a un tensor de tipo (0,3). Esto es quivalente a la acción de un tensor (1,3) sobre el tensor (0,1). Este tensor que cumple estas características, es el tensor de \textit{curvatura de Riemann} $\tensor{R}{_{abc}^{d}}$. Esto es:
+
+\begin{equation}
+    (\nabla_{a}\nabla_{b}-\nabla_{b}\nabla_{a})\omega_{c} = \tensor{R}{_{abc}^{d}}\omega_{d}
+\end{equation}
+
+Ahora veamos las propiedades del tensor de Riemann:
+
+\begin{enumerate}
+    \item Antisimetría en los 2 primeros índices:
+    \begin{equation}
+        \tensor{R}{_{abc}^{d}} = -\tensor{R}{_{bac}^{d}}
+        \label{Riemann:1}
+    \end{equation}
+
+    \item Propiedad equivalente en dormas diferenciales a $\dd[2]{\vec{\omega}}$:
+    \begin{equation}
+        \tensor{R}{_{[abc]}^{d}} = 0
+        \label{Riemann:2}
+    \end{equation}
+
+    \item Antisimetría de los 2 últimos índices:
+    \begin{equation}
+        \tensor{R}{_{abcd}} = -\tensor{R}{_{abdc}}
+        \label{Riemann:3}
+    \end{equation}
+
+    \item Identidad de Bianchi:
+    \begin{equation}
+        \nabla_{[a}\tensor{R}{_{bc]d}^e} = 0
+        \label{Riemann:4}
+    \end{equation}
+
+    \item De 1 a 3 se puede deducir
+    \begin{equation}
+        \tensor{R}{_{abcd}} = \tensor{R}{_{cdab}}
+        \label{Riemann:5}
+    \end{equation}
+\end{enumerate}
+
+Es útil descomponer al tensor de Riemann en la parte con traza y la parte libre de traza. Por \eqref{Riemann:1} y \eqref{Riemann:3} la traza sobre los 2 primeros o 2 últimos índices es cero. Sin embargo, la traza sobre el segundo y cuarto índice que es equivalente a la traza sobre el primer y tercer índice (esto también por \eqref{Riemann:1} y \eqref{Riemann:3}) define el tensor de \textit{Ricci}, $\tensor{R}{_{ac}}$.
+
+\begin{equation}
+    \tensor{R}{_{ac}} = \tensor{R}{_{abc}^{b}}
+\end{equation}
+
+de \eqref{Riemann:5} encontramos la siguiente propiedad para el tensor de Ricci
+
+\begin{equation}
+    \tensor{R}{_{ac}} = \tensor{R}{_{ca}}
+\end{equation}
+
+Finalmente podemos definir la traza del tensor de Ricci como la \textit{Curvatura Escalar}.
+
+\begin{equation}
+    R = \tensor{R}{_{a}^{a}}
+\end{equation}
+
+y la parte libre de traza es llamada \textit{tensor de Weyl}.
+
 \subsection{Geodésicas}
 Usando la descripción Newtoniana de la gravedad se pueden describir las trayectorias de los cuerpos dentro de un campo gravitacional. Estas trayectorias son cónicas, dependiendo de la energía de la partícula serán elípticas, circulares o parabólicas \cite{Landau1976Mechanics}.
 
-En relatividad general a estas trayectorias se les llama geodesicas. Existen 2 tipos de geodesicas, las métricas y las afines. Sin embargo, en la teoría que estudiare ambos son indiferentes. Por lo que de manera general podemos definir a las geodesicas de la siguiente manera.
+En relatividad general a estas trayectorias se les llama geodesicas. Existen 2 tipos de geodesicas, las métricas y las afines. Sin embargo, en la teoría que estudiare ambas son indiferentes. Por lo que de manera general podemos definir a las geodesicas de la siguiente manera.
 \begin{itemize}
     \item[Geodesicas:]   
 Mi trabajo consiste en encontrar estas trayectorias para un cuerpo dentro de un espacio-tiempo
 \end{itemize}
 
-\subsection{Curvatura}
-\subsection{Geodésicas Métricas}
 \subsection{Solución de Schwarzschild}
 \subsection{Potencial efectivo de Schwarzschild}
 \subsection{Geodésicas de Schwarzschild}
