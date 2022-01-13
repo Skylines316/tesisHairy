@@ -156,19 +156,417 @@ Usando la descripción Newtoniana de la gravedad se pueden describir las trayect
 
 En relatividad general a estas trayectorias se les llama geodesicas. Existen 2 tipos de geodesicas, las métricas y las afines. Sin embargo, en la teoría que estudiare ambas son indiferentes. Por lo que de manera general podemos definir a las geodesicas de la siguiente manera.
 \begin{itemize}
-    \item[Geodesicas:]   
-Mi trabajo consiste en encontrar estas trayectorias para un cuerpo dentro de un espacio-tiempo
+    \item[Geodesicas:]   La curva que minimiza la distancia entre 2 puntos y cuyo vector tangente se propaga paralelamente sobre si mismo. Esto quiere decir que cumple con la ecuación.
+    
+    \begin{equation}
+        \tensor{T}{^{a}}\nabla_{a}{\tensor{T}{^{b}}} = 0
+        \label{geodesics:1}
+    \end{equation} 
+
+    donde $\tensor{T}{^a} = \dv{x^{\mu}}{t}$. Entonces podemos expresar \eqref{geodesics:1} desarrollando la derivada covariante.
+
+    \begin{equation}
+        \dv[2]{x^{\mu}}{t} + \sum_{\sigma, \nu}\tensor{\Gamma}{^{\mu}_{\sigma \nu}}\dv{x^{\sigma}}{t}\dv{x^{\nu}}{t} = 0
+    \end{equation}
+
+    Esta ecuación es una ecuación de segundo orden, por lo que para podere resolverla necesitaremos 2 parámetros iniciales. Esta ecuación para la geodésica también puede ser obtenida variando el siguiente lagrangiano.
+
+    \begin{equation}
+        \mathcal{L} = \sum_{\mu,\nu}\tensor{g}{_{\mu\nu}}\dv{x^{mu}}{t}\dv{x^{nu}}{t}
+    \end{equation}  
 \end{itemize}
 
+Sin embargo podemos encontrar las ecuaciones de movimiento de otra manera. Para las partículas tipo tiempo \textit{``timelike''} $\dd{s}^{2} = -c^{2}\dd{\tau}^{2}$ donde $\tau$ es el tiempo propio y para las partículas nulas \textit{``null''} $\dd{s}^{2} = 0$ donde $\kappa$ es el parámetro afín. Entonces podemos formular la siguiente ecuación para las partículas \tl
+
+\begin{equation}
+    -c^{2}\dd{\tau}^{2} = g_{\mu\nu} \dd{x}^{\mu}\dd{x}^{\nu}
+    \label{timelikegeodesics}
+\end{equation}
+
+y para las partículas \nl
+
+\begin{equation}
+    0 = g_{\mu\nu} \dd{x}^{\mu}\dd{x}^{\nu}
+    \label{nullgeodesics}
+\end{equation}
+
+Por lo que reemplazando el valor de la métrica tenemos una ecuación de movimiento para la partícula.
+
+\subsection{Acción de Hilbert Einstein}
+Siguiendo la formalación lagrangiana de la ecuación de Einstein tenemos la siguiente acción.
+
+\begin{equation}
+    S = \int_{\mathcal{M}}\dd[4]{x}\sqrt{-g}\qty(\dfrac{c^{4}}{16\pi G_{N}}R+\mathcal{L}_{M})
+\end{equation}
+
+variando la acción tenemos
+
+\begin{eqnarray*}
+    \delta S = && \dfrac{c^{4}}{16\pi G_{N}} \int_{\mathcal{M}}\dd[4]{x}\qty[\delta(\sqrt{-g})R+\sqrt{-g}\delta R]+\int_{\mathcal{M}}\dd[4]{x}\delta(\sqrt{-g}\mathcal{L}_{M}) = 0 \\
+    \delta S = && \dfrac{c^{4}}{16\pi G_{N}} \int_{\mathcal{M}}\dd[4]{x}\qty[\qty(-\frac{1}{2}g_{\mu\nu}\sqrt{-g}\delta g^{\mu\nu})R + \sqrt{-g}\qty(\tensor{R}{_{\mu\nu}}\delta g^{\mu\nu})]+\int_{\mathcal{M}}\dd[4]{x}\qty(-\frac{1}{2}g^{\mu\nu}\sqrt{-g}\tensor{T}{_{\mu\nu}})= 0
+\end{eqnarray*}
+\begin{equation}
+    \dfrac{c^{4}}{16\pi G_{N}} \int_{\mathcal{M}}\dd[4]{x}\qty[-\frac{1}{2}g_{\mu\nu}R+R_{\mu\nu}-\frac{8\pi G_{N}}{c^{4}}\tensor{T}{_{\mu\nu}}]\sqrt{-g}\delta g^{\mu\nu} = 0
+\end{equation}
+
+\begin{equation}
+    R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R = \frac{8\pi G_{N}}{c^{4}}\tensor{T}{_{\mu\nu}}
+    \label{einsteinEq}
+\end{equation}
+
+donde hemos definido el tensor de energía momentum como
+
+\begin{equation}
+    \tensor{T}{_{\mu\nu}} = \dfrac{-2}{\sqrt{-g}}\fdv{(\sqrt{-g}\mathcal{L}_{M})}{g^{\mu\nu}}
+\end{equation}
+
+En \eqref{einsteinEq} tenemos en total un conjunto de 16 ecuaciones que relacionan al espacio tiempo $R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R$ con la energía y materia $\tensor{T}{_{\mu\nu}}$.
+
 \subsection{Solución de Schwarzschild}
+Cuando Einstein propuso \eqref{einsteinEq} las consideró muy difíciles de resolver de manera analítica. Sin embargo en 1916, tan solo un año despues, el físico Karl Schwarzschild encontro una solución analítica a la ecuación de Einstein. Esto lo logro igualando el tensor de energía momentum a 0 $\tensor{T}{_{\mu\nu}}=0$, encontrando así la siguiente métrica.
+
+\begin{equation}
+    \dd{s}^{2} = -c^{2}\qty(1-\dfrac{2G_{N}M}{c^{2}r})\dd{t}^{2} + \qty(1-\dfrac{2G_{N}M}{c^{2}r})^{-1}\dd{r}^{2} + r^{2}\qty(\dd{\theta}^{2}+\sin^{2}{\theta}\dd{\varphi}^{2})
+\end{equation}
+
+Donde M es la masa del cuerpo que crea el campo. Esta métrica tiene algunas propiedades como: simetría esférica y estática. Otra cosa que renombrar es que si $r = 2G_{N}M/c^{2}$ tenemos una singularidad en la coordenada temporal y en la coordenada espacial la componente se hace infinita. Esto no es un problema del sistema físico, sino que las coordenadas que escogimos no son las adecuadas para este sistema. 
+Esta solución representa a una masa esférica perfectamente simétrica que en las coordenadas que usamos podemos definir un horizonte de sucesos justamente en $r = 2G_{N}M/c^{2}$, a este valor especial de $r$ se le llama \textit{``radio de Schwarzschild''} y al cuerpo masivo que genera esta métrica se le llama \textit{``Agujero negro de Schwarzschild''}. Por la simetría esférica podemos escoger $\theta = \pi/2$, sin perdida de generalidad y reemplazando $2G_{N}M/c^{2}$ por $r_{g}$ tenemos
+
+\begin{equation}
+    \dd{s}^{2} = -c^{2}\qty(1-\dfrac{r_{g}}{r})\dd{t}^{2} + \qty(1-\dfrac{r_{g}}{r})^{-1}\dd{r}^{2} + r^{2}\dd{\varphi}^{2}
+\end{equation}
+
+reemplazando el valor de la métrica en \eqref{timelikegeodesics} tenemos
+
+\begin{equation}
+    -c^{2}\dd{\tau}^{2} = -c^{2}\qty(1-\dfrac{r_{g}}{r})\dd{t}^{2} + \qty(1-\dfrac{r_{g}}{r})^{-1}\dd{r}^{2} + r^{2}\dd{\varphi}^{2}
+    \label{Schwarzschildgeodesics}
+\end{equation}
+
+de donde tenemos que
+
+\begin{equation*}
+    1 = \qty(1-\dfrac{r_{g}}{r})\dot{t}^{2} - \dfrac{1}{c^{2}}\qty(1-\dfrac{r_{g}}{r})^{-1}\dot{r}^{2} - \dfrac{r^{2}}{c^{2}}\dot{\varphi}^{2} 
+\end{equation*}
+
+Ahora usando las cantidades conservadas gracias a los vectores killing hallados en \ref{sec:killing} tenemos
+
+\begin{align}
+    1 = \qty(1-\dfrac{r_{g}}{r}) & \qty[\qty(1-\dfrac{r_{g}}{r})^{-1}\dfrac{\mathscr{E}}{mc^{2}}]^{2} - \dfrac{1}{c^{2}}\qty(1-\dfrac{r_{g}}{r})^{-1}\dot{r}^{2} - \dfrac{r^{2}}{c^{2}}\qty[\dfrac{\mathscr{J}}{mr^{2}}]^{2} \\
+    1 = \qty(1-\dfrac{r_{g}}{r}) & ^{-1} \dfrac{\mathscr{E}^{2}}{m^{2}c^{4}} - \dfrac{1}{c^{2}}\qty(1-\dfrac{r_{g}}{r})^{-1}\dot{r}^{2} - \dfrac{r^{2}\mathscr{J}^{2}}{c^{2}m^{2}r^{4}} \\
+    \qty(1-\dfrac{r_{g}}{r}) = & \dfrac{\mathscr{E}^{2}}{m^{2}c^{4}} - \dfrac{\dot{r}^{2}}{c^{2}} - \qty(1-\dfrac{r_{g}}{r})\dfrac{\mathscr{J}^{2}}{c^{2}m^{2}r^{2}} \\ 
+    \dfrac{\mathscr{E}^{2}}{m^{2}c^{4}} = & \dfrac{\dot{r}^{2}}{c^{2}} + \qty(1-\dfrac{r_{g}}{r})\qty(1 + \dfrac{\mathscr{J}^{2}}{c^{2}m^{2}r^{2}})
+\end{align}
+
+vamos a renombrar algunas variables para hacer la energía por partícula al igual que el momentum angular por partícula.
+
+\begin{align}
+    E = & \qty(\dfrac{\mathscr{E}}{mc^{2}})^{2} \\
+    J = & \dfrac{\mathscr{J}}{mc^{2}}
+\end{align}
+
+con estos cambios las unidades tambien cambian, siendo así $E$ no tiene dimensiones y $J$ unidades de tiempo. También desplazare el valor 0 de la energía para que se pueda visualizar mejor en los gráficos $E'=E-1$.
+entonces tenemos 
+
+\begin{equation}
+    E' = \dfrac{\dot{r}^{2}}{c^{2}} + \qty(1-\dfrac{r_{g}}{r})\qty(1 + \dfrac{J^{2}c^{2}}{r^{2}})-1
+    \label{SchwarzschildEnergia}
+\end{equation}
+
+Para el caso $\nl$ reemplazamos la métrica en \eqref{nullgeodesics} y también usamos los killing de \ref{sec:killing} teniendo
+
+\begin{align}
+    0 = \qty(1-\dfrac{r_{g}}{r}) & \qty[\qty(1-\dfrac{r_{g}}{r})^{-1}\dfrac{\mathscr{E}}{mc^{2}}]^{2} - \dfrac{1}{c^{2}}\qty(1-\dfrac{r_{g}}{r})^{-1}\dot{r}^{2} - \dfrac{r^{2}}{c^{2}}\qty[\dfrac{\mathscr{J}}{mr^{2}}]^{2} \\
+    0 = \qty(1-\dfrac{r_{g}}{r}) & ^{-1} \dfrac{\mathscr{E}^{2}}{m^{2}c^{4}} - \dfrac{1}{c^{2}}\qty(1-\dfrac{r_{g}}{r})^{-1}\dot{r}^{2} - \dfrac{r^{2}\mathscr{J}^{2}}{c^{2}m^{2}r^{4}} \\
+    0 = & \dfrac{\mathscr{E}^{2}}{m^{2}c^{4}} - \dfrac{\dot{r}^{2}}{c^{2}} - \qty(1-\dfrac{r_{g}}{r})\dfrac{\mathscr{J}^{2}}{c^{2}m^{2}r^{2}} \\ 
+    \dfrac{\mathscr{E}^{2}}{m^{2}c^{4}} = & \dfrac{\dot{r}^{2}}{c^{2}} + \dfrac{\mathscr{J}^{2}}{c^{2}m^{2}r^{2}}\qty(1-\dfrac{r_{g}}{r}) \\
+    c^{2}\dfrac{\mathscr{E}^{2}}{\mathscr{J}^{2}}= & \dot{r}^{2}\dfrac{c^{4}m^{2}}{\mathscr{J}^{2}} + \dfrac{c^{4}}{r^{2}}\qty(1-\dfrac{r_{g}}{r})
+\end{align}
+
+entonces tenemos para el caso \nl
+
+\begin{equation}
+    E = \dfrac{\dot{r}^{2}}{c^{2}} + \dfrac{J^{2}c^{2}}{r^{2}}\qty(1-\dfrac{r_{g}}{r})
+    \label{NullEnergy}
+\end{equation}
+
 \subsection{Potencial efectivo de Schwarzschild}
+Buscando hacer un simil con la mecánica clásica podemos identificar un potencial efectivo para una partícula $\tl$ en \eqref{SchwarzschildEnergia}
+
+\begin{equation}
+    U_{eff}^{tl} = \qty(1-\dfrac{r_{g}}{r})\qty(1 + \dfrac{J^{2}c^{2}}{r^{2}})-1
+    \label{PotencialEfectivo}
+\end{equation}
+
+entonces fijando $M$ y $J$ podemos graficar este potencial.
+
+\begin{figure}[ht]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/fig2.1.pdf}
+    \label{potencial:regionestimelike}
+    \caption{Fijando $M=10^6 M_\odot$ y $J^2=\frac{24M^2G^2_N}{c^6}$ podemos identificar 3 regiones. Cada región define un tipo distinto de geodésica.}
+\end{figure}
+
+\begin{itemize}
+    \item [Región I:] Donde $E>U^{max}_{eff}$; corresponden a geodésicas cuyas partículas tienen mucha energía por lo que caeran al agujero negro.
+    \item [Región II:] Entre $E=0$ y $E=U^{max}_{eff}$; corresponden a geodésicas cuyas partículas se encuentran con una barrera de potencial, por lo que se acercaran al agujero negro más no caerán dentro de él.
+    \item [Región III:] Entre $E=U^{min}_{eff}$ and $E=0$; corresponden a geodésicas cuyas partículas se encuentran atrapadas por el potencial efectivo, por lo que orbitarán al agujero negro.
+\end{itemize}
+
+Ahora veamos casos específicos de partículas en cada una de las regiones, además de 2 casos específicos de partículas con energías correspondientes a puntos críticos del potencial.
+
+\begin{figure}[ht]
+    \includegraphics[width=0.8\linewidth]{fig/fig2.pdf}
+    \label{potencial:particulas}
+    \caption{$E_1$ corresponde al valor mínimo del potencial efectivo (punto de equilibrio estable), por este motivo corresponde a una órbita circular estable. $E_2$ pertenece a la Región III. $E_3$ pertenece a la Región II. $E_4$ corresponde al valor máximo del potencial efectivo(punto de equilibrio inestable), por este motivo corresponde a una órbita circular inestable. $E_5$ pertence a la Región I.}
+\end{figure}
+
+De la misma manera que analizamos para una partícula $\tl$ podemos realizar un procedimiento similar para una partícula $\nl$ en la ecuación \eqref{NullEnergy} podemos identificar un potencial efectivo $\nl$
+
+\begin{equation}
+    \mathcal{V}_{eff} = \dfrac{J^{2}c^{2}}{r^{2}}\qty(1-\dfrac{r_{g}}{r})
+\end{equation}
+
+% \newpage
+
+entonces solamente fijando $M$ podemos graficar el potencial por unidad de $J^{2}$ \footnote{Dividimos el potencial por $J^{2}$ ya que en la ecuación de la geodésica esta constante es absorvida por el parámetro de impacto.}.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/fig3.2.pdf}
+    \caption{Fijando $M=10^6 M_\odot$ podemos identificar 2 regiones. Cada región define un tipo distinto de geodésica.}
+    \label{potencial:regionesnull}
+\end{figure}
+
+\begin{itemize}
+    \item [Región I:] Donde $E>\mathcal{V}^{max}_{eff}$; corresponden a geodésicas cuyas rayos de luz que tienen mucha energía por lo que caeran al agujero negro.
+    \item [Región II:] Entre $E=0$ y $E=\mathcal{V}^{max}_{eff}$; corresponden a geodésicas cuyas rayos de luz se encuentran con una barrera de potencial, por lo que se acercaran al agujero negro más no caerán dentro de él (deflexión de la luz).
+\end{itemize}
+
+Ahora veamos casos específicos de partículas en cada una de las regiones, además de un caso específicos de haz de luz con energía correspondiente al punto crítico del potencial.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/fig3.1.pdf}
+    \caption{$E_1$ pertenece a la Región II. $E_2$ corresponde al valor máximo del potencial efectivo (punto de equilibrio inestables), por este motivo corresponde a una órbita circular inestable. $E_3$ pertences a la Región I.}
+    \label{potencial:regionesnullparticles}
+\end{figure}
+
 \subsection{Geodésicas de Schwarzschild}
-\subsubsection{Problema de valores iniciales}
+Para poder hallar las geodésicas tenemos que retomar \eqref{SchwarzschildEnergia} y aplicar la regla de la cadena $\dv{r}{\tau}=\dv{r}{\varphi}\dv{\varphi}{\tau}$ y tenemos 
+
+\begin{align*}
+    E = & \qty(\dv{r}{\varphi})^{2}\dfrac{\dot{\varphi}^{2}}{c^{2}} + \qty(1-\dfrac{r_{g}}{r})\qty(1 + \dfrac{J^{2}c^{2}}{r^{2}})-1 \\
+    E = & \qty(\dv{r}{\varphi})^{2}\dfrac{J^{2}c^{2}}{r^{4}} + \qty(1-\dfrac{r_{g}}{r})\qty(1 + \dfrac{J^{2}c^{2}}{r^{2}})-1
+\end{align*}
+
+haciendo un cambio de variable $u(\varphi)=1/r(\varphi)$, entonces $\dv*{u}{\varphi}= -u^{2}\dv*{r}{\varphi}$, tenemos
+
+\begin{equation*}
+    E = \qty(-u^{-2}\dv{u}{\varphi})^{2}J^{2}c^{2}u^{4} + \qty(1-r_{g}u)\qty(1 + J^{2}c^{2}u^{2})-1
+\end{equation*}
+
+\begin{equation}
+    E = \qty(\dv{u}{\varphi})^{2}J^{2}c^{2} + \qty(1-r_{g}u)\qty(1 + J^{2}c^{2}u^{2})-1
+    \label{geodesicas:energia}
+\end{equation}
+
+derivando esta ecuación 
+
+\begin{align*}
+    0 = & 2\qty(\dv{u}{\varphi})\dv[2]{u}{\varphi}J^{2}c^{2} + \qty(-r_{g}\dv{\varphi}{u})\qty(1 + J^{2}c^{2}u^{2})+(1-r_{g}u)\qty(2J^{2}c^{2}u\dv{\varphi}{u}) \\
+    0 = & \qty(\dv{u}{\varphi})\qty[2\dv[2]{u}{\varphi}J^{2}c^{2}-r_{g}\qty(1+J^{2}c^{2}u^{2})+2J^{2}c^{2}u(1-ur_{g})] \\
+    0 = & \qty(\dv{u}{\varphi})\qty[2\dv[2]{u}{\varphi}J^{2}c^{2}-r_{g}-3r_{g}J^{2}c^{2}u^{2}+2J^{2}c^{2}u]
+\end{align*}
+
+de donde $\dv*{u}{\varphi} = 0$ es trivial y solo se da en ciertas partes de la geodésica. Por lo que igualar el otro factor a 0 nos dará las soluciones más completas.
+
+\begin{align*}
+    0 = & 2\dv[2]{u}{\varphi}J^{2}c^{2}-r_{g}-3r_{g}J^{2}c^{2}u^{2}+2J^{2}c^{2}u \\
+    0 = & \dv[2]{u}{\varphi}-\dfrac{r_{g}}{2J^{2}c^{2}}-\frac{3}{2}r_{g}u^{2}+u
+\end{align*}
+
+renombrando las constantes en una sola $\lambda=\dfrac{2J^{2}c^{2}}{r_{g}}$, tenemos la ecuación para las geodésicas de Schwarzschild
+
+\begin{equation}
+    \dv[2]{u}{\varphi}-\frac{3}{2}r_{g}u^{2}+u = \frac{1}{\lambda}
+\end{equation}
+
+resolviendo esta ecuación mediante Runge-Kutta (ver \ref{rungeKutta}) y con las condiciones iniciales adecuadas obtenemos los siguientes gráficos. 
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{fig/figE4.1.pdf}
+    \caption{Podemos ver las 2 órbitas circulares, en rojo la órbita estable y en azul la órbita inestable. Son las únicas órbitas circulares que existen. Y en gris el agujero negro. Condiciones iniciales (curva roja): $r_0=r_{*}^+$ y $\dot{r}_0=0$. Condiciones iniciales (curva azul):  $r_0=r_{*}^-$ and $\dot{r}_0=0$. }
+    \label{timelike:circular}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=.8\linewidth]{fig/figE5.pdf}
+    \caption{Podemos ver una geodésicas que cae dentro del agujero negro (Región - I), algo a notar es que su caida no es perpendicular al horizonte de eventos. Y en gris el agujero negro. Condiciones iniciales: $r_0\rightarrow\infty$ y $\dot{r}_0=\sqrt{Ec^2}$.}
+    \label{timelike:caida}
+\end{figure}
+
+\newpage
+
+\begin{figure}[H]
+    % \begin{subfigure}{.5\textwidth}
+    %   \centering
+    %   % include first image
+    %   \includegraphics[width=.8\linewidth]{fig/figE3-cerca.pdf}
+    %   \caption{Close-up view: $r_h$, $r_2$ (red) and\\the orbit (blue).}
+    %   \label{}
+    % \end{subfigure}
+    % \begin{subfigure}{.5\textwidth}
+    \centering
+    % include second image
+    \includegraphics[width=.8\linewidth]{fig/figE3-lejos.pdf}
+    \caption{Podemos observar una geodésica que solo se acerca al agujero (curva azul), mas no lo orbita (Región - II). Agrego la curva roja para referencia, $r=0.04613484978865398\,\,AU$. Condiciones iniciales: $r_0\rightarrow\infty$ y $\dot{r}_0=\sqrt{Ec^2}$}
+    \label{timelike:acerca}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/figE2.pdf}
+    \caption{Podemos observar una geodésica orbita al agujero (curva azul) esto quiere decir que se ubica en la Región - III. Agrego la curva roja para referencia, $r_{p}=0.12158224399382238\,\,AU$ y $r_{h} = r_{g}$. Condiciones iniciales: $r_0=0.5106936776245934\,\,AU$ y $E'=-0.03$}
+\end{figure}
+
+todos estos gráficos corresponden a particulas \tl. Ahora de la ecuación \eqref{NullEnergy} podemos usar la regla de la cadena $\dv{r}{\kappa}=\dv{r}{\varphi}\dv{\varphi}{\kappa}$ y tenemos
+\begin{align*}
+    c^{2}\dfrac{E^{2}}{J^{2}} = & \dot{r}^{2} + \dfrac{c^{4}}{r^{2}}\qty(1-\dfrac{r_{g}}{r}) \\
+    c^{2}\dfrac{E^{2}}{J^{2}} = & \qty(\dv{r}{\varphi}\dfrac{c^{2}}{r^{2}})^{2} + \dfrac{c^{4}}{r^{2}}\qty(1-\dfrac{r_{g}}{r}) 
+\end{align*}
+
+en el caso $\nl$ tenemos que
+
+\begin{equation}
+    b \equiv \dfrac{J}{E}
+\end{equation}
+
+donde $b$ es el parámetro de impacto (esto debido a las definiciones de $\mathscr{J}$ y $\mathscr{E}$). Con estos cambios tenemos
+
+\begin{equation}
+    \qty(\dv{r}{\varphi})^{2} = \dfrac{r^{4}}{b^{2}c^{2}}-r^{2}\qty(1-\dfrac{r_{g}}{r})
+    \label{geodesicnullcuadratic}
+\end{equation}
+
+haciendo nuevamente el cambio de variable $u(\varphi)=1/r(\varphi)$ y $\dv*{u}{\varphi}= -u^{2}\dv*{r}{\varphi}$, tenemos
+
+\begin{align*}
+    \qty(-\dv{u}{\varphi}u^{-2})^{2} = & \dfrac{1}{u^{4}b^{2}c^{2}}-\dfrac{1}{u^{2}}\qty(1-ur_{g}) \\
+    \qty(\dv{u}{\varphi})^{2}u^{-4} = & \dfrac{1}{u^{4}b^{2}c^{2}}-\dfrac{1}{u^{2}}\qty(1-ur_{g}) \\
+    \qty(\dv{u}{\varphi})^{2} = & \dfrac{1}{b^{2}c^{2}}-u^{2}\qty(1-ur_{g}) \\
+    \qty(\dv{u}{\varphi})^{2} = & \dfrac{1}{b^{2}c^{2}}-u^{2}+u^{3}r_{g}
+\end{align*}
+
+derivando esta ecuación
+
+\begin{align*}
+    2\qty(\dv{u}{\varphi})\dv[2]{u}{\varphi} = & -2u\dv{u}{\varphi} + 3u^{2}\dv{u}{\varphi}r_{g} \\
+    0 = & \qty(\dv{u}{\varphi})\qty[2\dv[2]{u}{\varphi}+2u-3u^{2}r_{g}] \\
+\end{align*}
+
+al igual que en el caso $\tl$ igualamos el segundo factor a 0, esto es
+
+\begin{equation}
+    \dv[2]{u}{\varphi}-\dfrac{3}{2}r_{g}u^{2}+u = 0
+    \label{geodesicnull}
+\end{equation}
+
+resolviendo esta ecuación mediante Runge-Kutta (ver \ref{rungeKutta}) y con las condiciones iniciales adecuadas obtenemos los siguientes gráficos.
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/figE21.pdf}
+    \caption{Podemos observar una geodésica que solo se acerca al agujero (curva azul), mas no lo orbita (Región - II). Condiciones iniciales: $E=E_1=10^{21} AU^2 yr^{-4}$ y $r_0\rightarrow\infty$.}
+    \label{null:acerca}
+\end{figure}
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/figE22.pdf}
+    \caption{Podemos ver la única órbitas circular inestable. Y en gris el agujero negro. Condiciones iniciales: $E=E_2=\mathcal{V}_{eff}^{max}=\mathcal{V}_{eff}(r_*)$ y $r_0=r_{*}$.}
+    \label{null:orbita}
+\end{figure}
+
+\begin{figure}[H]
+    \centering
+    \includegraphics[width=0.8\linewidth]{fig/figE23.pdf}
+    \caption{Podemos ver una geodésicas que cae dentro del agujero negro (Región - I), algo a notar es que su caida no es perpendicular al horizonte de eventos. Y en gris el agujero negro. Condiciones iniciales: $E=E_1=7.5\times 10^{21} AU^2 yr^{-4}$ y $r_0\rightarrow\infty$.}
+    \label{null:cae}
+\end{figure}
+
+En el caso Schwarzschild no es necesrio usar métodos numéricos; sin embargo, todos los métodos que hemos usado para aquí los usaremos para el caso con pelo.
+
 \section{Agujeros Negros con Pelo}
-\subsection{Solución con $\Lambda=J=Q=0$}
-\subsection{Potencial efectivo de Agujeros Negros con Pelo}
-\subsection{Ecuación diferencial de las geodésicas}
-\subsection{Geodésicas de Agujeros Negros con Pelo}
+El caso que estudiare será una teoría modificada de la acción de Hilbert - Einstein con un campo escalar con acoplamiento no minimal.
+
+\begin{equation}
+        S[\textbf{g},\phi]=\frac{1}{2\kappa}\int_{\mathcal{M}}d^{4}x\sqrt{-g}{R}+\int_{\mathcal{M}}d^{4}x\sqrt{-g}\left[-\frac{1}{2}(\partial\phi)^{2}-V(\phi)\right]
+        \label{action}
+\end{equation}
+
+aqui la constante de acoplamiento es $\kappa=\frac{8\pi G_{N}}{c^{4}}$, donde $G_N$ es la constante de gravitación y $c$ es la velocidad de la luz, $g$ es la determinante del tensor métrico, $g=\det (g_{\mu\nu})$, $R$ es el escalar de Ricci $V(\phi)$ es el término de auto interacción.
+%
+Las ecuaciones de movimiento que surgen del principio de mínima acción son
+%
+\begin{equation}
+  G_{\mu\nu}
+  =\kappa\,T_{\mu\nu}, \quad
+  \frac{1}{\sqrt{-g}}\,\partial_{\mu}
+  \left(\sqrt{-g}g^{\mu\nu}\partial_{\nu}\phi\right)
+  =\frac{dV}{d\phi}
+\end{equation}
+%
+donde el tensor de Einstein y el tensor de energía - momentum para el campo escalar son, respectivamente 
+%
+\begin{equation}
+  \begin{split}
+    G_{\mu\nu} & :=R_{\mu\nu}-\frac{1}{2}g_{\mu\nu}R \\
+    T_{\mu\nu} & =
+    \partial_{\mu}\phi\,\partial_{\nu}\phi
+    -g_{\mu\nu}\left[\frac{1}{2}\left(\partial\phi\right)^2
+      +V(\phi)\right]
+  \end{split}
+\end{equation}
+%
+Siguiendo a \cite{Anabalon:2013eaa,Anabalon:2017yhv,Anabalon:2012ih,Anabalon:2016izw}, 
+consideramos el potencial exótico $V(\phi)$, esto presenta una autointeracción no trivial, fue obtenica y presentada primeramente en \cite{Anabalon:2013eaa},
+%
+\begin{multline}
+  V(\phi)=\frac{\alpha}{\kappa\nu^2}\biggl{\{}\frac{\nu-1}{\nu+2}\sinh{\left[l_\nu(\nu+1)\phi\right]}-\frac{\nu+1}{\nu-2}\sinh{[l_{\nu}(\nu-1)\phi]}
+  \\+4\left(\frac{\nu^{2}-1}{\nu^{2}-4}\right)\sinh{(l_\nu\phi)}
+  \biggr{\}}
+  \label{pot1}
+\end{multline}
+%
+donde $l_{\nu}\equiv\left(\frac{2\kappa}{\nu^{2}-1}\right)^{1/2}$. Esta teoría tiene dos nuevos parámetros, $\alpha$, que tiene un rol importante en la existencia de un horizonte y $\nu$, que puede calibrar el campo escalar $\phi$.
+Considerando el siguiente ansatz para la métrica conformal
+%
+\begin{equation}
+  ds^{2}=\Omega(x)\left[  -c^{2}f(x)dt^{2}+\frac{\eta^{2}dx^{2}}{f(x)}+d\theta
+  ^{2}+\sin^{2}\theta d\varphi^{2}\right]  \label{Ansatz}%
+\end{equation}
+%
+se puede integrar las ecuaciones de movimiento para la métrica y el campo escalar, tal que obtenemos la familia de soluciones con pelo \cite{Anabalon:2013sra,Anabalon:2013qua,Acena:2012mr,Acena:2013jya},
+%
+\begin{equation}
+  \phi(x)=l_{\nu}^{-1}\ln{x}
+\end{equation}
+%
+donde el factor conformal $\Omega(x)$ y la función métrica $f(x)$ están dadas por
+\begin{equation}
+  \begin{split}
+    \Omega(x) & =\frac{\nu^{2}x^{\nu-1}}{\eta^{2}(x^{\nu}-1)^{2}} \\
+    f(x) & =\alpha\biggl{[}\frac{1}{\nu^{2}-4}-\frac{x^{2}}{\nu^{2}%
+    }\biggl{(}1+\frac{x^{-\nu}}{\nu-2}-\frac{x^\nu}{\nu+2}%
+    \biggr{)}\biggr{]} +\frac{x}{\Omega(x)}
+    \label{omega}
+  \end{split}
+\end{equation}
+
+% \subsection{Potencial efectivo de Agujeros Negros con Pelo}
+% \subsection{Ecuación diferencial de las geodésicas}
+% \subsection{Geodésicas de Agujeros Negros con Pelo}
 
 %\subsection{Este es un sub título}
 

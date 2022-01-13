@@ -100,6 +100,208 @@ Con esta definición de la métrica tenemos algunas propiedades interesantes
     \end{eqnarray}
 \end{itemize}
 
+\section{Problema de Kepler}
+Antes de Ley de Gravitación Universal siempre era un problema poder determinar las ecuaciones que rigieran el momvimmiento de los planetas. Sin embargo con la ley de gravitación universal y la segunda Ley de movmiento de Newton se pueden expresar las ecauciones de movimiento.
+
+Pero esta no es la única manera de poder llegar a las ecuaciones de movimiento, otra manera de llegar a ellas es mediante la conservación de la energía. Entonces escribamos la ecuación para la energía de un cuerpo dentro de un potencial gravitacional.
+
+\begin{equation}
+    E = \dfrac{1}{2}m\qty(\dot{r}^{2}+r^{2}\sen^{2}(\theta)\dot{\varphi}^{2}+r^{2}\dot{\theta}^{2}) - U(r)
+\end{equation}
+
+existe una simetría con respecto a $\theta$ por lo cuál es indiferente el valor que escogamos para esta variable. Por simplicidad escogeremos $\theta=\pi/2$. Entonces la energía es:
+
+\begin{equation}
+    E = \dfrac{1}{2}m\qty(\dot{r}^{2}+r^{2}\dot{\varphi}^{2}) + U(r)
+\end{equation}
+
+Ahora construyamos el lagrangiano de la partícula.
+
+\begin{equation}
+    \mathcal{L} = \dfrac{1}{2}m\qty(\dot{r}^{2}+r^{2}\dot{\varphi}^{2}) - U(r)
+\end{equation}
+
+del lagrangiano podemos deducir que $\varphi$ es una coordenada cíclica, entonces si vemos la ecuación de Lagrange correspondiente a la coordenada cíclica podemos obtener
+una constante de movimiento que es el momentum asosciado a esa coordenada, \textit{Momentum Angular}.
+
+\begin{equation}
+    M = m r^{2} \dot{\varphi}
+\end{equation}
+
+entonces reemplazando en la ecuación  de la energía tenemos
+
+\begin{equation}
+    E = \dfrac{1}{2}m\dot{r}^{2}+\dfrac{M^{2}}{2mr^{2}} + U(r)
+\end{equation}
+
+como podemos ver la ecuacion de movimiento se redujo a una partícula dentro de el nuevo potencial $\dfrac{M^{2}}{2mr^{2}} + U(r)$, a este potencial se le llama \textit{potencial efectivo}. Seguidamente haciendo la regla de la cadena $\dot{r} = \dv{r}{\varphi} \dot{\varphi}$ podemos expresar la energía como
+
+\begin{equation}
+    E = \dfrac{1}{2}m\qty[\qty(\dv{r}{\varphi})^{2}\dfrac{M^{2}}{m^{2}r^{4}}+\dfrac{M^{2}}{m^{2}r^{2}}] + U(r)
+\end{equation}
+
+despejando $\dv{r}{\varphi}$ tenemos que
+
+\begin{equation}
+    \dv{r}{\varphi} = \dfrac{M}{r^{2}}\sqrt{2m\qty[E-U(r)]-\dfrac{M^{2}}{r^{2}}}
+\end{equation}
+
+separando variables para poder integrar
+
+\begin{equation}
+    \varphi = \int \dfrac{M\dd{r}/r^{2}}{\sqrt{2m\qty[E-U(r)]-M^{2}/r^{2}}} + cte
+\end{equation}
+
+reemplazando aqui el potencial gravitacional $U(r) = -\dfrac{\alpha}{r}$ podemos resolver la integral
+
+\begin{equation}
+    \varphi = \arccos{\qty(\dfrac{M/r-m\alpha/M}{\sqrt{2mE+\dfrac{m^{2}\alpha^{2}}{M^{2}}}})} + cte
+\end{equation}
+
+tomando adecuadamente $\varphi$ tal que la constante sea 0, y además considerando 
+
+\begin{equation}
+    p = M^{2}/m\alpha \qc e=\sqrt{1+2EM^{2}/m\alpha^{2}}
+\end{equation}
+
+la ecuación de movimiento se puede escribir como
+
+\begin{equation}
+    p/r = 1 + e \cos{\varphi}
+\end{equation}
+
+Esta es la ecuación de una sección cónica, con unos de sus focos en el origen; además $p$ y $e$ se llaman respectivamente \textit{parámetro} y \textit{excentricidad}.
+
+\section{Vectores de killing}\label{sec:killing}
+Se llama vectores de killing a aquellos vectores que cumplen que la derivada de Lie de la métrica con respecto a estos es cero, es decir:
+
+\begin{equation}
+    \pounds_{\xi}g_{\mu\nu} = 0
+    \label{killingLie}
+\end{equation}
+
+esot quiere decir que estos vectores generan un mapa que mantiene invariante a la métrica. Otra forma equivalente de expresar \eqref{killingLie} usando la derivada covariante es:
+
+\begin{equation}
+    \nabla_{a}\xi_{b} + \nabla_{b}\xi_{a} = 0
+\end{equation}
+
+Cuando tu multiplicas un vector de killing por tangente de una geodésica esta se mantiene constante a lo largo de la geodésica. Esto es
+
+\begin{eqnarray*}
+    u^{b}\nabla_{b}(\xi_{a}u^{a}) = & u^{b}u^{a}\nabla_{b}\xi_{a} + \xi_a u^{b}\nabla_{b}u^{a} \\
+    = & u^{b}u^{a}\dfrac{1}{2}\qty(\nabla_{a}\xi_{b} + \nabla_{b}\xi_{a})+ \xi_a u^{b}\nabla_{b}u^{a} \\
+    = & 0
+\end{eqnarray*}
+
+entonces podemos deducir que
+
+\begin{equation}
+    \xi_{a}u^{a} = cte
+    \label{killingConservation}
+\end{equation}
+
+Ahora calculemos los vectores de killing para la métrica de Schwarzschild. La métrica es
+
+\begin{equation}
+    \dd{s}^{2} = -c^{2}\qty(1-\dfrac{2G_{N}M}{c^{2}r})\dd{t}^{2} + \qty(1-\dfrac{2G_{N}M}{c^{2}r})^{-1}\dd{r}^{2} + r^{2}\qty(\dd{\theta}^{2}+\sin^{2}{\theta}\dd{\varphi}^{2})
+\end{equation}
+
+en donde fijamos $\theta = \pi/2$ y $r_{g} = 2G_{N}M/c^{2}$ obteniendo así
+
+\begin{equation}
+    \dd{s}^{2} = -c^{2}\qty(1-\dfrac{r_{g}}{r})\dd{t}^{2} + \qty(1-\dfrac{r_{g}}{r})^{-1}\dd{r}^{2} + r^{2}\dd{\varphi}^{2}
+\end{equation}
+
+dada la forma de esta métrica (no hay dependencia temporal y la parte angular es idéntica a Minkowski) podemos deducir los siguientes vectores de killing:
+
+\begin{eqnarray}
+    \xi^{ct} = & 1 \\
+    \xi^{\varphi} = & 1 
+\end{eqnarray}
+
+introduciendo estos vectores en \eqref{killingConservation} obtenemos
+
+\begin{eqnarray}
+    g_{ct ct}\xi^{ct}u^{ct} = & -\qty(1-\dfrac{r_{g}}{r})(1)(c\dot{t}) = cte \\
+    g_{\varphi \varphi}\xi^{\varphi}u^{\varphi} = & \qty(r^{2})(1)(\dot{\varphi}) = cte 
+\end{eqnarray}
+
+para poder determinar estas constantes tenderemos el límite a minkowski, esto es haciendo $r \rightarrow \infty$, para el caso temporal esto es:
+
+\begin{eqnarray*}
+    -\qty(1-\dfrac{r_{g}}{r})(c\dot{t}) \Rightarrow -c\dot{t} = -\dfrac{c}{\sqrt{1-\dfrac{v^{2}}{c^{2}}}}
+\end{eqnarray*}
+
+desarrollando en series de taylor tenemos 
+
+\begin{equation*}
+    g_{ct ct}\xi^{ct}u^{ct} = -(c+\frac{1}{2c}v^{2}) = -\dfrac{E}{mc}
+\end{equation*}
+
+donde E es la energía. De la misma manera para $\dot{\varphi}$ podemos encontrar que
+
+\begin{equation*}
+    g_{\varphi \varphi}\xi^{\varphi}u^{\varphi} = \dfrac{J}{m}
+\end{equation*}
+
+donde $J$ es el momentum angular. Entonces despejando $\dot{t}, \dot{\varphi}$ tenemos
+
+\begin{eqnarray}
+    \dot{t} = & \qty(1-\dfrac{r_{g}}{r})^{-1}\dfrac{E}{mc^{2}} \\
+    \dot{\varphi} = & \dfrac{J}{mr^{2}}
+\end{eqnarray}
+
+\section{Unidades}
+Las unidades que usare son las siguientes:
+
+\begin{align}
+    \text{tiempo} & = yr\qq{[años]} \\
+    \text{distancia} & = AU\qq{[Unidades Astronómicas]} \\
+    \text{masa} & = M_{\odot}\qq{[Masas solares]}
+\end{align}
+
+en estas nuevas unidades las constantes físicas adoptaran lso siguientes valores
+
+\begin{align}
+    G_{N} & \approx 39.409 AU^{3}M_{\odot}^{-1}yr^{-2}, \\
+    c & \approx 6.324 \cdot 10^{4} AU yr^{-1}, \\
+    \kappa & \approx 6.192 \cdot 10^{-17} AU^{-1}M_{\odot}^{-1}yr^{2}
+\end{align}
+
+\section{Runge-Kutta para Schwarzschild}\label{rungeKutta}
+Usaré el método de Runge-Kutta de 4 orden para resolver la ecuación
+
+\begin{equation}
+    \dv[2]{u}{\varphi}-\frac{3}{2}r_{g}u^{2}+u = \frac{1}{\lambda}
+\end{equation}
+
+Runge-Kutta es un método para resolver ecuaciones diferencuiales de primer orden, transformartemos esta ecuación de segundo orden en dos ecuaciones de primer orden relacionadas, esto es:
+
+\begin{align*}
+    \dv{u(\varphi)}{\varphi} = & y(\varphi) \\
+    \dv{y(\varphi)}{\varphi} = & \frac{1}{\lambda}+\frac{3}{2}r_{g}u^{2}(\varphi)+u(\varphi)
+\end{align*}
+
+de este sistema de ecuaciones encontramos las siguientes relaciones de recurrencias
+
+\begin{align}
+    y_{n+1} = & y_{n} + \frac{1}{6}(l_{0}+2l_{1}+2l_{2}+l_{3}) \\
+    u_{n+1} = & u_{n} + \frac{1}{6}(k_{0}+2k_{1}+2k_{2}+k_{3})
+\end{align}
+
+donde
+
+\begin{align}
+    l_{0} = & h\qty(\frac{1}{\lambda}-u_{n}+\frac{3}{2}r_{g}u_{n}^{2}) & k_{0} = & hy_{n} \\
+    l_{1} = & h\qty[\frac{1}{\lambda}-u_{n}-\dfrac{1}{2}k_{0}+\frac{3}{2}r_{g}\qty(u_{n}+\dfrac{1}{2}k_{0})^{2}] & k_{1} = & h\qty(y_{n}+\frac{1}{2}l_{0}) \\
+    l_{2} = & h\qty[\frac{1}{\lambda}-u_{n}-\dfrac{1}{2}k_{1}+\frac{3}{2}r_{g}\qty(u_{n}+\dfrac{1}{2}k_{1})^{2}] & k_{2} = & h\qty(y_{n}+\frac{1}{2}l_{1}) \\
+    l_{3} = & h\qty[\frac{1}{\lambda}-u_{n}-k_{2}+\frac{3}{2}r_{g}\qty(u_{n}+k_{2})^{2}] & k_{3} = & h\qty(y_{n}+\frac{1}{2}l_{2})
+\end{align}
+
+y para los valores iniciales fijaremos la energía y $u(0)$. Fijando la energía podemos hallar $\dv*{u}{\varphi}$ de \eqref{geodesicas:energia}. Lo que debemos tener cuidado es que nuestro par (posición inicial,energía) debe estar por encima de la curva del potencial efectivo, ya que cualquier punto debajo de esta curva no tiene sentido físico ya que nos daría velocidades imaginarias. 
+
+En el caso de geodesicas $\nl$ es similar solamente que la ecuación diferencial es homogénea, esto quiere decir que $1/\lambda = 0$.
 
 \biblio %Se necesita para referenciar cuando se compilan subarchivos individuales - NO SACAR
 \end{document}
