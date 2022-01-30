@@ -1,5 +1,6 @@
 references/*.pdf
 references/Artículos de referencia
+.vscode
 
 ### LaTeX ###
 ## Core latex/pdflatex auxiliary files:

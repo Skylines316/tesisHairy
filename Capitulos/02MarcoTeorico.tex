@@ -3,42 +3,42 @@
 
 \begin{document}
 \section{Relatividad General}
-El 5 de Julio de 1687 Isaac Newton publica \textit{Philosophiæ Naturalis Principia Mathematica} \cite{newton87a} en donde publica sus leyes del movimiento y su ley de gravitacion universal. Esta ley de gravitación fue la primera descripción matemática a partir de la cuál podiamos tener ecuaciones de movimiento para predecir el movimiento de los planetas. Sin embargo, esta descripción de la naturaleza aún estaba incompleta. Una de las limitantes de la descripcion de las interacciones segun Newton es la velocidad de interaccion infinita. Esto se puede ver claramente en al expresion matemática de la fuerza de interaccion gravitacional, esta solo depende de las masas y la distancia entre ellas. 
+El 5 de Julio de 1687 Isaac Newton publica \textit{Philosophiæ Naturalis Principia Mathematica} \cite{newton87a} en donde publica sus leyes del movimiento y su ley de gravitación universal. Esta ley de gravitación fue la primera descripción matemática a partir de la cuál podíamos tener ecuaciones de movimiento para predecir el movimiento de los planetas. Sin embargo, esta descripción de la naturaleza aún estaba incompleta. Una de las limitantes de la descripción de las interacciones según Newton es la velocidad de interacción infinita. Esto se puede ver claramente en al expresión matemática de la fuerza de interacción gravitacional, esta solo depende de las masas y la distancia entre ellas. 
 
 \begin{equation}
     \vec{F} = \frac{Gm_1m_2}{r^2} \vu{r}
 \end{equation}
 
-Esta velociad de interacción infinita romperia la causalidad ya que se propagaria más rápido que la luz. Es así que en 1905 Albert Einstein propone su teoría de la relatividad especial \cite{einstein}. En esta nueva teoría se abandona la idea de tiempo absoluto y se adopta la de tiempo propio, es decir que cada observador mide el tiempo de manera difernte, tiene su propio tiempo. Además de que el tiempo y el espacio ya no son entes separados por lo que se les llama en conjunto espaciotiempo.
+Esta velocidad de interacción infinita rompería la causalidad ya que se propagaría más rápido que la luz. Es así que en 1905 Albert Einstein propone su teoría de la relatividad especial \cite{einstein}. En esta nueva teoría se abandona la idea de tiempo absoluto y se adopta la de tiempo propio, es decir que cada observador mide el tiempo de manera diferente, tiene su propio tiempo. Además de que el tiempo y el espacio ya no son entes separados por lo que se les llama en conjunto espacio - tiempo.
 
-Desafortunadamente cuando la interacción gravitaria se vuelve importante la relatividad especial falla al tratar de describir la realidad \cite{1994bhtw.bookT}. Es entonces que para poder describir la gravedad, con las caracteristicas ya agregadas por la relatividad especial, se necesita de un nuevo conjunto de leyes físicas que llamamos Relatividad General. En esta descripcion el espaciotiempo se curva y esta curvatura es lo que nosotros interpretamos como la interacción gravitacional. Poniendo el ejemplo de un ser bidimensional que vive en la superficie de uan esfera y coordina con otro para ubicarse en el ecuador y caminar en linea recta, siempre manteniendo un angulo de 90 grados sexagesimales entre sus trayectorias, estos notaran que a medida que caminan se van acercando uno al otro. Entonces estos seres bidimensionales interpretarian esto como una fuerza que los atrae, cuando mas bien es la geometria en donde viven que les hace seguir esa trayectoria.
+Desafortunadamente cuando la interacción gravitaría se vuelve importante la relatividad especial falla al tratar de describir la realidad \cite{1994bhtw.bookT}. Es entonces que para poder describir la gravedad, con las características ya agregadas por la relatividad especial, se necesita de un nuevo conjunto de leyes físicas que llamamos Relatividad General. En esta descripción el espacio - tiempo se curva y esta curvatura es lo que nosotros interpretamos como la interacción gravitacional. Poniendo el ejemplo de un ser bidimensional que vive en la superficie de uan esfera y coordina con otro para ubicarse en el ecuador y caminar en linea recta, siempre manteniendo un angulo de 90 grados sexagesimales entre sus trayectorias, estos notaran que a medida que caminan se van acercando uno al otro. Entonces estos seres bidimensionales interpretarían esto como una fuerza que los atrae, cuando mas bien es la geometría en donde viven que les hace seguir esa trayectoria.
 
 Para poder describir todos estos conceptos en espacios curvos necesitamos herramientas matemáticas tales como calculo tensorial y geometría diferencial.
 
 \subsection{Variedades}\label{subsec:Variedades}
-Cuando el ser bidimensional que poniamos en un ejemplo anterior quiere poder mapear toda su superficie este podria pensar en caracterizarlo con 2 numeros. Sin embargo al hacer esto se perderian caracteristicas globales y por lo tanto estaria cometiendo una grave equivocacion. Es por eso que necesitamos de un objeto matemático que localmente luzca como una espacio $\mathbb{R}^n$ pero que globalmente tenga unas propiedades ligeramente distintas.
+Cuando el ser bidimensional que poníamos en un ejemplo anterior quiere poder mapear toda su superficie este podría pensar en caracterizarlo con 2 números. Sin embargo al hacer esto se perderían características globales y por lo tanto estaría cometiendo una grave equivocación. Es por eso que necesitamos de un objeto matemático que localmente luzca como una espacio $\mathbb{R}^n$ pero que globalmente tenga unas propiedades ligeramente distintas.
 
-\begin{itemize}
+\begin{description}
     \item [Variedad]
-    Una variedad real, $C^{\infty}$, de n dimensiones $\mathcal{M}$. Es un conjunto junto con una coleccion de subconjuntos $\{O_{\alpha}\}$ que satisfacen las siguientes propiedades.
+    Una variedad real, $C^{\infty}$, de n dimensiones $\mathcal{M}$. Es un conjunto junto con una colección de subconjuntos $\{O_{\alpha}\}$ que satisfacen las siguientes propiedades.
     \begin{itemize}
         \item Cada punto $p \in \mathcal{M}$ esta dentro de almenos un $O_{\alpha}$, es decir que $\{O_{\alpha}\}$ recubre todo $\mathcal{M}$.
         \item Para cada $\alpha$, existe mapa uno a uno $\psi_{\alpha}:O_{\alpha}\rightarrow U_{\alpha}$, donde $U_{\alpha}$ es un subconjunto abierto de $\mathbb{R}^{n}$.
-        \item Si dos conjuntos $O_{\alpha}$ y $O_{\beta}$  se sobreponen, $O_{\alpha} \cap O_{\beta} \neq \emptyset$, podemos considerar el mapa $\psi_{\beta} \circ \psi_{\alpha}^{-1}$ la cuál toma puntos en $\psi_{\alpha}[O_{\alpha} \cap O_{\beta}]\subset U_{\alpha}\subset \mathbb{R}^{n}$ a puntos en $\psi_{\beta}[O_{\alpha} \cap O_{\beta}]\subset U_{\beta}\subset \mathbb{R}^{n}$ \footnote{Cada mapa $\psi_{\alpha}$ es generalemente llamado un sistema de coordenadas porque pasas de un palno tangente a otro plano tangente}.
+        \item Si dos conjuntos $O_{\alpha}$ y $O_{\beta}$  se sobreponen, $O_{\alpha} \cap O_{\beta} \neq \emptyset$, podemos considerar el mapa $\psi_{\beta} \circ \psi_{\alpha}^{-1}$ la cuál toma puntos en $\psi_{\alpha}[O_{\alpha} \cap O_{\beta}]\subset U_{\alpha}\subset \mathbb{R}^{n}$ a puntos en $\psi_{\beta}[O_{\alpha} \cap O_{\beta}]\subset U_{\beta}\subset \mathbb{R}^{n}$ \footnote{Cada mapa $\psi_{\alpha}$ es generalmente llamado un sistema de coordenadas porque pasas de un plano tangente a otro plano tangente}.
     \end{itemize}
 
     \item [Vector]
-    Un vector es aquel elemento que cumple las propieades de un espacio vectorial. Los espacios vectoriales que veremos son espacios tangentes a un punto $p$ y cumplen que: Sea $\mathcal{M}$ una variedad n-dimensional, sea $p \in \mathcal{M}$ y denotemos por $V_{p}$ al espacio tangente en p. Entonces $\dim{V_{p}} = n$.
+    Un vector es aquel elemento que cumple las propiedades de un espacio vectorial. Los espacios vectoriales que veremos son espacios tangentes a un punto $p$ y cumplen que: Sea $\mathcal{M}$ una variedad n-dimensional, sea $p \in \mathcal{M}$ y denotemos por $V_{p}$ al espacio tangente en p. Entonces $\dim{V_{p}} = n$.
 
     \item [Tensor]
-    Un tensor es un mapa multilineal (lineal en cada variable) de vectores (o vectores duales) en números. Es decir que mapeamos todos los vectores en numeros escalares ordenados (este orden puede ser matricialmente).O de manera mas formal, sea V un espacio vectorial finito dimensional y sea $V^{*}$ el espacio vectorial dual\footnote{Este espacio vectorial dual $V^{*}$ tiene la característica que sea $v_{1}, \dots, v_{n}$ la base de V, y sea $v^{1^{*}}, \dots, v^{n^{*}}$ la base de $V^{*}$. Entonces $v^{\mu^{*}}(v_{\nu})=\delta^{\mu}_{\nu}$, donde $\delta^{\mu}_{\nu}=1$ si $\mu=\nu$ y 0 en los otros casos.} de V. Un tensor, T, de tipo (k,l) sobre V es un mapa multilineal.
+    Un tensor es un mapa multilineal (lineal en cada variable) de vectores (o vectores duales) en números. Es decir que mapeamos todos los vectores en números escalares ordenados (este orden puede ser matricialmente).O de manera mas formal, sea V un espacio vectorial finito dimensional y sea $V^{*}$ el espacio vectorial dual\footnote{Este espacio vectorial dual $V^{*}$ tiene la característica que sea $v_{1}, \dots, v_{n}$ la base de V, y sea $v^{1^{*}}, \dots, v^{n^{*}}$ la base de $V^{*}$. Entonces $v^{\mu^{*}}(v_{\nu})=\delta^{\mu}_{\nu}$, donde $\delta^{\mu}_{\nu}=1$ si $\mu=\nu$ y 0 en los otros casos.} de V. Un tensor, T, de tipo (k,l) sobre V es un mapa multilineal.
     \begin{equation}
         T: \underbrace{V^{*}\times\dots\times V^{*}}_\text{k veces} \times \underbrace{V \times \dots \times V}_\text{l veces} \rightarrow \mathbb{R}
     \end{equation}
     \item [Métrica]
-    Intuitivamente una métrica nos indica la distancia al cuadrado infinesimal asociado con un desplazamiento infinitesimal. Los desplazamientos infinitesimales estan asociados con los vectores del plano tangente por lo que la métrica debe ser un mapa lineal de $V_{p}\times V_{p}$ en números, esto es un tensor de tipo (0, 2). Las propieades que tiene este tensor son:
+    Intuitivamente una métrica nos indica la distancia al cuadrado infinitesimal asociado con un desplazamiento infinitesimal. Los desplazamientos infinitesimales están asociados con los vectores del plano tangente por lo que la métrica debe ser un mapa lineal de $V_{p}\times V_{p}$ en números, esto es un tensor de tipo (0, 2). Las propiedades que tiene este tensor son:
     \begin{itemize}
-        \item [Simetrico]
+        \item [Simétrico]
         La distancia debe ser simétrica, esto es $g(\vec{v}_{1}, \vec{v}_{2})=g(\vec{v}_{2}, \vec{v}_{1}); \vec{v}_{1}, \vec{v}_{2} \in V_{p}$.
         \item [No degenerada]
         El valor de la métrica debe ser igual para todo observador, esto es $g(\vec{v},\vec{v}_{1})=0 \Leftrightarrow \vec{v}_{1}=0; \vec{v}_{1}, \vec{v} \in V_{p}$
@@ -48,26 +48,26 @@ Cuando el ser bidimensional que poniamos en un ejemplo anterior quiere poder map
         ds^{2} = g_{\mu\nu} \dd{x}^{\mu}\dd{x}^{\nu}
     \end{equation}
     %Una variedad es un conjunto de piezas que \textit{lucen} como bolas abiertas en $R^n$\footnote{Generalización de un intervalo abierto n dimensional} que se \textit{cosen} unas a otras suavemente. 
-\end{itemize}
+\end{description}
 
-En la escritura de las ecuacione se ha seguido una reglas de notación, eso se ve a mayor detalle en \ref{sec:tensores}.
+En la escritura de las ecuaciones se ha seguido una reglas de notación, eso se ve a mayor detalle en \ref{sec:tensores}.
 
 \subsection{Curvatura}
-Como pudimos ver en \ref{subsec:Variedades} los vectores estan definidos en los espacios tangentes y contangentes a la variedad. Entonces para poder relacionar vectores de diferentes espacios tanges necesitamos de una conexión. En relatividad general se usa la conexión de Levi-Civita. Esta conexión es especial ya que el espaciotiempo no tendra torsión y solo presentara curvatura.
+Como pudimos ver en \ref{subsec:Variedades} los vectores están definidos en los espacios tangentes y contangentes a la variedad. Entonces para poder relacionar vectores de diferentes espacios tanges necesitamos de una conexión. En relatividad general se usa la conexión de Levi-Civita. Esta conexión es especial ya que el espacio - tiempo no tendrá torsión y solo presentara curvatura.
 
-La derivada de un vector, en coordenas cuyos vectores base son constantes, es otro vector. Y el mapeo de las derivadas de sus componentes conforman un tensor. Esto no sucede así para coordenadas curvilineas o espacios curvos, en este caso necesitamos de un factor extra que compense la curvatura. Este factor extra son los simbolos de Christoffel, así entonces tenemos
+La derivada de un vector, en coordenadas cuyos vectores base son constantes, es otro vector. Y el mapeo de las derivadas de sus componentes conforman un tensor. Esto no sucede así para coordenadas curvilíneas o espacios curvos, en este caso necesitamos de un factor extra que compense la curvatura. Este factor extra son los símbolos de Christoffel, así entonces tenemos
 
 \begin{equation}
     \nabla_{\nu}{A}^{\mu} = \partial_{\nu}{A}^{\mu}+\Gamma^{\mu}_{\nu\rho}A^{\rho}
 \end{equation}
 
-a esta derivada se le conoce como derivada covariante. Tambien por la conexión de Levi-Civita los símbolso de Christoffel cumple con lo siguiente.
+a esta derivada se le conoce como derivada covariante. También por la conexión de Levi-Civita los símbolos de Christoffel cumple con lo siguiente.
 
 \begin{equation}
     \Gamma^{\mu}_{\nu\rho} = \Gamma^{\mu}_{\rho\nu}
 \end{equation}
 
-Y la dervida covariante cumple con
+Y la derivada covariante cumple con
 
 \begin{equation}
     \nabla_{\nu}{g_{\mu\nu}} = 0
@@ -79,19 +79,19 @@ de esta expresión se puede deducir que
     \Gamma^{\mu}_{\nu\rho} = \dfrac{1}{2}g^{\mu\sigma}\qty(\partial_{\nu}{g_{\rho\sigma}}+\partial_{\rho}{g_{\nu\sigma}}-\partial_{\sigma}{g_{\nu\rho}})
 \end{equation}
 
-A partir del operador de derivada nosotros podemos introducir la noción de transporte paralelo de un vector sobre la curva $C$. Para que este transporte parelelo se dé, la variación de este vector debe ser paralela al vector tangente de la curva $C$, esto es:
+A partir del operador de derivada nosotros podemos introducir la noción de transporte paralelo de un vector sobre la curva $C$. Para que este transporte paralelo se dé, la variación de este vector debe ser paralela al vector tangente de la curva $C$, esto es:
 
 \begin{equation}
     t^{a}\nabla_{a}v^{b} = 0 
 \end{equation}
 
-Ahora el espacio en el que trabajamos normalmente en realtividad general esta libre de torsióm, esto quiere decir que si una funcion escalar $f$ la variamos en cierto orden $\nabla_{a}\nabla_{b}f$ esta será igual al hacerlo en orden invertido, esto es:
+Ahora el espacio en el que trabajamos normalmente en relatividad general esta libre de torsión, esto quiere decir que si una función escalar $f$ la variamos en cierto orden $\nabla_{a}\nabla_{b}f$ esta será igual al hacerlo en orden invertido, esto es:
 
 \begin{equation}
     \nabla_{a}\nabla_{b}f = \nabla_{b}\nabla_{a}f
 \end{equation}
 
-sin embargo si nosotros hacemos esto para el dual de un campo vectorial esto no sucede, por lo que tenemos que $(\nabla_{a}\nabla_{b}-\nabla_{a}\nabla_{b})\omega_{c}$ no es igual a cero y lo que sucede es que a $(\nabla_{a}\nabla_{b}-\nabla_{b}\nabla_{a})$ define un mapeo lineal de vectores duales $\omega_{c}$ de tipo (0,1) a un tensor de tipo (0,3). Esto es quivalente a la acción de un tensor (1,3) sobre el tensor (0,1). Este tensor que cumple estas características, es el tensor de \textit{curvatura de Riemann} $\tensor{R}{_{abc}^{d}}$. Esto es:
+sin embargo si nosotros hacemos esto para el dual de un campo vectorial esto no sucede, por lo que tenemos que $(\nabla_{a}\nabla_{b}-\nabla_{a}\nabla_{b})\omega_{c}$ no es igual a cero y lo que sucede es que a $(\nabla_{a}\nabla_{b}-\nabla_{b}\nabla_{a})$ define un mapeo lineal de vectores duales $\omega_{c}$ de tipo (0,1) a un tensor de tipo (0,3). Esto es equivalente a la acción de un tensor (1,3) sobre el tensor (0,1). Este tensor que cumple estas características, es el tensor de \textit{curvatura de Riemann} $\tensor{R}{_{abc}^{d}}$. Esto es:
 
 \begin{equation}
     (\nabla_{a}\nabla_{b}-\nabla_{b}\nabla_{a})\omega_{c} = \tensor{R}{_{abc}^{d}}\omega_{d}
@@ -106,7 +106,7 @@ Ahora veamos las propiedades del tensor de Riemann:
         \label{Riemann:1}
     \end{equation}
 
-    \item Propiedad equivalente en dormas diferenciales a $\dd[2]{\vec{\omega}}$:
+    \item Propiedad equivalente en formas diferenciales a $\dd[2]{\vec{\omega}}$:
     \begin{equation}
         \tensor{R}{_{[abc]}^{d}} = 0
         \label{Riemann:2}
@@ -154,7 +154,7 @@ y la parte libre de traza es llamada \textit{tensor de Weyl}.
 \subsection{Geodésicas}
 Usando la descripción Newtoniana de la gravedad se pueden describir las trayectorias de los cuerpos dentro de un campo gravitacional. Estas trayectorias son cónicas, dependiendo de la energía de la partícula serán elípticas, circulares o parabólicas \cite{Landau1976Mechanics}.
 
-En relatividad general a estas trayectorias se les llama geodesicas. Existen 2 tipos de geodesicas, las métricas y las afines. Sin embargo, en la teoría que estudiare ambas son indiferentes. Por lo que de manera general podemos definir a las geodesicas de la siguiente manera.
+En relatividad general a estas trayectorias se les llama geodésicas. Existen 2 tipos de geodésicas, las métricas y las afines. Sin embargo, en la teoría que estudiare ambas son indiferentes. Por lo que de manera general podemos definir a las geodésicas de la siguiente manera.
 \begin{itemize}
     \item[Geodesicas:]   La curva que minimiza la distancia entre 2 puntos y cuyo vector tangente se propaga paralelamente sobre si mismo. Esto quiere decir que cumple con la ecuación.
     
@@ -169,7 +169,7 @@ En relatividad general a estas trayectorias se les llama geodesicas. Existen 2 t
         \dv[2]{x^{\mu}}{t} + \sum_{\sigma, \nu}\tensor{\Gamma}{^{\mu}_{\sigma \nu}}\dv{x^{\sigma}}{t}\dv{x^{\nu}}{t} = 0
     \end{equation}
 
-    Esta ecuación es una ecuación de segundo orden, por lo que para podere resolverla necesitaremos 2 parámetros iniciales. Esta ecuación para la geodésica también puede ser obtenida variando el siguiente lagrangiano.
+    Esta ecuación es una ecuación de segundo orden, por lo que para poder resolverla necesitaremos 2 parámetros iniciales. Esta ecuación para la geodésica también puede ser obtenida variando el siguiente lagrangiano.
 
     \begin{equation}
         \mathcal{L} = \sum_{\mu,\nu}\tensor{g}{_{\mu\nu}}\dv{x^{mu}}{t}\dv{x^{nu}}{t}
@@ -193,7 +193,7 @@ y para las partículas \nl
 Por lo que reemplazando el valor de la métrica tenemos una ecuación de movimiento para la partícula.
 
 \subsection{Acción de Hilbert Einstein}
-Siguiendo la formalación lagrangiana de la ecuación de Einstein tenemos la siguiente acción.
+Siguiendo la formulación lagrangiana de la ecuación de Einstein tenemos la siguiente acción.
 
 \begin{equation}
     S = \int_{\mathcal{M}}\dd[4]{x}\sqrt{-g}\qty(\dfrac{c^{4}}{16\pi G_{N}}R+\mathcal{L}_{M})
@@ -223,7 +223,7 @@ donde hemos definido el tensor de energía momentum como
 En \eqref{einsteinEq} tenemos en total un conjunto de 16 ecuaciones que relacionan al espacio tiempo $R_{\mu\nu} - \frac{1}{2}g_{\mu\nu}R$ con la energía y materia $\tensor{T}{_{\mu\nu}}$.
 
 \subsection{Solución de Schwarzschild}
-Cuando Einstein propuso \eqref{einsteinEq} las consideró muy difíciles de resolver de manera analítica. Sin embargo en 1916, tan solo un año despues, el físico Karl Schwarzschild encontro una solución analítica a la ecuación de Einstein. Esto lo logro igualando el tensor de energía momentum a 0 $\tensor{T}{_{\mu\nu}}=0$, encontrando así la siguiente métrica.
+Cuando Einstein propuso \eqref{einsteinEq} las consideró muy difíciles de resolver de manera analítica. Sin embargo en 1916, tan solo un año después, el físico Karl Schwarzschild encontró una solución analítica a la ecuación de Einstein. Esto lo logro igualando el tensor de energía momentum a 0 $\tensor{T}{_{\mu\nu}}=0$, encontrando así la siguiente métrica.
 
 \begin{equation}
     \dd{s}^{2} = -c^{2}\qty(1-\dfrac{2G_{N}M}{c^{2}r})\dd{t}^{2} + \qty(1-\dfrac{2G_{N}M}{c^{2}r})^{-1}\dd{r}^{2} + r^{2}\qty(\dd{\theta}^{2}+\sin^{2}{\theta}\dd{\varphi}^{2})
@@ -265,7 +265,7 @@ vamos a renombrar algunas variables para hacer la energía por partícula al igu
     J = & \dfrac{\mathscr{J}}{mc^{2}}
 \end{align}
 
-con estos cambios las unidades tambien cambian, siendo así $E$ no tiene dimensiones y $J$ unidades de tiempo. También desplazare el valor 0 de la energía para que se pueda visualizar mejor en los gráficos $E'=E-1$.
+con estos cambios las unidades también cambian, siendo así $E$ no tiene dimensiones y $J$ unidades de tiempo. También desplazare el valor 0 de la energía para que se pueda visualizar mejor en los gráficos $E'=E-1$.
 entonces tenemos 
 
 \begin{equation}
@@ -291,7 +291,7 @@ entonces tenemos para el caso \nl
 \end{equation}
 
 \subsection{Potencial efectivo de Schwarzschild}
-Buscando hacer un simil con la mecánica clásica podemos identificar un potencial efectivo para una partícula $\tl$ en \eqref{SchwarzschildEnergia}
+Buscando hacer un símil con la mecánica clásica podemos identificar un potencial efectivo para una partícula $\tl$ en \eqref{SchwarzschildEnergia}
 
 \begin{equation}
     U_{eff}^{tl} = \qty(1-\dfrac{r_{g}}{r})\qty(1 + \dfrac{J^{2}c^{2}}{r^{2}})-1
@@ -308,7 +308,7 @@ entonces fijando $M$ y $J$ podemos graficar este potencial.
 \end{figure}
 
 \begin{itemize}
-    \item [Región I:] Donde $E>U^{max}_{eff}$; corresponden a geodésicas cuyas partículas tienen mucha energía por lo que caeran al agujero negro.
+    \item [Región I:] Donde $E>U^{max}_{eff}$; corresponden a geodésicas cuyas partículas tienen mucha energía por lo que caerán al agujero negro.
     \item [Región II:] Entre $E=0$ y $E=U^{max}_{eff}$; corresponden a geodésicas cuyas partículas se encuentran con una barrera de potencial, por lo que se acercaran al agujero negro más no caerán dentro de él.
     \item [Región III:] Entre $E=U^{min}_{eff}$ and $E=0$; corresponden a geodésicas cuyas partículas se encuentran atrapadas por el potencial efectivo, por lo que orbitarán al agujero negro.
 \end{itemize}
@@ -318,7 +318,7 @@ Ahora veamos casos específicos de partículas en cada una de las regiones, adem
 \begin{figure}[ht]
     \includegraphics[width=0.8\linewidth]{fig/fig2.pdf}
     \label{potencial:particulas}
-    \caption{$E_1$ corresponde al valor mínimo del potencial efectivo (punto de equilibrio estable), por este motivo corresponde a una órbita circular estable. $E_2$ pertenece a la Región III. $E_3$ pertenece a la Región II. $E_4$ corresponde al valor máximo del potencial efectivo(punto de equilibrio inestable), por este motivo corresponde a una órbita circular inestable. $E_5$ pertence a la Región I.}
+    \caption{$E_1$ corresponde al valor mínimo del potencial efectivo (punto de equilibrio estable), por este motivo corresponde a una órbita circular estable. $E_2$ pertenece a la Región III. $E_3$ pertenece a la Región II. $E_4$ corresponde al valor máximo del potencial efectivo(punto de equilibrio inestable), por este motivo corresponde a una órbita circular inestable. $E_5$ pertenece a la Región I.}
 \end{figure}
 
 De la misma manera que analizamos para una partícula $\tl$ podemos realizar un procedimiento similar para una partícula $\nl$ en la ecuación \eqref{NullEnergy} podemos identificar un potencial efectivo $\nl$
@@ -329,7 +329,7 @@ De la misma manera que analizamos para una partícula $\tl$ podemos realizar un 
 
 % \newpage
 
-entonces solamente fijando $M$ podemos graficar el potencial por unidad de $J^{2}$ \footnote{Dividimos el potencial por $J^{2}$ ya que en la ecuación de la geodésica esta constante es absorvida por el parámetro de impacto.}.
+entonces solamente fijando $M$ podemos graficar el potencial por unidad de $J^{2}$ \footnote{Dividimos el potencial por $J^{2}$ ya que en la ecuación de la geodésica esta constante es absorbida por el parámetro de impacto.}.
 
 \begin{figure}[H]
     \centering
@@ -339,7 +339,7 @@ entonces solamente fijando $M$ podemos graficar el potencial por unidad de $J^{2
 \end{figure}
 
 \begin{itemize}
-    \item [Región I:] Donde $E>\mathcal{V}^{max}_{eff}$; corresponden a geodésicas cuyas rayos de luz que tienen mucha energía por lo que caeran al agujero negro.
+    \item [Región I:] Donde $E>\mathcal{V}^{max}_{eff}$; corresponden a geodésicas cuyas rayos de luz que tienen mucha energía por lo que caerán al agujero negro.
     \item [Región II:] Entre $E=0$ y $E=\mathcal{V}^{max}_{eff}$; corresponden a geodésicas cuyas rayos de luz se encuentran con una barrera de potencial, por lo que se acercaran al agujero negro más no caerán dentro de él (deflexión de la luz).
 \end{itemize}
 
@@ -348,7 +348,7 @@ Ahora veamos casos específicos de partículas en cada una de las regiones, adem
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{fig/fig3.1.pdf}
-    \caption{$E_1$ pertenece a la Región II. $E_2$ corresponde al valor máximo del potencial efectivo (punto de equilibrio inestables), por este motivo corresponde a una órbita circular inestable. $E_3$ pertences a la Región I.}
+    \caption{$E_1$ pertenece a la Región II. $E_2$ corresponde al valor máximo del potencial efectivo (punto de equilibrio inestables), por este motivo corresponde a una órbita circular inestable. $E_3$ pertenece a la Región I.}
     \label{potencial:regionesnullparticles}
 \end{figure}
 
@@ -403,7 +403,7 @@ resolviendo esta ecuación mediante Runge-Kutta (ver \ref{rungeKutta}) y con las
 \begin{figure}[H]
     \centering
     \includegraphics[width=.8\linewidth]{fig/figE5.pdf}
-    \caption{Podemos ver una geodésicas que cae dentro del agujero negro (Región - I), algo a notar es que su caida no es perpendicular al horizonte de eventos. Y en gris el agujero negro. Condiciones iniciales: $r_0\rightarrow\infty$ y $\dot{r}_0=\sqrt{Ec^2}$.}
+    \caption{Podemos ver una geodésicas que cae dentro del agujero negro (Región - I), algo a notar es que su caída no es perpendicular al horizonte de eventos. Y en gris el agujero negro. Condiciones iniciales: $r_0\rightarrow\infty$ y $\dot{r}_0=\sqrt{Ec^2}$.}
     \label{timelike:caida}
 \end{figure}
 
@@ -431,7 +431,7 @@ resolviendo esta ecuación mediante Runge-Kutta (ver \ref{rungeKutta}) y con las
     \caption{Podemos observar una geodésica orbita al agujero (curva azul) esto quiere decir que se ubica en la Región - III. Agrego la curva roja para referencia, $r_{p}=0.12158224399382238\,\,AU$ y $r_{h} = r_{g}$. Condiciones iniciales: $r_0=0.5106936776245934\,\,AU$ y $E'=-0.03$}
 \end{figure}
 
-todos estos gráficos corresponden a particulas \tl. Ahora de la ecuación \eqref{NullEnergy} podemos usar la regla de la cadena $\dv{r}{\kappa}=\dv{r}{\varphi}\dv{\varphi}{\kappa}$ y tenemos
+todos estos gráficos corresponden a partículas \tl. Ahora de la ecuación \eqref{NullEnergy} podemos usar la regla de la cadena $\dv{r}{\kappa}=\dv{r}{\varphi}\dv{\varphi}{\kappa}$ y tenemos
 \begin{align*}
     c^{2}\dfrac{E^{2}}{J^{2}} = & \dot{r}^{2} + \dfrac{c^{4}}{r^{2}}\qty(1-\dfrac{r_{g}}{r}) \\
     c^{2}\dfrac{E^{2}}{J^{2}} = & \qty(\dv{r}{\varphi}\dfrac{c^{2}}{r^{2}})^{2} + \dfrac{c^{4}}{r^{2}}\qty(1-\dfrac{r_{g}}{r}) 
@@ -491,11 +491,11 @@ resolviendo esta ecuación mediante Runge-Kutta (ver \ref{rungeKutta}) y con las
 \begin{figure}[H]
     \centering
     \includegraphics[width=0.8\linewidth]{fig/figE23.pdf}
-    \caption{Podemos ver una geodésicas que cae dentro del agujero negro (Región - I), algo a notar es que su caida no es perpendicular al horizonte de eventos. Y en gris el agujero negro. Condiciones iniciales: $E=E_1=7.5\times 10^{21} AU^2 yr^{-4}$ y $r_0\rightarrow\infty$.}
+    \caption{Podemos ver una geodésicas que cae dentro del agujero negro (Región - I), algo a notar es que su caída no es perpendicular al horizonte de eventos. Y en gris el agujero negro. Condiciones iniciales: $E=E_1=7.5\times 10^{21} AU^2 yr^{-4}$ y $r_0\rightarrow\infty$.}
     \label{null:cae}
 \end{figure}
 
-En el caso Schwarzschild no es necesrio usar métodos numéricos; sin embargo, todos los métodos que hemos usado para aquí los usaremos para el caso con pelo.
+En el caso Schwarzschild no es necesario usar métodos numéricos; sin embargo, todos los métodos que hemos usado para aquí los usaremos para el caso con pelo.
 
 \section{Agujeros Negros con Pelo}
 El caso que estudiare será una teoría modificada de la acción de Hilbert - Einstein con un campo escalar con acoplamiento no minimal.
@@ -505,7 +505,7 @@ El caso que estudiare será una teoría modificada de la acción de Hilbert - Ei
         \label{action}
 \end{equation}
 
-aqui la constante de acoplamiento es $\kappa=\frac{8\pi G_{N}}{c^{4}}$, donde $G_N$ es la constante de gravitación y $c$ es la velocidad de la luz, $g$ es la determinante del tensor métrico, $g=\det (g_{\mu\nu})$, $R$ es el escalar de Ricci $V(\phi)$ es el término de auto interacción.
+aquí la constante de acoplamiento es $\kappa=\frac{8\pi G_{N}}{c^{4}}$, donde $G_N$ es la constante de gravitación y $c$ es la velocidad de la luz, $g$ es la determinante del tensor métrico, $g=\det (g_{\mu\nu})$, $R$ es el escalar de Ricci $V(\phi)$ es el término de auto interacción.
 %
 Las ecuaciones de movimiento que surgen del principio de mínima acción son
 %
@@ -530,7 +530,7 @@ donde el tensor de Einstein y el tensor de energía - momentum para el campo esc
 \end{equation}
 %
 Siguiendo a \cite{Anabalon:2013eaa,Anabalon:2017yhv,Anabalon:2012ih,Anabalon:2016izw}, 
-consideramos el potencial exótico $V(\phi)$, esto presenta una autointeracción no trivial, fue obtenica y presentada primeramente en \cite{Anabalon:2013eaa},
+consideramos el potencial exótico $V(\phi)$, esto presenta una autointeracción no trivial, fue obtenida y presentada primeramente en \cite{Anabalon:2013eaa},
 %
 \begin{multline}
   V(\phi)=\frac{\alpha}{\kappa\nu^2}\biggl{\{}\frac{\nu-1}{\nu+2}\sinh{\left[l_\nu(\nu+1)\phi\right]}-\frac{\nu+1}{\nu-2}\sinh{[l_{\nu}(\nu-1)\phi]}
