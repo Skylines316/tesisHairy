@@ -1,2 +1,2 @@
-# Tesis of a Magnetic Black Hole in 3+1D
-This is a tesis about black holes into a magnetic space in 3+1 dimensions.
+# Tesis of gedesics of hariy scalar black holes
+This is a tesis about the anomalous behavior of hairy black holes geodesics in a region that's called dense hairy region. 
